@@ -24,3 +24,27 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+
+
+@property --ring-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.process-ring-base {
+  --ring-angle: 0deg;
+  background: conic-gradient(
+    from -90deg,
+    #C89A4B var(--ring-angle),
+    #EFEFEF var(--ring-angle)
+  );
+  border-radius: 50%;
+  transition: --ring-angle 0.7s ease;
+}
+
+.process-ring-base.ring-active {
+  --ring-angle: 360deg;
+}
