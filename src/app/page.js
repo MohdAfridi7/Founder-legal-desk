@@ -1,4 +1,4 @@
-import Hero from "../compontents/home/HeroSaction";
+import Hero from "../compontents/home/HeroSection";
 import SoundFamiliar from "../compontents/home/SoundFamiliar"
 import Services from "../compontents/home/Services";
 import WorkProcessSection from "../compontents/home/WorkProcessSection";

@@ -94,7 +94,7 @@ const cardVariants = {
 };
 export default function Services() {
   return (
-<section className="bg-[#f8f6f3] py-14 md:py-20 lg:py-28">
+<section className="bg-[#f8f6f3] py-14 md:py-20 lg:py-28 overflow-x-hidden">
    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
        <motion.div
@@ -180,7 +180,7 @@ className="group relative min-h-[520px] sm:min-h-[500px] overflow-hidden border 
   </div>
 
   {/* Image */}
-<div className="relative h-[130px] sm:h-[150px] overflow-hidden">
+<div className="relative h-[205px] sm:h-[150px] overflow-hidden">
   <img
     src={service.image}
     alt={service.title}
