@@ -3,6 +3,7 @@ import "./globals.css";
 
 import Header from "../compontents/HeaderFooter/Header";
 import Footer from "../compontents/HeaderFooter/Footer";
+import WhatsAppButton from "../compontents/HeaderFooter/WhatsAppButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
           {children}
         </main>
          <Footer />
+         <WhatsAppButton /> {/* Add this line */}
       </body>
     </html>
   );

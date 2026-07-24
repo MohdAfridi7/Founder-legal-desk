@@ -19,10 +19,10 @@ import { usePathname } from "next/navigation";
  */
 
 const NAV_LINKS = [
+  { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
-  { label: "Blog", href: "/blog" },
   { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },
 ];
@@ -106,7 +106,7 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <Link
-            href="/consultation"
+            href="/free-consultation"
             className="hidden shrink-0 items-center justify-center gap-2 rounded-full bg-[#F5A623] px-7 py-[15px] text-[15px] font-bold text-[#080D1A] shadow-[0_8px_24px_-8px_rgba(245,166,35,.35)] transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-[#FFC157] hover:shadow-[0_16px_34px_-10px_rgba(245,166,35,.35)] lg:inline-flex"
           >
             Book Free Consultation
