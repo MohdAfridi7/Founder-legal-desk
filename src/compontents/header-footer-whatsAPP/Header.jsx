@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
+import { Check } from "lucide-react";
 
 /**
  * Drop this in as components/Header.jsx and render it in app/layout.jsx.
@@ -26,6 +28,50 @@ const NAV_LINKS = [
   { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },
 ];
+
+const SEAL_NAVY = "#0D1526";
+const SEAL_AMBER = "#F5A623";
+
+// Small animated "Specialist Verified" seal — recreated from the reference
+// badge, sized for the navbar. Ring rotates continuously; a soft glow
+// pulses behind it so it reads clearly against both the transparent and
+// scrolled (dark) navbar states.
+function SealLogo({ size = 38 }) {
+  return (
+    <div className="relative shrink-0" style={{ width: size, height: size }}>
+      <motion.div
+        className="absolute rounded-full"
+        style={{ inset: -4, background: SEAL_AMBER, opacity: 0.25, filter: "blur(8px)" }}
+        animate={{ opacity: [0.15, 0.35, 0.15] }}
+        transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <div
+        className="absolute inset-0 rounded-full"
+        style={{ background: SEAL_NAVY, boxShadow: "0 4px 14px rgba(0,0,0,.4)" }}
+      />
+      <motion.svg
+        width={size}
+        height={size}
+        viewBox="0 0 100 100"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+        className="absolute inset-0"
+      >
+        <circle cx="50" cy="50" r="45" fill="none" stroke={`${SEAL_AMBER}55`} strokeWidth="1" />
+        <circle cx="50" cy="50" r="40" fill="none" stroke={SEAL_AMBER} strokeWidth="1.5" />
+        <path id="navSealPath" d="M 50,50 m -30,0 a 30,30 0 1,1 60,0 a 30,30 0 1,1 -60,0" fill="none" />
+        <text fontSize="5.6" fill={SEAL_AMBER} letterSpacing="1" fontFamily="inherit" fontWeight="700">
+          <textPath href="#navSealPath">
+            SPECIALIST VERIFIED &#8226; FOUNDERS LEGAL DESK &#8226;
+          </textPath>
+        </text>
+      </motion.svg>
+      <div className="absolute inset-0 flex items-center justify-center">
+        <Check size={size * 0.34} strokeWidth={2.75} style={{ color: SEAL_AMBER }} />
+      </div>
+    </div>
+  );
+}
 
 export default function Header() {
   const pathname = usePathname();
@@ -67,12 +113,15 @@ export default function Header() {
       >
         <div className="mx-auto flex max-w-[1180px] items-center justify-between px-6">
           {/* Brand */}
-          <Link href="/" className="flex flex-col leading-tight">
-            <span className="font-serif text-lg font-bold text-white">
-              Founders Legal Desk
-            </span>
-            <span className="mt-0.5 text-[10.5px] font-semibold uppercase tracking-[.08em] text-[#FFC157]">
-              A Startup Times Venture
+          <Link href="/" className="flex items-center gap-2.5">
+            <SealLogo />
+            <span className="flex flex-col leading-tight">
+              <span className="font-serif text-lg font-bold text-white">
+                Founders Legal Desk
+              </span>
+              <span className="mt-0.5 text-[10.5px] font-semibold uppercase tracking-[.08em] text-[#FFC157]">
+                A Startup Times Venture
+              </span>
             </span>
           </Link>
 

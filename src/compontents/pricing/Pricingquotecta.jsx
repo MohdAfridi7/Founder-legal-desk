@@ -63,7 +63,7 @@ function ProcessStep({ step, index, inView, isLast }) {
   );
 }
 
-export default function PricingQuoteCTASection() {
+export default function PricingQuoteCTA() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.3 });
 

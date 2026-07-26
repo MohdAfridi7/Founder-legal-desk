@@ -1,8 +1,8 @@
-import Hero from "../../compontents/pricing/HeroSaction";
+import Hero from "../../compontents/pricing/HeroSection";
 import Brand from "../../compontents/home/BrandCarousel";
 import PricingPlanSection from "../../compontents/pricing/PricingPlanSection";
 import AddOn from "../../compontents/home/AddOn";
-import Pricingquotecta from "../../compontents/pricing/Pricingquotecta";
+import Pricingquotecta from "../../compontents/pricing/PricingQuoteCTA";
 import Testimonial from "../../compontents/home/Testimonial";
 import FaqSection from "../../compontents/home/FaqSection";
 

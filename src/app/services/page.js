@@ -1,6 +1,6 @@
 import Hero from "../../compontents/services/HeroSection";
 import Brand from "../../compontents/home/BrandCarousel";
-import Servicescoveragesection from "../../compontents/services/Servicescoveragesection";
+import Servicescoveragesection from "../../compontents/services/ServicesCoverageSection";
 import WhoWeServe from "../../compontents/home/WhoWeServe";
 import Testimonial from "../../compontents/home/Testimonial";
 import FaqSection from "../../compontents/home/FaqSection";

@@ -55,7 +55,7 @@ function AnimatedHeading({ text, className, style }) {
   );
 }
 
-export default function PricingHeroSection() {
+export default function HeroSection() {
   const container = {
     hidden: {},
     visible: { transition: { staggerChildren: 0.15, delayChildren: 0.1 } },

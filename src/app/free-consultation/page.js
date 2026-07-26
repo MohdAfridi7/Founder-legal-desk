@@ -1,6 +1,7 @@
 import Hero from "../../compontents/free-consultation/Herosection";
 import Brand from "../../compontents/home/BrandCarousel";
 import FormSection from "../../compontents/free-consultation/FormSection";
+import Consultationintrocards from "../../compontents/free-consultation/Consultationintrocards";
 import Testimonial from "../../compontents/home/Testimonial";
 import FaqSection from "../../compontents/home/FaqSection";
 
@@ -13,6 +14,7 @@ export default function Home() {
         <div className="min-h-screen bg-white">
       <Hero /> 
       <Brand />
+      <Consultationintrocards />
       <FormSection />
       <Testimonial />
       <FaqSection />
