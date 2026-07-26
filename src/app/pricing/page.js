@@ -2,7 +2,7 @@ import Hero from "../../compontents/pricing/HeroSection";
 import Brand from "../../compontents/home/BrandCarousel";
 import PricingPlanSection from "../../compontents/pricing/PricingPlanSection";
 import AddOn from "../../compontents/home/AddOn";
-import Pricingquotecta from "../../compontents/pricing/PricingQuoteCTA";
+import PricingQuoteCTA from "../../compontents/pricing/PricingQuoteCTA";
 import Testimonial from "../../compontents/home/Testimonial";
 import FaqSection from "../../compontents/home/FaqSection";
 
@@ -18,7 +18,7 @@ export default function Home() {
       <PricingPlanSection />
         <AddOn />
         <Testimonial />
-      <Pricingquotecta />
+      <PricingQuoteCTA />
       
       <FaqSection />
       </div>
