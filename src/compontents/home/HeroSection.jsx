@@ -106,11 +106,11 @@ export default function HeroSection() {
             </motion.p>
 
             <motion.div variants={item} className="flex flex-wrap items-center gap-6">
-              <HoverSwapButton href="#consultation" icon={ArrowUpRight}>
+              <HoverSwapButton href="free-consultation" icon={ArrowUpRight}>
                 Book Free Consultation
               </HoverSwapButton>
 
-              <HoverSwapButton href="#services" icon={ArrowRight}>
+              <HoverSwapButton href="services" icon={ArrowRight}>
                 Explore Our Services
               </HoverSwapButton>
             </motion.div>

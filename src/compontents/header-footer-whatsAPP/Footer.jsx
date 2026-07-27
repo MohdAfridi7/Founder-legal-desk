@@ -11,12 +11,12 @@ const GOLD_DARK = '#b78d5a';
 const TEXT_DARK = '#8892AC';
 
 const PLATFORM_LINKS = [
-  { label: 'Services', href: '#services' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'Free Consultation', href: '#consultation' },
-  { label: 'Resources', href: '#resources' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Services', href: '/services' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'Free Consultation', href: 'free-consultation' },
+  { label: 'Resources', href: '/resources' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 const LEGAL_LINKS = [

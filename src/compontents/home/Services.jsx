@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import {
   FileSignature,
   Briefcase,
@@ -245,6 +246,7 @@ className="group relative min-h-[520px] sm:min-h-[500px] overflow-hidden border 
   transition={{ duration: 0.8 }}
   className="mt-12 sm:mt-16 flex justify-center"
 >
+ <Link href="/services">
   <motion.button
     whileHover={{ scale: 1.04 }}
     whileTap={{ scale: 0.98 }}
@@ -263,6 +265,7 @@ className="group relative min-h-[520px] sm:min-h-[500px] overflow-hidden border 
       <ArrowRight size={18} />
     </motion.div>
   </motion.button>
+</Link>
 </motion.div>
       </div>
     </section>

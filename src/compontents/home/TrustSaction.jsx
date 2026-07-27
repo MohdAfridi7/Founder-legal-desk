@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import { motion, useInView, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
-
+import Link from "next/link";
 const BG = '#1A2035';
 const CARD_BG = '#151A2D';
 const GOLD = '#C7954A';
@@ -347,6 +347,7 @@ const ref = useRef(null);
 
           {/* CTA button */}
           <motion.div variants={leftVariants}>
+            <Link href="/free-consultation">
             <motion.button
               whileHover={{ scale: 1.04, backgroundColor: '#B8843A' }}
               whileTap={{ scale: 0.97 }}
@@ -363,6 +364,7 @@ const ref = useRef(null);
                 ↗
               </motion.span>
             </motion.button>
+            </Link>
           </motion.div>
 
         

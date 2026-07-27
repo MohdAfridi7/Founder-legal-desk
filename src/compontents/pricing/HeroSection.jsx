@@ -2,13 +2,14 @@
 
 import { motion } from 'framer-motion';
 import { ArrowUpRight, ArrowRight } from 'lucide-react';
+import Link from "next/link";
+const heroImage = "/pricing_hero.png";
 
 const INK = '#1C1D20';
 const AMBER = '#E8BF96';
 const AMBER_DARK = '#b78d5a';
 
 // Same hero background used across the site so every page feels part of one system.
-const HERO_BG_IMAGE = 'https://t4.ftcdn.net/jpg/05/16/20/99/360_F_516209984_APT701DWSDCUPzErByEByUrqEjHwRYCX.jpg';
 
 function HoverSwapButton({ href, children, icon: Icon }) {
   return (
@@ -80,7 +81,7 @@ export default function HeroSection() {
       {/* Background image — slow continuous Ken Burns zoom */}
       <motion.div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${HERO_BG_IMAGE})` }}
+        style={{ backgroundImage: `url(${heroImage})` }}
         initial={{ scale: 1.08 }}
         animate={{ scale: 1.18 }}
         transition={{ duration: 20, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
@@ -94,7 +95,7 @@ export default function HeroSection() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            'linear-gradient(90deg, rgba(0,0,0,0.95) 6%, rgba(0,0,0,0.55) 42%, rgba(0,0,0,0.25) 100%)',
+            'linear-gradient(90deg, rgba(0,0,0,0.95) 6%, rgba(0,0,0,0.85) 42%, rgba(0,0,0,0.25) 100%)',
         }}
       />
 
@@ -145,7 +146,7 @@ export default function HeroSection() {
           </motion.p>
 
           <motion.div variants={item} className="flex flex-wrap items-center gap-4 sm:gap-6">
-            <HoverSwapButton href="#consultation" icon={ArrowUpRight}>
+            <HoverSwapButton href="/free-consultation" icon={ArrowUpRight}>
               Book Free Consultation
             </HoverSwapButton>
 

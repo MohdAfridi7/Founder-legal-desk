@@ -68,7 +68,7 @@ export default function PricingQuoteCTA() {
   const inView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
-    <section
+    <section id="quote"
       ref={ref}
       className="relative overflow-hidden px-6 py-20 sm:px-8 lg:py-28"
       style={{ background: NAVY, fontFamily: "'Manrope', sans-serif" }}
@@ -171,7 +171,7 @@ export default function PricingQuoteCTA() {
           className="mb-16 flex justify-center"
         >
           <motion.a
-            href="#contact"
+            href="/contact"
             whileHover={{ scale: 1.04, y: -2 }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: 'spring', stiffness: 300, damping: 18 }}

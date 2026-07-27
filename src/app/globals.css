@@ -48,3 +48,7 @@ body {
 .process-ring-base.ring-active {
   --ring-angle: 360deg;
 }
+
+html {
+  scroll-behavior: smooth;
+}

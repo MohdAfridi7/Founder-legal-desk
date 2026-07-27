@@ -50,7 +50,7 @@ function ContactInfoRow({ Icon, label, value, index, isLast }) {
         animate={inView ? { scale: 1, rotate: 0 } : {}}
         transition={{ duration: 0.5, delay: index * 0.12 + 0.1, ease: 'backOut' }}
         className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-colors duration-300 group-hover:bg-[#C7954A]"
-        style={{ background: AMBER_SOFT }}
+        style={{ background: NAVY }}
       >
         <Icon size={19} strokeWidth={2} style={{ color: AMBER }} className="transition-colors duration-300 group-hover:text-white" />
       </motion.div>

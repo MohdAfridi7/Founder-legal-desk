@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 /* ============================================================
    TOKENS
    ============================================================ */
@@ -241,6 +242,7 @@ export default function WhoWeServe({
         <p className="text-center mt-9 text-[15px] sm:text-[16px]" style={{ color: C.slate500 }}>{footNote}</p>
 
         <div className="text-center mt-6">
+          <Link href="/free-consultation">
           <button
             onClick={onCta}
             className="inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 font-bold text-[15px] transition-all duration-300 hover:-translate-y-1 active:translate-y-0"
@@ -248,6 +250,7 @@ export default function WhoWeServe({
           >
             {ctaLabel}
           </button>
+          </Link>
         </div>
       </div>
     </section>

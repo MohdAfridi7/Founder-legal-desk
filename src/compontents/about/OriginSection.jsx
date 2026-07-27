@@ -244,7 +244,7 @@ export default function OriginSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.35 }}
           >
-            <HoverButton href="#consultation" icon={ArrowUpRight}>
+            <HoverButton href="/free-consultation" icon={ArrowUpRight}>
               Book a Free Consultation
             </HoverButton>
           </motion.div>

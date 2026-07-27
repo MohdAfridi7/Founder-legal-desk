@@ -10,6 +10,7 @@ const AMBER = '#C7954A';
 const AMBER_SOFT = '#F3E4CE';
 const CREAM = '#F7F6F2';
 const BORDER = 'rgba(18,21,31,0.08)';
+const NAVY = '#12182B';
 
 const CARDS = [
   {
@@ -88,7 +89,7 @@ function IntroCard({ card, index, inView }) {
             animate={{ rotate: hovered ? 10 : 0, scale: hovered ? 1.08 : 1 }}
             transition={{ duration: 0.3 }}
             className="flex h-11 w-11 items-center justify-center rounded-xl"
-            style={{ background: AMBER_SOFT }}
+            style={{ background: NAVY }}
           >
             <card.Icon size={19} strokeWidth={2} style={{ color: AMBER }} />
           </motion.div>

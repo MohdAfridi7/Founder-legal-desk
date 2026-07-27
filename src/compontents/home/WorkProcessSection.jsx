@@ -194,7 +194,7 @@ function StepRing({ step, index, isHovered }) {
           'absolute left-1/2 -translate-x-1/2 z-10',
           'flex items-center justify-center rounded-full font-medium',
           'transition-all duration-700 ease-in-out',
-          isHovered ? 'bg-[#C89A4B] text-white' : 'bg-[#F5F5F5] text-[#1F2235]',
+          isHovered ? 'bg-[#1F2235] text-white' : 'bg-[#F5F5F5] text-[#1F2235]',
           isEven ? '-bottom-4' : '-top-4',
         ].join(' ')}
         style={{
@@ -252,11 +252,105 @@ export default function WorkProcessSection() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section className="bg-white py-20 lg:py-28 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative bg-white py-20 lg:py-28 overflow-hidden">
+      {/* ============================================================
+          DECORATIVE SIDE ELEMENTS — rotating ring circles + floating
+          dots on both edges. Each ring group slides in from off-screen
+          (not just a fade) the first time the section scrolls into view.
+          ============================================================ */}
+      <motion.div
+        initial={{ x: -140, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+        className="pointer-events-none absolute -left-32 top-1/2 hidden -translate-y-1/2 sm:block"
+      >
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 75, repeat: Infinity, ease: 'linear' }}
+          className="h-[360px] w-[360px] rounded-full border"
+          style={{ borderColor: 'rgba(199,149,74,0.22)' }}
+        />
+        <motion.div
+          animate={{ rotate: -360 }}
+          transition={{ duration: 95, repeat: Infinity, ease: 'linear' }}
+          className="absolute left-16 top-16 h-[220px] w-[220px] rounded-full border"
+          style={{ borderColor: 'rgba(199,149,74,0.3)' }}
+        />
+      </motion.div>
 
-        {/* Label */}
-       
+      <motion.div
+        initial={{ x: 140, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+        className="pointer-events-none absolute -right-32 top-1/3 hidden -translate-y-1/2 sm:block"
+      >
+        <motion.div
+          animate={{ rotate: -360 }}
+          transition={{ duration: 80, repeat: Infinity, ease: 'linear' }}
+          className="h-[320px] w-[320px] rounded-full border"
+          style={{ borderColor: 'rgba(199,149,74,0.22)' }}
+        />
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 100, repeat: Infinity, ease: 'linear' }}
+          className="absolute left-14 top-14 h-[190px] w-[190px] rounded-full border"
+          style={{ borderColor: 'rgba(199,149,74,0.3)' }}
+        />
+      </motion.div>
+
+      {/* Floating dots — left edge, slide in with the left ring group */}
+      {[...Array(4)].map((_, i) => (
+        <motion.div
+          key={`dot-l-${i}`}
+          initial={{ x: -60, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.2 + i * 0.08 }}
+          className="pointer-events-none absolute rounded-full"
+          style={{
+            width: 5 + (i % 2) * 3,
+            height: 5 + (i % 2) * 3,
+            background: 'rgba(199,149,74,0.55)',
+            top: `${18 + i * 18}%`,
+            left: `${2 + i * 2.5}%`,
+          }}
+        >
+          <motion.span
+            className="block h-full w-full rounded-full bg-inherit"
+            animate={{ y: [0, -14, 0], opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 3 + i, repeat: Infinity, ease: 'easeInOut', delay: i * 0.5 }}
+          />
+        </motion.div>
+      ))}
+
+      {/* Floating dots — right edge */}
+      {[...Array(4)].map((_, i) => (
+        <motion.div
+          key={`dot-r-${i}`}
+          initial={{ x: 60, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.25 + i * 0.08 }}
+          className="pointer-events-none absolute rounded-full"
+          style={{
+            width: 5 + (i % 2) * 3,
+            height: 5 + (i % 2) * 3,
+            background: 'rgba(199,149,74,0.55)',
+            top: `${24 + i * 16}%`,
+            right: `${2 + i * 2.5}%`,
+          }}
+        >
+          <motion.span
+            className="block h-full w-full rounded-full bg-inherit"
+            animate={{ y: [0, -14, 0], opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 3.2 + i, repeat: Infinity, ease: 'easeInOut', delay: i * 0.5 + 0.3 }}
+          />
+        </motion.div>
+      ))}
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Heading */}
        <motion.div

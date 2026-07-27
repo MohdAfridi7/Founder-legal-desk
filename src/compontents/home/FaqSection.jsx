@@ -13,28 +13,7 @@ const IMG_TOP = 'https://bracketweb.com/procounsel-html/assets/images/resources/
 const IMG_BOTTOM = 'https://bracketweb.com/procounsel-html/assets/images/resources/faq-1-2.jpg';
 const IMG_BOTTOM_RIGHT = 'https://bracketweb.com/procounsel-html/assets/images/resources/faq-1-3.png';
 
-const FAQS = [
-  {
-    q: 'What exactly does Founders Legal Desk do?',
-    a: 'We prepare, review, and deliver business documents — contracts, agreements, policies, and compliance paperwork — for incorporated Indian businesses. Every document is verified by a qualified specialist before delivery. You get a fixed-price monthly package or a single-document quote, with delivery within 48 hours.',
-  },
-  {
-    q: 'Who prepares my documents?',
-    a: 'Your documents are prepared and reviewed by qualified specialists from our empaneled panel. Each specialist reviews the document personally and verifies it before its delivered to you.',
-  },
-  {
-    q: "What does 'verified' mean?",
-    a: 'Every document delivered through Founders Legal Desk is reviewed by a qualified specialist who checks it for accuracy, enforceability, and completeness — and takes personal responsibility for the work. This is different from a template download, where no professional has reviewed what you re signing.',
-  },
-  {
-    q: 'How is this different from downloading a template?',
-    a: "A downloaded template is a generic format. It has not been reviewed for your specific situation, your industry, or the current legal environment in India. Our documents are reviewed by a qualified specialist for your specific business context. If a clause is wrong for your situation, we change it.",
-  },
-   {
-    q: 'What if I\'m not sure which plan I need?',
-    a: "Book a free consultation. We'll review your situation and tell you exactly what you need — including whether a plan makes sense or a single-document quote is better for you.",
-  },
-];
+
 
 function HammerIcon() {
   return (
@@ -144,7 +123,11 @@ function FaqAccordionItem({
   );
 }
 
-export default function FaqSection() {
+export default function FaqSection({
+  title = "Frequently Asked Questions",
+  subtitle = "Everything you need to know",
+  faqs = [],
+}) {
   const [openIndex, setOpenIndex] = useState(3);
   const headingRef = useRef(null);
   const headingInView = useInView(headingRef, { once: true, amount: 0.5 });
@@ -216,7 +199,7 @@ export default function FaqSection() {
 </h2>
 
           <div>
-            {FAQS.map((item, i) => {
+            {faqs.map((item, i) => {
               const isOpen = openIndex === i;
               return (
                 <FaqAccordionItem

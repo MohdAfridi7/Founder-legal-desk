@@ -2,13 +2,12 @@
 
 import { motion } from 'framer-motion';
 import { ArrowUpRight, ArrowRight } from 'lucide-react';
-
+const FREE_CONSULTATION_HERO_IMAGE = "/free_consultration_hero.png";
 const INK = '#1C1D20';
 const AMBER = '#E8BF96';
 const AMBER_DARK = '#b78d5a';
 
 // Same hero background used across the site so every page feels part of one system.
-const HERO_BG_IMAGE = 'https://theme.nanoit.biz/tf-lawgis-html-demo/assets/img/bg-img/64.jpg';
 
 function HoverSwapButton({ href, children, icon: Icon }) {
   return (
@@ -80,7 +79,7 @@ export default function ContactHeroSection() {
       {/* Background image — slow continuous Ken Burns zoom */}
       <motion.div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${HERO_BG_IMAGE})` }}
+        style={{ backgroundImage: `url(${FREE_CONSULTATION_HERO_IMAGE})` }}
         initial={{ scale: 1.08 }}
         animate={{ scale: 1.18 }}
         transition={{ duration: 20, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}

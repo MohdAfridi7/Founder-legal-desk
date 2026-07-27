@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
+
 import {
   Check,
   Sparkles,
@@ -205,7 +206,7 @@ function PlanCard({ plan, index, yearly, inView }) {
       </div>
 
       <motion.a
-        href="#consultation"
+        href="/free-consultation"
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.97 }}
         className="mt-auto flex h-[50px] items-center justify-center rounded-full text-[14.5px] font-semibold transition-colors duration-300"

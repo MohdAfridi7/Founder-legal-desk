@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-
+import Link from "next/link";
 /* ============================================================
    DESIGN TOKENS
    ============================================================ */
@@ -176,7 +176,7 @@ Flexible Legal Support <span className="text-[#C7954A]"> For Every Stage
                   </div>
                 ))}
               </div>
-
+<Link href="/free-consultation">
               <button
                 onClick={() => onChoosePlan(pl.name)}
                 className="mt-6 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 font-bold text-[14.5px] transition-all duration-300 hover:-translate-y-1 active:translate-y-0 w-full"
@@ -188,18 +188,20 @@ Flexible Legal Support <span className="text-[#C7954A]"> For Every Stage
               >
                 Get Started
               </button>
+              </Link>
             </div>
           ))}
         </div>
 
         {/* Footer links */}
         <div className="text-center mt-10 flex flex-col gap-2.5">
-          <button onClick={onSeeFullPricing} className="group inline-flex items-center gap-1.5 font-bold text-[15px] justify-center w-full" style={{ color: C.ink900 }}>
+          
+          <Link href="/pricing" className="group inline-flex items-center gap-1.5 font-bold text-[15px] justify-center w-full" style={{ color: C.ink900 }}>
             See full pricing and what's included <ArrowIcon />
-          </button>
-          <button onClick={onRequestQuote} className="group inline-flex items-center gap-1.5 font-bold text-[15px] justify-center w-full" style={{ color: C.ink900 }}>
+          </Link>
+          <Link href="/pricing#quote"   className="group inline-flex items-center gap-1.5 font-bold text-[15px] justify-center w-full" style={{ color: C.ink900 }}>
             Don't need a plan? We quote single documents too. <ArrowIcon />
-          </button>
+          </Link>
         </div>
       </div>
     </section>
