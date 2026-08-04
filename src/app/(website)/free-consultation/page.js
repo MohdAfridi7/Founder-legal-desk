@@ -4,14 +4,10 @@ import FormSection from "../../../compontents/free-consultation/FormSection";
 import Consultationintrocards from "../../../compontents/free-consultation/Consultationintrocards";
 import Testimonial from "../../../compontents/home/Testimonial";
 import FaqSection from "../../../compontents/home/FaqSection";
+import { getSeo } from "@/lib/getSeo";
 
 export async function generateMetadata() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/seo?pageName=free-consultation`,
-    { next: { revalidate: 3600 } }
-  );
-  const data = await res.json();
-  const seo = data.success ? data.seo : null;
+  const seo = await getSeo("free-consultation");
 
   if (!seo) return {};
 
@@ -19,7 +15,9 @@ export async function generateMetadata() {
     title: seo.metaTitle,
     description: seo.metaDescription,
     keywords: seo.metaKeywords,
-    alternates: { canonical: seo.canonicalUrl },
+    alternates: {
+      canonical: seo.canonicalUrl,
+    },
     openGraph: {
       title: seo.ogTitle,
       description: seo.ogDescription,
@@ -34,13 +32,8 @@ export async function generateMetadata() {
   };
 }
 
-export default async function Home() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/seo?pageName=free-consultation`,
-    { next: { revalidate: 3600 } }
-  );
-  const data = await res.json();
-  const seo = data.success ? data.seo : null;
+export default async function FreeConsultationPage() {
+  const seo = await getSeo("free-consultation");
 
   return (
     <>
@@ -50,6 +43,7 @@ export default async function Home() {
           dangerouslySetInnerHTML={{ __html: seo.schemaJson }}
         />
       )}
+
       <div className="min-h-screen bg-white">
         <Hero />
         <Brand />

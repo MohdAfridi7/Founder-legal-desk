@@ -86,9 +86,5 @@ const seoSchema = new mongoose.Schema(
   }
 );
 
-seoSchema.index({
-  pageName: 1,
-});
-
 export default mongoose.models.SEO ||
   mongoose.model("SEO", seoSchema);

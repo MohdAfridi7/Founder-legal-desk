@@ -1,5 +1,5 @@
 import Hero from "../../compontents/home/HeroSection";
-import SoundFamiliar from "../../compontents/home/SoundFamiliar"
+import SoundFamiliar from "../../compontents/home/SoundFamiliar";
 import Services from "../../compontents/home/Services";
 import WorkProcessSection from "../../compontents/home/WorkProcessSection";
 import FeaturesSection from "../../compontents/home/FeaturesSection";
@@ -7,19 +7,15 @@ import WhoWeServe from "../../compontents/home/WhoWeServe";
 import WhyUs from "../../compontents/home/WhyUs";
 import Trust from "../../compontents/home/TrustSaction";
 import Clientportfolio from "../../compontents/home/ClientPortfolio";
-import Brand from "../../compontents/home/BrandCarousel"
-import Price from "../../compontents/home/Price"
-import AddOnSaction from "../../compontents/home/AddOn"
-import Testimonial from "../../compontents/home/Testimonial"
-import Faq from "../../compontents/home/FaqSection"
+import Brand from "../../compontents/home/BrandCarousel";
+import Price from "../../compontents/home/Price";
+import AddOnSaction from "../../compontents/home/AddOn";
+import Testimonial from "../../compontents/home/Testimonial";
+import Faq from "../../compontents/home/FaqSection";
+import { getSeo } from "@/lib/getSeo";
 
 export async function generateMetadata() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/seo?pageName=home`,
-    { next: { revalidate: 3600 } }
-  );
-  const data = await res.json();
-  const seo = data.success ? data.seo : null;
+  const seo = await getSeo("home");
 
   if (!seo) return {};
 
@@ -27,7 +23,9 @@ export async function generateMetadata() {
     title: seo.metaTitle,
     description: seo.metaDescription,
     keywords: seo.metaKeywords,
-    alternates: { canonical: seo.canonicalUrl },
+    alternates: {
+      canonical: seo.canonicalUrl,
+    },
     openGraph: {
       title: seo.ogTitle,
       description: seo.ogDescription,
@@ -43,12 +41,7 @@ export async function generateMetadata() {
 }
 
 export default async function Home() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/seo?pageName=home`,
-    { next: { revalidate: 3600 } }
-  );
-  const data = await res.json();
-  const seo = data.success ? data.seo : null;
+  const seo = await getSeo("home");
 
   return (
     <>
@@ -58,6 +51,7 @@ export default async function Home() {
           dangerouslySetInnerHTML={{ __html: seo.schemaJson }}
         />
       )}
+
       <div className="min-h-screen bg-white">
         <Hero />
         <Brand />
