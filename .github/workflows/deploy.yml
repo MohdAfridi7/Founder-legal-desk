@@ -1,0 +1,51 @@
+name: Deploy Lawyer Desk
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: SSH and Deploy Lawyer Desk
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          script: |
+
+            cd /var/www/lawyer-desk
+
+            # Latest Code
+            git fetch origin
+            git reset --hard origin/main
+
+            # Create .env
+            echo "PORT=3050" > .env
+            echo "MONGODB_URI=${{ secrets.MONGODB_URI }}" >> .env
+            echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> .env
+
+            echo "EMAIL_USER=${{ secrets.EMAIL_USER }}" >> .env
+            echo "EMAIL_PASS=${{ secrets.EMAIL_PASS }}" >> .env
+
+            echo "CLOUDINARY_CLOUD_NAME=${{ secrets.CLOUDINARY_CLOUD_NAME }}" >> .env
+            echo "CLOUDINARY_API_KEY=${{ secrets.CLOUDINARY_API_KEY }}" >> .env
+            echo "CLOUDINARY_API_SECRET=${{ secrets.CLOUDINARY_API_SECRET }}" >> .env
+
+            echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}" >> .env
+
+            # Install Dependencies
+            rm -rf node_modules package-lock.json
+            npm install
+
+            # Build Project
+            npm run build
+
+            # Restart PM2
+            pm2 delete lawyer-desk || true
+            PORT=3050 pm2 start npm --name "lawyer-desk" -- start
+
+            pm2 save
