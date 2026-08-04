@@ -1,4 +1,4 @@
-import ChangeEmail from "@/compontents/dashboard/chanage-email";
+import ChangeEmail from "@/compontents/dashboard/change-email";
 
 export const metadata = {
   title: "Change Email | Admin",
