@@ -183,10 +183,12 @@ function StepRing({ step, index, isHovered }) {
       <div
         className="absolute inset-[10px] lg:inset-[12px] rounded-full bg-white flex items-center justify-center"
       >
-        <Icon
-          size={typeof window !== 'undefined' && window.innerWidth < 640 ? 40 : 52}
-          strokeWidth={1.5}
-        />
+       <div className="w-10 h-10 sm:w-[52px] sm:h-[52px]">
+    <Icon
+      className="w-full h-full text-[#1F2235]"
+      strokeWidth={1.5}
+    />
+  </div>
       </div>
       {/* Number badge */}
       <div

@@ -73,79 +73,105 @@ const STAGES = {
 
 const STAGE_KEYS = ['foundation', 'growing', 'scaling'];
 
+/* --------------------------------------------------------------------
+   Card — layout copied from <Services /> (box-in-box, icon top,
+   image + arrow overlap, 3D flip hover layer). Data props unchanged:
+   { Icon, title, desc, image }.
+-------------------------------------------------------------------- */
 function ServiceCard({ item, index }) {
   const { Icon, title, desc, image } = item;
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50, rotate: index % 2 === 0 ? -3 : 3, scale: 0.94 }}
-      animate={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}
+      initial={{ opacity: 0, y: 60, x: index % 2 === 0 ? -40 : 40, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, x: 0, scale: 1 }}
       exit={{ opacity: 0, y: -20, scale: 0.96 }}
-      transition={{ duration: 0.55, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
-      className="group relative min-h-[420px] overflow-hidden border border-[#e6e6e6] bg-white transition-all duration-500 hover:border-[#c89b53] hover:shadow-[0_25px_60px_-15px_rgba(199,149,74,0.25)] lg:hover:-translate-y-2"
+      transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+      className="group relative min-h-[520px] sm:min-h-[500px] overflow-hidden border border-[#e6e6e6] bg-white transition-all duration-500 lg:hover:-translate-y-3 hover:border-[#c89b53] hover:shadow-[0_25px_60px_-15px_rgba(199,149,74,0.25)]"
     >
-      {/* Base content */}
-      <div className="flex h-full flex-col p-5">
-        <div className="relative flex justify-center">
-          <div className="absolute top-0 h-14 w-[2px] bg-[#ececec]" />
-          <motion.div
-            whileHover={{ rotate: 8 }}
-            className="relative z-10 flex h-14 w-14 items-center justify-center transition-transform duration-500 group-hover:-translate-y-1"
-            style={{ background: INK }}
-          >
-            {/* thin rotating ring around the icon box — small callback to the site's circle motif */}
-            <motion.span
-              animate={{ rotate: 360 }}
-              transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
-              className="pointer-events-none absolute rounded-full border"
-              style={{ inset: -6, borderColor: `${GOLD}55`, borderStyle: 'dashed' }}
-            />
-            <Icon size={26} className="text-white" />
-          </motion.div>
-        </div>
+      {/* Normal Card */}
+      <div className="absolute inset-0 p-4 sm:p-5">
+        <div className="flex h-full flex-col border border-[#e6e6e6]">
+          {/* Icon */}
+          <div className="relative flex justify-center">
+            <div className="absolute top-0 h-14 w-[2px] bg-[#ececec]" />
 
-        <div className="px-2 pt-6 text-center sm:px-4">
-          <h3 className="min-h-[56px] text-[17px] font-semibold leading-snug" style={{ color: INK }}>
-            {title}
-          </h3>
-          <p className="mt-3 text-[13.5px] leading-6 text-[#777]">{desc}</p>
-        </div>
-
-        <div className="relative mt-auto pt-6">
-          <div className="absolute left-1/2 top-2 z-20 -translate-x-1/2 -translate-y-1/2">
-            <div
-              className="flex h-11 w-11 items-center justify-center rounded-full text-white shadow-lg transition-transform duration-500 group-hover:rotate-45"
-              style={{ background: INK }}
-            >
-              <ArrowUpRight size={17} />
+            <div className="relative z-10 flex h-14 w-14 items-center justify-center bg-[#161d35]">
+              <Icon size={28} className="text-white" />
             </div>
           </div>
-          <div className="relative h-[110px] overflow-hidden">
-            <img
-              src={image}
-              alt={title}
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-            />
+
+          {/* Content */}
+          <div className="px-5 sm:px-8 pt-6 sm:pt-8 text-center">
+            <h3 className="min-h-[64px] sm:min-h-[72px] text-xl sm:text-2xl font-semibold leading-snug text-[#161d35]">
+              {title}
+            </h3>
+
+            <p className="mt-4 text-sm sm:text-[15px] leading-6 sm:leading-7 text-[#777]">
+              {desc}
+            </p>
+          </div>
+
+          {/* Image Section */}
+          <div className="relative mt-auto">
+            {/* Arrow Overlap */}
+            <div className="absolute left-1/2 top-0 z-20 -translate-x-1/2 -translate-y-1/2">
+              <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[#161d35] text-white shadow-lg">
+                <ArrowUpRight size={18} />
+              </div>
+            </div>
+
+            {/* Image */}
+            <div className="relative h-[205px] sm:h-[150px] overflow-hidden">
+              <img
+                src={image}
+                alt={title}
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Hover reveal — dark panel wipes UP from the bottom */}
+      {/* Hover Layer */}
       <div
-        className="pointer-events-none absolute inset-0 z-20 origin-bottom scale-y-0 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:pointer-events-auto group-hover:scale-y-100 group-hover:opacity-100"
-        style={{ background: `${INK}F2` }}
+        className="
+          hidden lg:block
+          absolute
+          inset-5
+          z-20
+          overflow-hidden
+          origin-center
+          transition-all
+          duration-700
+          ease-in-out
+          [transform:translateY(0)_translateZ(150px)_scaleY(0)_rotateX(90deg)]
+          group-hover:[transform:translateY(0)_translateZ(0)_scaleY(1)_rotateX(0)]
+        "
       >
-        <div className="flex h-full flex-col items-center justify-center px-6 text-center text-white">
-          <div
-            className="mb-5 flex h-14 w-14 items-center justify-center transition-transform duration-500"
-            style={{ background: GOLD }}
-          >
-            <Icon size={26} className="text-white" />
+        <img
+          src={image}
+          alt={title}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
+        <div className="absolute inset-0 bg-[#161d35]/90" />
+
+        <div className="relative flex h-full flex-col items-center justify-center px-5 sm:px-8 text-center text-white">
+          <div className="mb-8 flex h-16 w-16 items-center justify-center bg-[#c89b53]">
+            <Icon size={30} />
           </div>
-          <h3 className="text-[18px] font-semibold leading-snug">{title}</h3>
-          <p className="mt-3 max-w-[240px] text-[13.5px] leading-6 text-white/75">{desc}</p>
-          <div className="mt-6 flex h-10 w-10 items-center justify-center rounded-full bg-white" style={{ color: INK }}>
-            <ArrowUpRight size={16} />
+
+          <h3 className="text-xl sm:text-2xl font-semibold leading-snug">
+            {title}
+          </h3>
+
+          <p className="mt-4 sm:mt-5 text-sm sm:text-[15px] leading-6 sm:leading-8 text-white/80">
+            {desc}
+          </p>
+
+          <div className="mt-8 flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#161d35]">
+            <ArrowUpRight size={18} />
           </div>
         </div>
       </div>

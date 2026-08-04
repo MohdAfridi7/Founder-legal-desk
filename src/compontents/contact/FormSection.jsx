@@ -3,6 +3,9 @@
 import { useRef, useState } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Mail, MessageCircle, Clock, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import { toast } from 'sonner';
+
+const API_URL = '/api/contact';
 
 const INK = '#12151F';
 const MUTED = '#6B7184';
@@ -130,13 +133,49 @@ export default function ContactFormSection() {
   const sectionRef = useRef(null);
   const inView = useInView(sectionRef, { once: true, amount: 0.1 });
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const payload = {
+      name: formData.get('name')?.toString().trim() || '',
+      email: formData.get('email')?.toString().trim() || '',
+      phone: formData.get('phone')?.toString().trim() || '',
+      companyName: formData.get('company')?.toString().trim() || '',
+      helpType: formData.get('reason')?.toString().trim() || '',
+      message: formData.get('message')?.toString().trim() || '',
+    };
+
+    if (!payload.name || !payload.email || !payload.helpType || !payload.message) {
+      toast.error('Please fill in all required fields');
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.msg || 'Failed to send message');
+      }
+
+      toast.success(data.msg || 'Message sent successfully');
+      form.reset();
       setSubmitted(true);
-    }, 900);
+    } catch (err) {
+      toast.error(err.message || 'Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (

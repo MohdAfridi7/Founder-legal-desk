@@ -32,6 +32,7 @@ const CLIENTS = [
     deliverables:
       "Drafted GDPR/UK-GDPR and CCPA-compliant Privacy and Cookie Policies covering lawful basis, DSARs, cross-border data transfers, cookie consent, and processor obligations.",
     seed: "litconnect-legal",
+    image: "https://media.licdn.com/dms/image/v2/C5603AQE_v3a_mvk7Yw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1650304809148?e=1787184000&v=beta&t=YsGc8m1NYLuhT6gy2i84niPwzgdm9UYQpKcNZr8VYLA",
   },
   {
     name: "Awliyah",
@@ -40,6 +41,7 @@ const CLIENTS = [
     deliverables:
       "Drafted a robust Privacy Policy benchmarked against Canada's PIPEDA regulations, with GDPR-compliant frameworks.",
     seed: "awliyah-office",
+    image: "https://media.licdn.com/dms/image/v2/D5603AQGRyHD8z17U8w/profile-displayphoto-crop_800_800/B56Z7WkrnIGcAI-/0/1781716403019?e=1787184000&v=beta&t=0nmF2tpMHDZeTWwutsqEU9DRL6RWQYbsDmyXWiLXiWE",
   },
   {
     name: "Mumbra One",
@@ -48,6 +50,7 @@ const CLIENTS = [
     deliverables:
       "Drafted Privacy Policy and ancillary user-facing agreements aligned with India's DPDP Act, 2023, and the IT Act, 2000.",
     seed: "mumbra-startup",
+    image: "https://media.licdn.com/dms/image/v2/D5603AQH7IqG1YxQ6Iw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1726560837872?e=1787184000&v=beta&t=8NBKOdD4SeE6YxkrEDWod3BpyBhOp6upRd9liGa-n2c",
   },
   {
     name: "Medixcy",
@@ -57,6 +60,7 @@ const CLIENTS = [
     deliverables:
       "Drafted Privacy Notice, Founders' Agreement, and Terms & Conditions. Researched Telemedicine Practice Guidelines, 2020, and DPDP Act implications.",
     seed: "medixcy-health",
+    image: "https://media.licdn.com/dms/image/v2/D4E03AQGc4ijGE6qb6g/profile-displayphoto-shrink_800_800/B4EZTg6DPGHMAc-/0/1738940103940?e=1787184000&v=beta&t=9Y8HBnfhQwwfDITb6UXWsKgQalKqVFI9r_jxDOQTzf4",
   },
   {
     name: "Acqify Ltd.",
@@ -65,6 +69,7 @@ const CLIENTS = [
     deliverables:
       "Drafted tailored NDAs and commercial contracts. Provided client-specific compliance strategies under the Digital Personal Data Protection Act, 2023.",
     seed: "acqify-remote",
+    image: "https://media.licdn.com/dms/image/v2/D5603AQGc-CBKQ1s1UA/profile-displayphoto-crop_800_800/B56ZlIzLJWIsAI-/0/1757863001851?e=1787184000&v=beta&t=iuAUrpM0JxjC6F6Qo9AhiiKGY0J9M_fKvHrT6TGRzDE",
   },
   {
     name: "Chaichaska",
@@ -74,6 +79,7 @@ const CLIENTS = [
     deliverables:
       "Filed trademark application under the Trade Marks Act, 1999; drafted Franchise and Employment Agreements; processed MSME (Udyam) registration.",
     seed: "chaichaska-cafe",
+    image: "https://media.licdn.com/dms/image/v2/D4D03AQEf280CtaBHQA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1678684584450?e=1787184000&v=beta&t=V8wrEK1PwE6U3Cu7elkqGLD_jsQrcLbiiJ_BkaSy6gc",
   },
   {
     name: "V2V Garments",
@@ -83,6 +89,7 @@ const CLIENTS = [
     deliverables:
       "Drafted the Written Statement and application under Order VII Rule 10, CPC for a trademark infringement suit, anchored on territorial-jurisdiction objections under Section 134 of the Trade Marks Act, 1999.",
     seed: "v2v-garments-retail",
+    image: "https://media.licdn.com/dms/image/v2/D4D03AQGNT9AXGiPXyg/profile-displayphoto-crop_800_800/B4DZ6torN4JcAI-/0/1781029584543?e=1787184000&v=beta&t=Dbm-U6EDJ5czkqgsRPqRJJD-z5JXML_-phWUhi-1fAE",
   },
 ];
 
@@ -184,13 +191,13 @@ function ClientCard({ item, index }) {
       style={{ background: C.white, border: "1px solid rgba(18,21,31,.08)", boxShadow: "0 10px 30px -18px rgba(8,13,26,.3)" }}
     >
       {/* image */}
-      <div className="relative pt-3 w-full overflow-hidden rounded-t-2xl" style={{ aspectRatio: "16/10" }}>
-        <img
-          src={`https://picsum.photos/seed/${item.seed}/560/350`}
-          alt={item.name}
-          className="cp-img absolute inset-0 w-full h-full object-cover"
-          loading="lazy"
-        />
+      <div className="relative pt-3 w-full overflow-hidden rounded-t-2xl" style={{ aspectRatio: "13/10" }}>
+       <img
+  src={item.image}
+  alt={item.name}
+  className="cp-img absolute inset-0 w-full h-full object-cover"
+  loading="lazy"
+/>
         <div
           className="cp-overlay absolute inset-0"
           style={{ background: `linear-gradient(180deg, transparent 40%, ${C.navy950} 110%)`, opacity: 0.75 }}

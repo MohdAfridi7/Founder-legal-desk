@@ -25,7 +25,8 @@ const NAV_LINKS = [
   { label: "Services", href: "/services" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
-  { label: "Resources", href: "/resources" },
+   { label: "Profile", href: "/profile" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -134,7 +135,7 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   className={`group relative py-1 text-[14.5px] font-semibold transition-colors ${
-                    active ? "text-white" : "text-[#A6ACC0] hover:text-white"
+                    active ? "text-[#F5A623]" : "text-white hover:text-[#F5A623]"
                   }`}
                 >
                   {link.label}
@@ -203,7 +204,14 @@ export default function Header() {
       >
         {/* explicit close (X) button */}
         <div className="flex items-center justify-between px-6 pt-6">
-          <span className="font-serif text-base font-bold text-white">Menu</span>
+          <span className="flex flex-col leading-tight">
+              <span className="font-serif text-lg font-bold text-white">
+                Founders Legal Desk
+              </span>
+              <span className="mt-0.5 text-[10.5px] font-semibold uppercase tracking-[.08em] text-[#FFC157]">
+                A Startup Times Venture
+              </span>
+            </span>
           <button
             aria-label="Close menu"
             onClick={() => setOpen(false)}

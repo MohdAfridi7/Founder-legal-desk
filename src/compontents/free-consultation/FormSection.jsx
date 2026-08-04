@@ -3,6 +3,9 @@
 import { useRef, useState } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { UserCheck, ShieldCheck, Clock3, CheckCircle2, Send } from 'lucide-react';
+import { toast } from 'sonner';
+
+const API_URL = '/api/consultation';
 
 const INK = '#12151F';
 const MUTED = '#6B7184';
@@ -29,11 +32,10 @@ const TRUST_POINTS = [
     text: "If you don't respond after the call, we don't chase. Your decision, your timeline.",
   },
 ];
-
 const CALLBACK_TIMES = [
-  { v: 'morning', label: 'Morning', sub: '9am–12pm' },
-  { v: 'afternoon', label: 'Afternoon', sub: '12pm–4pm' },
-  { v: 'evening', label: 'Evening', sub: '4pm–7pm' },
+  { v: "Morning", label: "Morning", sub: "9am–12pm" },
+  { v: "Afternoon", label: "Afternoon", sub: "12pm–4pm" },
+  { v: "Evening", label: "Evening", sub: "4pm–7pm" },
 ];
 
 function TrustPointRow({ Icon, title, text, index, isLast }) {
@@ -146,13 +148,62 @@ export default function ConsultationFormSection() {
   const [callback, setCallback] = useState('');
   const sectionRef = useRef(null);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const payload = {
+      fullName: formData.get('name')?.toString().trim() || '',
+      businessName: formData.get('business')?.toString().trim() || '',
+      businessType: formData.get('type')?.toString().trim() || '',
+      industry: formData.get('industry')?.toString().trim() || '',
+      numberOfEmployees: formData.get('employees')?.toString().trim() || '',
+      phoneNumber: formData.get('phone')?.toString().trim() || '',
+      email: formData.get('email')?.toString().trim() || '',
+      concern: formData.get('concern')?.toString().trim() || '',
+      preferredCallTime: callback,
+    };
+
+    if (
+      !payload.fullName ||
+      !payload.businessName ||
+      !payload.businessType ||
+      !payload.industry ||
+      !payload.numberOfEmployees ||
+      !payload.phoneNumber ||
+      !payload.email ||
+      !payload.preferredCallTime
+    ) {
+      toast.error('Please fill in all required fields');
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.msg || 'Failed to book consultation');
+      }
+
+      toast.success(data.msg || 'Consultation booked successfully');
+      form.reset();
+      setCallback('');
       setSubmitted(true);
-    }, 900);
+    } catch (err) {
+      toast.error(err.message || 'Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -297,7 +348,7 @@ export default function ConsultationFormSection() {
                           onClick={() => setCallback(t.v)}
                           className="relative overflow-hidden rounded-full px-5 py-2.5 text-[13.5px] font-semibold transition-colors duration-300"
                           style={{
-                            color: callback === t.v ? '#FFFFFF' : INK,
+                            color: callback === t.v ? '#d7ac66' : INK,
                             border: `1.5px solid ${callback === t.v ? NAVY : BORDER}`,
                           }}
                         >

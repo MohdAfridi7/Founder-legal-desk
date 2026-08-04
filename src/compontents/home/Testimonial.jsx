@@ -79,42 +79,42 @@ const testimonials = [
   {
     name: "Rahul Sharma",
     role: "Startup Founder",
-    avatar: "https://i.pravatar.cc/120?img=12",
+    avatar: "https://media.licdn.com/dms/image/v2/D5603AQHDEgifKh4O_Q/profile-displayphoto-shrink_800_800/B56ZW4g5w.GsAc-/0/1742557388313?e=1787184000&v=beta&t=C9Dwpe3XlGpXTesTpBoC4ZpfzLGEf3GhIfqXYdYcn4Y",
     quote:
       "The team helped us prepare our startup agreements and compliance documents quickly. Everything was professionally reviewed and delivered on time.",
   },
   {
     name: "Priya Mehta",
     role: "Business Owner",
-    avatar: "https://i.pravatar.cc/120?img=32",
+    avatar: "https://media.licdn.com/dms/image/v2/D4D03AQHAl54rMl8uDA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1690358867954?e=1787184000&v=beta&t=ztx34rlqXn72PZK6tFm6bi1phTuo9H1Jx3Uw0wijG5A",
     quote:
       "We needed multiple business contracts and legal documents. The process was smooth, transparent, and saved us a significant amount of time.",
   },
   {
     name: "Arjun Verma",
     role: "SaaS Founder",
-    avatar: "https://i.pravatar.cc/120?img=48",
+    avatar: "https://media.licdn.com/dms/image/v2/D5603AQFuEUSHp0SVzg/profile-displayphoto-crop_800_800/B56Z0o4SWmJ8AI-/0/1774507339125?e=1787184000&v=beta&t=3YjEtw1YXq97tHbiEb7HrTP0x-jO2Sl4ybhLfrPP0XE",
     quote:
       "Their specialist-reviewed contracts gave us confidence while closing enterprise deals. The quality and attention to detail were excellent.",
   },
   {
     name: "Neha Kapoor",
     role: "Operations Director",
-    avatar: "https://i.pravatar.cc/120?img=15",
+    avatar: "https://media.licdn.com/dms/image/v2/D5603AQEwiPCs-aHEJA/profile-displayphoto-crop_800_800/B56ZvquP5QGYAI-/0/1769169553087?e=1787184000&v=beta&t=OU61e-q_jMaKdYHKJgFoQ6k3ka-uKt9FAk7NznqNXkA",
     quote:
       "The compliance support and document management services helped us stay organized. Every deliverable was accurate and professionally prepared.",
   },
   {
     name: "Vikram Singh",
     role: "Managing Partner",
-    avatar: "https://i.pravatar.cc/120?img=47",
+    avatar: "https://media.licdn.com/dms/image/v2/D5603AQFi5eWO16enBA/profile-displayphoto-crop_800_800/B56Z3EQ07NHEAI-/0/1777114242790?e=1787184000&v=beta&t=0H2-EOPfh8VJpRrUNFSeWN1TFmnDNvMZHPthlO1hRJk",
     quote:
       "From shareholder agreements to vendor contracts, the team handled everything efficiently. A reliable partner for growing businesses.",
   },
   {
     name: "Ananya Gupta",
     role: "Founder & CEO",
-    avatar: "https://i.pravatar.cc/120?img=68",
+    avatar: "https://media.licdn.com/dms/image/v2/D5603AQFfYTVeX6wACQ/profile-displayphoto-crop_800_800/B56Z9kqAl4KEAQ-/0/1784100165141?e=1787184000&v=beta&t=M2FKClxmEjwlq2wtLZzjlE7ld-jDnIxBcthfgecyUWc",
     quote:
       "Excellent experience from start to finish. The specialists understood our requirements and delivered high-quality legal documents within the promised timeline.",
   },

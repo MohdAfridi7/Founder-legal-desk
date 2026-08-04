@@ -14,7 +14,8 @@ const PLATFORM_LINKS = [
   { label: 'Services', href: '/services' },
   { label: 'Pricing', href: '/pricing' },
   { label: 'Free Consultation', href: 'free-consultation' },
-  { label: 'Resources', href: '/resources' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Profile', href: '/profile' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
@@ -26,9 +27,8 @@ const LEGAL_LINKS = [
 ];
 
 const SOCIALS = [
-  { Icon: FaLinkedinIn, href: "#", label: "LinkedIn" },
-  { Icon: FaTwitter, href: "#", label: "Twitter" },
-  { Icon: FaInstagram, href: "#", label: "Instagram" },
+  { Icon: FaLinkedinIn, href: "https://www.linkedin.com/in/advsagir?utm_source=share_via&utm_content=profile&utm_medium=member_android", label: "LinkedIn" },
+  { Icon: FaInstagram, href: "https://www.instagram.com/sagir_.ahmad_/", label: "Instagram" },
 ];
 
 function FooterLinkList({ title, links }) {
