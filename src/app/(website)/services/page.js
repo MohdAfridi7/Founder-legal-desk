@@ -73,11 +73,7 @@ export default async function ServicesPage() {
         <ServicesCoverageSection />
         <WhoWeServe />
         <Testimonial />
-        <Faq
-          title="Services FAQs"
-          subtitle="Common questions about our legal services"
-          faqs={servicesFaqs}
-        />
+        <Faq />
       </div>
     </>
   );

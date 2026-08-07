@@ -14,50 +14,51 @@ import {
    ArrowRight
 } from "lucide-react";
 
+
+
 const services = [
   {
-    title: "Vendor & Supplier Agreements",
+    title: "Corporate Compliance",
     description:
-      "Protect every vendor relationship with a clear, enforceable agreement covering scope, payment, deliverables, and dispute resolution.",
-    image: "https://lawyersinventory.com/wp-content/uploads/2023/06/Vendor-Contract.png",
-    icon: FileSignature,
-  },
-   {
-    title: "Employment Contracts & HR Documents",
-    description:
-      "Role, compensation, IP assignment, non-solicitation, and notice period — all in one reviewed agreement.",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1Kon482hqsXcuZPFW-useB4laiUfpibJ4QHV_AziMsA&s=10",
-     icon: Briefcase,
+      "Support for recurring corporate requirements, governance documentation, statutory records, annual compliance coordination and compliance tracking.",
+    image: "/services/corporate-compliance.jpg",
+    icon: Landmark,
   },
   {
-    title: "Founder & Co-Founder Agreement",
+    title: "Contracts & Commercial Agreements",
     description:
-      "Equity split, roles, vesting schedule, IP ownership, exit provisions — the most-skipped document in startup history.",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVBY564JSndK_9knOicDtHaZ-mv1atd1MS1js-cz_sBA&s=10",
+      "Founder Agreements, Shareholder Agreements, Vendor Agreements, Service Agreements, MSAs, NDAs, Employment Agreements and other commercial documentation.",
+    image: "/services/contracts.jpg",
+    icon: FileSignature,
+  },
+  {
+    title: "Startup & Founder Support",
+    description:
+      "Business structuring, Startup India recognition, MSME/Udyam registration and startup documentation.",
+    image: "/services/startup.jpg",
     icon: Users,
   },
   {
-    title: "Privacy Policy & Terms of Service",
+    title: "Trademark & Intellectual Property",
     description:
-      "If your business collects user data, these are no longer optional under the DPDP Act 2023.",
-    image: "/service-3-1.jpg",
+      "Trademark search, application support, renewals, objections and brand protection.",
+    image: "/services/trademark.jpg",
     icon: ShieldCheck,
   },
-   {
-    title: "Compliance Tracking & Reminders",
+  {
+    title: "Data Privacy & DPDP Compliance",
     description:
-      "Automated alerts for ROC filings, board meetings, DIR-3 KYC, AGM deadlines, and TDS dates.",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUXxL9-1hr9sI8r6AJ0yCDyt1x5yLxr_2HmTR3FBObdw&s=10",
-    icon: BellRing,
+      "Privacy Policies, Cookie Policies, Terms & Conditions and DPDP readiness.",
+    image: "/services/privacy.jpg",
+    icon: ShieldCheck,
   },
-   {
-    title: "Fundraising & Investor Documents",
+  {
+    title: "Employment & HR Compliance",
     description:
-      "Scope, deliverables, payment terms, IP assignment, and exit clause for every freelance engagement.",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd0aWbUv4QS0RxfiCJhvXO2IIkvgthxrlB1tCgC_3hvWkUTAbj1htDqVY&s=10",
-   icon: Landmark,
+      "Employment Agreements, consultant documentation, confidentiality clauses and HR compliance support.",
+    image: "/services/hr.jpg",
+    icon: Briefcase,
   },
-  
 ];
 const headingVariants = {
   hidden: {
@@ -113,7 +114,7 @@ export default function Services() {
   className="inline-flex items-center gap-2 text-[12.5px] font-bold uppercase tracking-[0.14em] text-[#C7954A]"
 >
   <span className="w-5 h-px bg-[#C7954A]"></span>
-  OUR SERVICE
+  OUR SERVICES
 </motion.div>
 
 <motion.h2
@@ -124,12 +125,23 @@ export default function Services() {
   className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl"
   style={{ fontFamily: "'Fraunces', Georgia, serif" }}
 >
-  We're Providing Best
+Corporate & Compliance Support
   <br />
   <span className="text-[#C7954A]">
-    Service To Clients
+    Across Your Business
   </span>
 </motion.h2>
+<motion.p
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.8, delay: 0.3 }}
+  className="mx-auto mt-6 max-w-3xl text-center text-[16px] leading-8 text-[#666]"
+>
+  Founders Legal Desk provides support across the corporate lifecycle,
+  from setting up and protecting your business to managing contracts,
+  compliance, people, data and fundraising.
+</motion.p>
         </motion.div>
 
         {/* Cards */}

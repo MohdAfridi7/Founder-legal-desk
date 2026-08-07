@@ -7,30 +7,34 @@ import {  FileSearch,Scale,FileCheck,ShieldCheck,Award } from 'lucide-react';
 const steps = [
   {
     id: 1,
-    label: 'O1',
-    title: 'Tell us what you need',
-    description: 'Choose a plan or describe the specific document you need. Takes 2 minutes.',
+    label: "01",
+    title: "Tell Us What Your Business Needs",
+    description:
+      "Share your requirement, whether it involves a contract, compliance, trademark, privacy, fundraising, employment or another corporate matter.",
     Icon: FileSearch,
   },
   {
     id: 2,
-    label: 'O2',
-    title: 'We assign a specialist',
-    description: 'A qualified specialist from our panel takes your requirement and reviews your situation.',
+    label: "02",
+    title: "We Identify the Right Support",
+    description:
+      "We assess the requirement and identify the relevant specialist and process.",
     Icon: Scale,
   },
   {
     id: 3,
-    label: 'O3',
-    title: 'Document prepared & verified',
-    description: 'The specialist drafts, reviews, and verifies your document for accuracy and enforceability.',
+    label: "03",
+    title: "We Get to Work",
+    description:
+      "The required information and documents are collected and the appropriate work is coordinated.",
     Icon: FileCheck,
   },
   {
     id: 4,
-    label: 'O4',
-    title: 'Delivered within 48 hours',
-    description: 'You receive a professionally prepared, verified document you can use with confidence.',
+    label: "04",
+    title: "Stay Supported as You Grow",
+    description:
+      "Use Founders Legal Desk for individual requirements or ongoing support as your business evolves.",
     Icon: ShieldCheck,
   },
 ];

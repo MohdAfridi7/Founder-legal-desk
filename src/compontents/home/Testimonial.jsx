@@ -77,18 +77,18 @@ const Stars = ({ count = 5, size = 14 }) => (
    ============================================================ */
 const testimonials = [
   {
-    name: "Rahul Sharma",
-    role: "Startup Founder",
+    name: "Balachander",
+    role: "Litconnect — LegalTech, London",
     avatar: "https://media.licdn.com/dms/image/v2/D5603AQHDEgifKh4O_Q/profile-displayphoto-shrink_800_800/B56ZW4g5w.GsAc-/0/1742557388313?e=1787184000&v=beta&t=C9Dwpe3XlGpXTesTpBoC4ZpfzLGEf3GhIfqXYdYcn4Y",
     quote:
-      "The team helped us prepare our startup agreements and compliance documents quickly. Everything was professionally reviewed and delivered on time.",
+      "Founders Legal Desk supported us on complex privacy and technology documentation across multiple regulatory frameworks. The team understood the requirements thoroughly and delivered structured, business-focused documentation.",
   },
   {
-    name: "Priya Mehta",
-    role: "Business Owner",
+    name: "Sohaib Ahmed",
+    role: "Founder, Awliyah — Toronto",
     avatar: "https://media.licdn.com/dms/image/v2/D4D03AQHAl54rMl8uDA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1690358867954?e=1787184000&v=beta&t=ztx34rlqXn72PZK6tFm6bi1phTuo9H1Jx3Uw0wijG5A",
     quote:
-      "We needed multiple business contracts and legal documents. The process was smooth, transparent, and saved us a significant amount of time.",
+      "The team supported us with our privacy documentation and understood the international nature of our business. The entire process was clear, responsive and professionally managed.",
   },
   {
     name: "Arjun Verma",
@@ -170,7 +170,7 @@ function Header({
       className="text-[26px] sm:text-[34px] lg:text-[42px] leading-[1.15] font-semibold"
       style={{ fontFamily: "'Fraunces', Georgia, serif" }}
     >
-      What Founders <span style={{ color: '#D9A867' }}>Say</span>
+     What Our <span style={{ color: '#D9A867' }}>Clients Say</span>
     </motion.h2>
   </div>
 
@@ -179,8 +179,7 @@ function Header({
     className="text-[15.5px] sm:text-[17px] leading-relaxed max-w-md"
     
   >
-    We're just getting started. Be one of the first businesses to experience
-    what affordable, specialist-verified documents look like.
+   Businesses across technology, healthcare, retail, food & beverage and other sectors have trusted us with important corporate, privacy and commercial requirements.
   </motion.p>
 
   <motion.div

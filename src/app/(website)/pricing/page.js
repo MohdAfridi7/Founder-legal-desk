@@ -76,11 +76,7 @@ export default async function PricingPage() {
         <Testimonial />
         <PricingQuoteCTA />
 
-        <Faq
-          title="Pricing FAQs"
-          subtitle="Questions related to plans and pricing"
-          faqs={pricingFaqs}
-        />
+        <Faq/>
       </div>
     </>
   );

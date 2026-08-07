@@ -28,9 +28,9 @@ const CLIENTS = [
     name: "Litconnect",
     tag: "LegalTech — London, UK",
     contact: "Balachander",
-    scope: "Comprehensive data privacy compliance",
+    scope: "Privacy & Technology Compliance",
     deliverables:
-      "Drafted GDPR/UK-GDPR and CCPA-compliant Privacy and Cookie Policies covering lawful basis, DSARs, cross-border data transfers, cookie consent, and processor obligations.",
+      "Supported comprehensive data privacy requirements, including GDPR/UK-GDPR and CCPA-oriented Privacy and Cookie Policies covering data-subject rights, cross-border transfers, cookie consent and processor obligations.",
     seed: "litconnect-legal",
     image: "https://media.licdn.com/dms/image/v2/C5603AQE_v3a_mvk7Yw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1650304809148?e=1787184000&v=beta&t=YsGc8m1NYLuhT6gy2i84niPwzgdm9UYQpKcNZr8VYLA",
   },
@@ -38,8 +38,9 @@ const CLIENTS = [
     name: "Awliyah",
     tag: "Toronto, Canada",
     contact: "Sohaib Ahmed, Founder",
+    scope: "Privacy Compliance",
     deliverables:
-      "Drafted a robust Privacy Policy benchmarked against Canada's PIPEDA regulations, with GDPR-compliant frameworks.",
+      "Prepared privacy documentation benchmarked against Canada's PIPEDA framework with GDPR-oriented privacy considerations.",
     seed: "awliyah-office",
     image: "https://media.licdn.com/dms/image/v2/D5603AQGRyHD8z17U8w/profile-displayphoto-crop_800_800/B56Z7WkrnIGcAI-/0/1781716403019?e=1787184000&v=beta&t=0nmF2tpMHDZeTWwutsqEU9DRL6RWQYbsDmyXWiLXiWE",
   },
@@ -47,8 +48,9 @@ const CLIENTS = [
     name: "Mumbra One",
     tag: "India",
     contact: "Sufiyan",
+    scope: "DPDP & Website Compliance",
     deliverables:
-      "Drafted Privacy Policy and ancillary user-facing agreements aligned with India's DPDP Act, 2023, and the IT Act, 2000.",
+      "Prepared Privacy Policy and supporting user-facing documentation considering India's data-protection and information-technology framework.",
     seed: "mumbra-startup",
     image: "https://media.licdn.com/dms/image/v2/D5603AQH7IqG1YxQ6Iw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1726560837872?e=1787184000&v=beta&t=8NBKOdD4SeE6YxkrEDWod3BpyBhOp6upRd9liGa-n2c",
   },
@@ -56,9 +58,9 @@ const CLIENTS = [
     name: "Medixcy",
     tag: "HealthTech — India",
     contact: "Ahmad Umar",
-    scope: "Digital health data compliance",
+    scope: "HealthTech Compliance & Startup Documentation",
     deliverables:
-      "Drafted Privacy Notice, Founders' Agreement, and Terms & Conditions. Researched Telemedicine Practice Guidelines, 2020, and DPDP Act implications.",
+      "Supported the business with Privacy Notice, Founders' Agreement and Terms & Conditions, together with regulatory research relating to telemedicine and data-protection requirements.",
     seed: "medixcy-health",
     image: "https://media.licdn.com/dms/image/v2/D4E03AQGc4ijGE6qb6g/profile-displayphoto-shrink_800_800/B4EZTg6DPGHMAc-/0/1738940103940?e=1787184000&v=beta&t=9Y8HBnfhQwwfDITb6UXWsKgQalKqVFI9r_jxDOQTzf4",
   },
@@ -66,8 +68,9 @@ const CLIENTS = [
     name: "Acqify Ltd.",
     tag: "New Delhi / Remote",
     contact: "Aamish",
+    scope: "Commercial Contracts & Data Protection",
     deliverables:
-      "Drafted tailored NDAs and commercial contracts. Provided client-specific compliance strategies under the Digital Personal Data Protection Act, 2023.",
+      "Prepared customised NDAs and commercial contracts and supported business-specific data-protection requirements.",
     seed: "acqify-remote",
     image: "https://media.licdn.com/dms/image/v2/D5603AQGc-CBKQ1s1UA/profile-displayphoto-crop_800_800/B56ZlIzLJWIsAI-/0/1757863001851?e=1787184000&v=beta&t=iuAUrpM0JxjC6F6Qo9AhiiKGY0J9M_fKvHrT6TGRzDE",
   },
@@ -75,9 +78,9 @@ const CLIENTS = [
     name: "Chaichaska",
     tag: "F&B / QSR",
     contact: "Suhaib Siddiqui",
-    scope: "Brand protection and operational contracts",
+    scope: "Brand & Business Support",
     deliverables:
-      "Filed trademark application under the Trade Marks Act, 1999; drafted Franchise and Employment Agreements; processed MSME (Udyam) registration.",
+      "Supported trademark application, Franchise Agreement, Employment Agreement and MSME/Udyam registration requirements.",
     seed: "chaichaska-cafe",
     image: "https://media.licdn.com/dms/image/v2/D4D03AQEf280CtaBHQA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1678684584450?e=1787184000&v=beta&t=V8wrEK1PwE6U3Cu7elkqGLD_jsQrcLbiiJ_BkaSy6gc",
   },
@@ -85,9 +88,9 @@ const CLIENTS = [
     name: "V2V Garments",
     tag: "Retail",
     contact: "Hammas Khan",
-    scope: "Intellectual property litigation support",
+    scope: "Intellectual Property Support",
     deliverables:
-      "Drafted the Written Statement and application under Order VII Rule 10, CPC for a trademark infringement suit, anchored on territorial-jurisdiction objections under Section 134 of the Trade Marks Act, 1999.",
+      "Supported the business with documentation relating to an intellectual-property dispute and trademark-related requirements.",
     seed: "v2v-garments-retail",
     image: "https://media.licdn.com/dms/image/v2/D4D03AQGNT9AXGiPXyg/profile-displayphoto-crop_800_800/B4DZ6torN4JcAI-/0/1781029584543?e=1787184000&v=beta&t=Dbm-U6EDJ5czkqgsRPqRJJD-z5JXML_-phWUhi-1fAE",
   },
@@ -275,7 +278,7 @@ function Dots({ count, active, onSelect }) {
 export default function ClientPortfolio({
   eyebrow = "Client Portfolio",
   title = "Client Portfolio & Impact",
-  description = "A snapshot of the businesses we've helped protect — across privacy, IP, and commercial law, spanning five jurisdictions.",
+  description = "A snapshot of businesses supported across privacy, technology, commercial documentation, intellectual property and startup requirements.",
 }) {
   const visible = useVisibleCount();
   const maxIndex = Math.max(0, CLIENTS.length - visible);
@@ -349,7 +352,7 @@ export default function ClientPortfolio({
             {eyebrow}
           </div>
           <h2 className="text-[26px] sm:text-[34px] lg:text-[42px] leading-[1.15] font-semibold mb-3" style={{ ...fontDisplay, color: C.ink900, letterSpacing: "-.01em" }}>
-          Client Portfolio & <span style={{ color: C.Gold }}>Impact</span>
+          Businesses We've  <span style={{ color: C.Gold }}>Worked With</span>
           </h2>
           <p className="text-[15.5px] sm:text-[17px]" style={{ color: C.slate500 }}>{description}</p>
         </motion.div>

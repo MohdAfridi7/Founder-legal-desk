@@ -25,30 +25,300 @@ const fontDisplay = { fontFamily: "'Fraunces', Georgia, serif" };
    DATA — from Legal Desk packages doc
    ============================================================ */
 const SECTORS = {
-  "D2C & Quick-Commerce": [
+  "Business Setup & Registration": [
     {
-      service: "Food safety state license facilitation",
-      fee: "₹3,500",
+      service: "Private Limited Company",
+      fee: "₹1,999",
       note: "Government fees billed separately at actuals",
     },
     {
-      service: "Legal metrology packaged commodity registration",
-      fee: "₹2,500",
+      service: "Limited Liability Partnership (LLP)",
+      fee: "₹1,999 ",
       note: "Government fees billed separately at actuals",
     },
     {
-      service: "Official Startup India recognition assistance",
-      fee: "₹5,999",
+      service: "One Person Company (OPC)",
+      fee: "₹1,999 ",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Sole Proprietorship / MSME",
+      fee: "₹499 – ₹999",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Partnership Firm",
+      fee: "₹1,999",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Section 8 Company (NGO)",
+      fee: "₹7,999",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Society Registration",
+      fee: "₹1,999",
+      note: "Government fees billed separately at actuals",
+    },
+
+
+
+     {
+      service: "Trust Registration",
+      fee: "Custom Quote (₹2,500 – ₹5,000)",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Startup India Recognition",
+      fee: "₹1,999",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Virtual Office Address",
+      fee: "₹999/mon.",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Public Limited / Nidhi / Producer Co.",
+      fee: "Custom Consultation",
       note: "Government fees billed separately at actuals",
     },
   ],
-  "Software & Technology": [
+  "Tax & GST Services": [
     {
-      service: "Digital data protection readiness pack",
-      fee: "₹25,000",
-      feeNote: "one-time",
-      note: "Operational scan and policy drafting for early-stage software companies",
+      service: "GST Registration",
+      fee: "₹499 – ₹999",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
     },
+     {
+      service: "GST Return Filing",
+      fee: "₹499/mon.",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "GST Annual Return (GSTR-9/9C)",
+      fee: "₹2,999",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "GST Notice & LUT Filing",
+      fee: "₹1,499",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Income Tax Return (ITR-1 to ITR-4)",
+      fee: "₹499 – ₹1,999",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Business ITR (ITR-5 / ITR-6 / ITR-7)",
+      fee: "₹2,999 – ₹5000",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "TAN & TDS Filing",
+      fee: "₹999/quarter",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+    
+  ],
+   "Intellectual Property (IP) Services": [
+    {
+      service: "Trademark Registration",
+      fee: "₹1,499 ",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Trademark Objection Reply",
+      fee: "₹1,999",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Trademark Opposition / Hearing",
+      fee: "Custom Quote (₹4,999 – ₹9,999)",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Trademark Renewal / Transfer",
+      fee: "Custom Quote",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Copyright Registration",
+      fee: "₹1,999",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Provisional Patent Filing",
+      fee: "₹9,999 ",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Design Registration",
+      fee: "₹4,999",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+    
+  ],
+   "Licenses & Trade Registrations": [
+    {
+      service: "FSSAI Food License (Basic)",
+      fee: "₹1,499 ",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "FSSAI State / Central License",
+      fee: "₹2,999 – ₹5,000",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Import Export Code (IEC)",
+      fee: "₹999",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Shop & Establishment License",
+      fee: "₹1,499",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Trade License / Fire / Safety",
+      fee: "₹1,999",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "ISO Certification",
+      fee: "₹2,999 ",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "PF & ESI Registration",
+      fee: "₹1,999",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+    
+  ],
+    "Corporate Compliance & ROC Filings": [
+    {
+      service: "Private Limited Annual Compliance",
+      fee: "₹4,999 – ₹9,999",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "LLP Annual Compliance",
+      fee: "₹2,999",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "DIR-3 KYC Filing",
+      fee: "₹499",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Issue of Shares / Capital Increase",
+      fee: "₹3,999",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Director / Partner Change",
+      fee: "₹1,999",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Business Conversion",
+      fee: "₹7,999",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Business Closure / Striking Off",
+      fee: "₹4,999 – ₹9,999",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+    
+  ],
+     "Accounting, Audit & Advisory Services": [
+    {
+      service: "Bookkeeping & Accounting",
+      fee: "₹1,499 – ₹4,999/mon.",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Statutory Audit Support",
+      fee: "₹5,000 – ₹15,000",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Contract / Legal Notice Drafting",
+      fee: "₹1,999 – ₹4,999",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },    
+  ],
+   "Data Protetion & Policies": [
+    {
+      service: "Basic",
+      fee: "₹4,999",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Standard",
+      fee: "₹12,500",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "Premium",
+      fee: "₹20,000",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },    
+  ],
+  "International Business Registration & Regulatory": [
+    {
+      service: "International Registration",
+      fee: "Custom Consultation",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+     {
+      service: "RBI / IRDA Compliance",
+      fee: "Custom Consultation",
+      // feeNote: "one-time",
+      note: "Government fees billed separately at actuals",
+    },
+      
   ],
 };
 

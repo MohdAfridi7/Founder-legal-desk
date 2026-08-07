@@ -112,16 +112,16 @@ const GlobalStyle = () => (
    ============================================================ */
 const problems = [
   {
-    t: "You signed a contract you didn't fully understand",
-    d: "Most businesses use downloaded templates. They look fine — until a vendor defaults, a co-founder exits, or a client refuses to pay.",
+    t: "In-House Teams Cost Too Much",
+    d: "Large companies can afford dedicated teams for contracts, compliance and corporate matters. Most startups can't.",
   },
   {
-    t: "A specialist quoted you ₹50,000 for a basic agreement",
-    d: "Professional document review is priced for large companies. Early-stage businesses are left to figure it out on their own.",
+    t: "So Founders Rely on Templates",
+    d: "Generic templates may save money initially, but they aren't built around your business, risks or specific requirements.",
   },
   {
-    t: "You have no way to know if a document is actually correct",
-    d: "A template has no name behind it. No accountability. If something goes wrong, there is no one to hold responsible.",
+    t: "Problems Surface Later",
+    d: "Gaps often appear during fundraising, compliance checks, disputes or due diligence, when fixing them becomes harder and more expensive.",
   },
 ];
 
@@ -239,7 +239,8 @@ export default function SoundFamiliar({
       opacity: headIn ? 1 : 0,
     }}
   >
-    Sound <span style={{color:C.Gold}}>Familier?</span>
+      Startups Need Support. 
+    <span style={{ color: C.Gold }}> In-House Is Expensive.</span>
   </span>
 </h2>
         </div>

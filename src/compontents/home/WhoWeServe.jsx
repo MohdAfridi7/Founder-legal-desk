@@ -2,6 +2,26 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import {
+  Laptop,
+  ShoppingBag,
+  Megaphone,
+  GraduationCap,
+  HeartPulse,
+  Users,
+  Landmark,
+  Truck,
+  Factory,
+  Building2,
+  Camera,
+  UtensilsCrossed,
+  Plane,
+  HardHat,
+  Briefcase,
+  HandHeart,
+  Globe,
+  Store,
+} from "lucide-react";
 /* ============================================================
    TOKENS
    ============================================================ */
@@ -105,11 +125,24 @@ const ArrowIcon = () => (
    DATA
    ============================================================ */
 const industries = [
-  "SaaS & Technology", "D2C & E-commerce", "Digital & Creative Agencies", "Edtech",
-  "Healthtech & Telemedicine", "HR Tech & Staffing", "Fintech & BFSI-adjacent", "Logistics & Supply Chain",
-  "Manufacturing & Retail", "Real Estate & Proptech", "Media & Creator Economy", "Food & Beverage",
-  "Travel & Hospitality", "Construction & Infra", "Consulting Services", "Non-profits & Sec 8",
-  "Import & Export", "Franchise & Distribution",
+  { title: "SaaS & Technology", icon: Laptop },
+  { title: "D2C & E-commerce", icon: ShoppingBag },
+  { title: "Digital & Creative Agencies", icon: Megaphone },
+  { title: "EdTech", icon: GraduationCap },
+  { title: "HealthTech & Telemedicine", icon: HeartPulse },
+  { title: "HR Tech & Staffing", icon: Users },
+  { title: "FinTech", icon: Landmark },
+  { title: "Logistics & Supply Chain", icon: Truck },
+  { title: "Manufacturing & Retail", icon: Factory },
+  { title: "Real Estate & PropTech", icon: Building2 },
+  { title: "Media & Creator Economy", icon: Camera },
+  { title: "Food & Beverage", icon: UtensilsCrossed },
+  { title: "Travel & Hospitality", icon: Plane },
+  { title: "Construction & Infrastructure", icon: HardHat },
+  { title: "Consulting Services", icon: Briefcase },
+  { title: "Non-Profits & Section 8", icon: HandHeart },
+  { title: "Import & Export", icon: Globe },
+  { title: "Franchise & Distribution", icon: Store },
 ];
 
 /* ============================================================
@@ -134,7 +167,7 @@ function useInView(threshold = 0.2) {
 /* ============================================================
    TILT CARD — 3D tilt + spotlight, framer-motion-style micro interaction
    ============================================================ */
-function IndustryCard({ name, index }) {
+function IndustryCard({ name, icon: Icon, index }) {
   const cardRef = useRef(null);
   const [wrapRef, inView] = useInView(0.15);
   const rotSeed = ((index % 5) - 2) * 6; // -12..12 deg entrance rotation variety
@@ -184,13 +217,17 @@ function IndustryCard({ name, index }) {
       <div className="ws-shine" />
       <div className="ws-glow" />
 
-      <div
-        className="ws-icon relative w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center font-semibold text-[15px] sm:text-[16px]"
-        style={{ background: C.navy950, color: C.amber400, ...fontDisplay }}
-      >
-        <span className="ws-orbit absolute inset-0 rounded-full" style={{ border: `1.5px dashed rgba(245,166,35,.35)` }} />
-        {name[0]}
-      </div>
+     <div
+  className="ws-icon relative flex h-12 w-12 items-center justify-center rounded-full sm:h-14 sm:w-14"
+  style={{ background: C.navy950, color: C.amber400 }}
+>
+  <span
+    className="ws-orbit absolute inset-0 rounded-full"
+    style={{ border: `1.5px dashed rgba(245,166,35,.35)` }}
+  />
+
+  <Icon size={24} strokeWidth={2} />
+</div>
 
       <span className="ws-label text-[13px] sm:text-[13.5px] font-semibold leading-snug" style={{ color: C.ink700 }}>
         {name}
@@ -205,8 +242,8 @@ function IndustryCard({ name, index }) {
 export default function WhoWeServe({
   eyebrow = "Who we serve",
 
-  description = "We serve incorporated Indian businesses across industries where contracts, compliance, and documentation are part of running the business — which is most of them.",
-  footNote = "If your business signs contracts, hires people, or works with vendors — we're built for you.",
+  description = "We work with businesses where contracts, compliance, employees, intellectual property, customer data and commercial relationships become increasingly important as the company grows.",
+  footNote = "If your business is growing faster than your compliance function, we're built for you.",
   ctaLabel = "Book a Free Consultation →",
   onCta = () => {},
 }) {
@@ -228,16 +265,25 @@ export default function WhoWeServe({
             {eyebrow}
           </div>
           <h2 className="text-[26px] sm:text-[34px] lg:text-[42px] leading-[1.15] font-semibold mb-3" style={{ ...fontDisplay, color: C.ink900, letterSpacing: "-.01em" }}>
-          Who we work <span className="text-[#C7954A]">with</span>
+          Built for Startups.
+Ready to Scale With <span className="text-[#C7954A]">You.</span>
           </h2>
           <p className="text-[15.5px] sm:text-[17px]" style={{ color: C.slate500 }}>{description}</p>
        </motion.div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5" style={{ perspective: 1000 }}>
-          {industries.map((n, i) => (
-            <IndustryCard key={n} name={n} index={i} />
-          ))}
-        </div>
+      <div
+  className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5"
+  style={{ perspective: 1000 }}
+>
+  {industries.map((item, i) => (
+    <IndustryCard
+      key={item.title}
+      name={item.title}
+      icon={item.icon}
+      index={i}
+    />
+  ))}
+</div>
 
         <p className="text-center mt-9 text-[15px] sm:text-[16px]" style={{ color: C.slate500 }}>{footNote}</p>
 

@@ -35,24 +35,24 @@ const NODES = [
 
 const FEATURES = [
   {
-    Icon: Gavel,
-    title: 'Specialist Verified',
-    desc: 'Every document is verified by a named specialist — not produced by an algorithm or downloaded from a template library.',
+    Icon: Landmark,
+    title: "Built for Startups",
+    desc: "Get structured corporate and compliance support without having to build a full in-house function from day one.",
   },
   {
-    Icon: Newspaper,
-    title: 'Startup Times Network',
-    desc: "Part of the Startup Times Media Network — India's founder-focused publication. Google News approved.",
+    Icon: Scale,
+    title: "Specialist Network",
+    desc: "Different business requirements are coordinated with specialists based on the nature of the work, ensuring the right expertise for every matter.",
   },
   {
-    Icon: Tag,
-    title: 'Fixed-Price Packages',
-    desc: 'Fixed-price packages from ₹5,000/month — no hourly billing, no hidden costs.',
+    Icon: ShieldCheck,
+    title: "One Point of Coordination",
+    desc: "Manage contracts, compliance, intellectual property, employment and corporate matters through one trusted platform instead of multiple providers.",
   },
   {
     Icon: Clock,
-    title: '48-Hour SLA',
-    desc: "48-hour delivery SLA — because your business doesn't wait.",
+    title: "Ongoing Support",
+    desc: "Move from reactive problem-solving to proactive documentation, compliance and business protection as your company grows.",
   },
 ];
 const cardVariants = {
@@ -431,7 +431,7 @@ export default function WhyUs() {
   Why Growing Businesses
   <br />
   <span style={{ color: BLUE }}>
-    Choose Us
+    Choose Us Founders Legal Desk
   </span>
 </motion.h2>
 

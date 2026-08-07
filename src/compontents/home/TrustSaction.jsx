@@ -317,7 +317,7 @@ const ref = useRef(null);
             className="mb-9 max-w-[440px] text-[15px] leading-relaxed"
             style={{ color: '#8892A4' }}
           >
-           We have worked with founders and businesses across India — from early-stage startups to established companies in their growth phase.
+          From early-stage startups to growing technology, healthcare, retail and consumer businesses, we have supported clients with privacy, contracts, corporate requirements, intellectual property and business compliance.
           </motion.p>
 
           {/* Pulsing dot */}

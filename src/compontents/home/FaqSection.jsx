@@ -15,25 +15,25 @@ const IMG_BOTTOM_RIGHT = 'https://bracketweb.com/procounsel-html/assets/images/r
 
 const defaultFaqs = [
   {
-     q: 'What exactly does Founders Legal Desk do?',
-     a: 'We prepare, review, and deliver business documents — contracts, agreements, policies, and compliance paperwork — for incorporated Indian businesses. Every document is verified by a qualified specialist before delivery. You get a fixed-price monthly package or a single-document quote, with delivery within 48 hours.',
-   },
-   {
-     q: 'Who prepares my documents?',
-     a: 'Your documents are prepared and reviewed by qualified specialists from our empaneled panel. Each specialist reviews the document personally and verifies it before its delivered to you.',
-   },
-   {
-     q: "What does 'verified' mean?",
-     a: 'Every document delivered through Founders Legal Desk is reviewed by a qualified specialist who checks it for accuracy, enforceability, and completeness — and takes personal responsibility for the work. This is different from a template download, where no professional has reviewed what you re signing.',
-   },
-   {
-     q: 'How is this different from downloading a template?',
-     a: "A downloaded template is a generic format. It has not been reviewed for your specific situation, your industry, or the current legal environment in India. Our documents are reviewed by a qualified specialist for your specific business context. If a clause is wrong for your situation, we change it.",
-   },
-    {
-     q: 'What if I\'m not sure which plan I need?',
-     a: "Book a free consultation. We'll review your situation and tell you exactly what you need — including whether a plan makes sense or a single-document quote is better for you.",
-   },   
+    q: "What legal and compliance support does a startup need in India?",
+    a: "The requirements depend on the company's structure, industry and stage of growth. Common requirements include incorporation and corporate compliance, founder agreements, employment documentation, commercial contracts, intellectual-property protection, data privacy compliance and fundraising documentation. A growing startup should periodically review these requirements as it hires employees, signs larger customers, raises investment or enters new markets."
+  },
+  {
+    q: "Can startups outsource their legal and compliance requirements instead of hiring in-house?",
+    a: "Businesses commonly outsource specific corporate, documentation and compliance functions when they do not have the volume or budget required for a full in-house team. Founders Legal Desk is designed for startups and growing businesses that need ongoing access to specialist support without building every function internally."
+  },
+  {
+    q: "What is outsourced General Counsel support for startups?",
+    a: "Outsourced General Counsel or GC support generally refers to obtaining ongoing external support for a company's contracts, corporate requirements, compliance, employment matters, intellectual property, fundraising documentation and other recurring business requirements rather than employing a full-time in-house counsel. Founders Legal Desk provides a platform through which growing businesses can coordinate these requirements with relevant specialists."
+  },
+  {
+    q: "Why should startups avoid using generic contract templates?",
+    a: "Generic templates are not prepared around your specific transaction, business model, commercial terms or risk profile. Important clauses relating to payment, liability, intellectual property, confidentiality, termination, dispute resolution, founder exits or data protection can vary significantly between businesses. Templates can be useful as references, but important business agreements should be prepared or reviewed according to the actual transaction."
+  },
+  {
+    q: "What corporate compliance requirements apply to startups in India?",
+    a: "Requirements vary depending on whether the business operates as a Private Limited Company, LLP, partnership or another structure. For companies, recurring requirements can include statutory records, corporate filings, director-related compliance, board and shareholder documentation and event-based filings. Tax, employment, industry-specific and data-protection obligations may also apply."
+  }
 ];
 
 function HammerIcon() {

@@ -1,29 +1,22 @@
 import Link from "next/link";
 import Image from "next/image";
+import { getBlog, getRelatedBlogs } from "@/lib/getBlog";
 import { notFound } from "next/navigation";
 import { ArrowLeft, CalendarDays, Clock3, User } from "lucide-react";
 
-async function getBlog(slug) {
-  const res = await fetch(`http://localhost:3000/api/blog?slug=${slug}`, {
-    cache: "no-store",
-  });
-  return res.json();
-}
 
-async function getRelatedBlogs(id) {
-  const res = await fetch(`http://localhost:3000/api/blog?related=${id}`, {
-    cache: "no-store",
-  });
-  return res.json();
-}
+
+
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const data = await getBlog(slug);
+ const blog = await getBlog(slug);
 
-  if (!data.success) return { title: "Blog Not Found" };
-
-  const blog = data.blog;
+if (!blog) {
+  return {
+    title: "Blog Not Found",
+  };
+}
   return {
     title: blog.metaTitle || blog.title,
     description: blog.metaDescription,
@@ -33,13 +26,11 @@ export async function generateMetadata({ params }) {
 
 export default async function BlogDetails({ params }) {
   const { slug } = await params;
-  const data = await getBlog(slug);
+ const blog = await getBlog(slug);
 
-  if (!data.success) notFound();
+if (!blog) notFound();
 
-  const blog = data.blog;
-  const relatedData = await getRelatedBlogs(blog._id);
-  const relatedBlogs = relatedData.relatedBlogs || [];
+const relatedBlogs = await getRelatedBlogs(blog._id);
 
   return (
     <section className="bg-white">

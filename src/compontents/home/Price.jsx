@@ -42,9 +42,10 @@ const ArrowIcon = () => (
    ============================================================ */
 const plans = [
   {
-    name: "Starter",
-    price: "₹7,000",
+    name: "Basic",
+    price: "₹3,000",
     period: "/month",
+    note : "The Startup Legal Safety Net ",
     items: [
       "Up to 3 template documents/month",
       "Basic WhatsApp support (48-hour response)",
@@ -53,29 +54,28 @@ const plans = [
     ],
   },
   {
-    name: "Growth",
-    price: "₹16,000",
+    name: "Standard",
+    price: "₹10,000",
     period: "/month",
     popular: true,
+    note : "The (VC-Ready Fractional GC) ",
     items: [
-      "10 document drafting/month",
-      "Up to 5 custom documents/month",
-      "30-minute monthly strategy call",
-      "Comprehensive compliance management",
-      "1 Trademark Application ",
-      "Priority legal support",
+      "All-Time Ongoing Legal Consultancy",
+      "One Dedicated Core Legal Service per Month",
+      "Standard Template Library Access",
     ],
   },
   {
-    name: "Scale",
-    price: "₹36,000",
+    name: "Premium",
+    price: "₹25,000 - ₹35,000",
     period: "/month",
+    note : "The (Scale-Up GC Command)",
     items: [
-      "Unlimited legal drafting",
-      "Unlimited custom documents",
-      "Two monthly consultation calls",
-      "Data protection compliance reviews",
-      "VC Documentation Support",
+      "Unlimited Fractional General Counsel Support",
+      "Up to Seven Dedicated Legal Services per Month",
+      "The \"IP Lockbox\" Engine",
+      "Tech, AI & Data Protection Compliance",
+      "Mock Due Diligence Data Room Setup",
       "SHA, SSA & Term Sheet Assistance",
       "End-to-End ESOP Architecture",
     ],
@@ -88,7 +88,7 @@ const plans = [
 export default function Price({
   eyebrow = "Pricing",
   title = "Simple plans. No surprises.",
-note = "Designed for startups, founders, and growing businesses.",
+
   onChoosePlan = (planName) => console.log("Chosen:", planName),
   onSeeFullPricing = () => console.log("See full pricing"),
   onRequestQuote = () => console.log("Request quote"),
@@ -158,7 +158,7 @@ Flexible Legal Support <span className="text-[#C7954A]"> For Every Stage
               </div>
 
               <div className="text-[12.5px] mb-6" style={{ color: pl.popular ? C.slate300 : C.slate500 }}>
-                {note}
+                {pl.note}
               </div>
 
               <div className="flex-1">

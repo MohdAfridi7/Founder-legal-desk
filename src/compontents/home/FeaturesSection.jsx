@@ -7,44 +7,48 @@ const features = [
   {
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-        <polyline points="14 2 14 8 20 8"/>
+        <path d="M12 2l3 6 6 .9-4.5 4.4 1.1 6.2L12 17l-5.6 2.5 1.1-6.2L3 8.9 9 8z"/>
       </svg>
     ),
-    title: "Specialist-Verified Documents",
-    description: "Every document we deliver is reviewed and verified by a qualified specialist before it reaches you. Not a template engine. Not an anonymous platform. A named professional who stands behind the work."
+    title: "Specialist Support",
+    description:
+      "Get the right specialist for each business requirement instead of relying on generic solutions."
   },
   {
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M20.59 13.41 13.42 20.6a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
-        <circle cx="7" cy="7" r="1.5"/>
+        <path d="M3 7h18"/>
+        <path d="M6 3h12v18H6z"/>
+        <path d="M9 11h6"/>
+        <path d="M9 15h6"/>
       </svg>
     ),
-    title: "Fixed Price, No Surprises",
-    description: "Choose a plan. Know exactly what you pay. No hourly billing. No scope-creep invoices. Document services that fit a real startup budget."
+    title: "One Business. One Desk.",
+    description:
+      "Manage contracts, compliance, trademarks, privacy, employment and corporate requirements in one place."
   },
   {
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10"/>
-        <polyline points="12 6 12 12 16 14"/>
+        <path d="M12 2v20"/>
+        <path d="M5 7l7-5 7 5"/>
+        <path d="M5 17l7 5 7-5"/>
       </svg>
     ),
-    title: "48-Hour Turnaround",
-    description: "Submit your requirement. Get a professionally reviewed, verified document within 48 hours. Built for businesses that move fast."
+    title: "Built for Startups",
+    description:
+      "Practical support designed around startup budgets, speed and changing requirements."
   },
   {
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 22h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/>
-        <line x1="10" y1="8" x2="18" y2="8"/>
-        <line x1="10" y1="12" x2="18" y2="12"/>
-        <line x1="10" y1="16" x2="14" y2="16"/>
+        <path d="M12 8v4l3 3"/>
+        <circle cx="12" cy="12" r="9"/>
       </svg>
     ),
-    title: "Backed by Startup Times",
-    description: "Founders Legal Desk is a Startup Times venture. If you've read our publication, you already know what we stand for: honest, useful, founder-first content."
+    title: "Ongoing Support",
+    description:
+      "Stay ahead of compliance and documentation needs instead of fixing problems after they happen."
   }
 ];
 
@@ -92,14 +96,14 @@ const FeaturesSection = () => {
 
       <div className="container relative mx-auto px-6 max-w-[1180px]">
         {/* Header */}
-    <div className="max-w-[640px] mb-14">
+<div className="max-w-[640px] mb-14">
   <div
     className={`fld-reveal fld-eyebrow inline-flex items-center gap-2 text-[#C7954A] text-[12.5px] font-bold tracking-[0.14em] uppercase mb-4 ${
       inView ? "fld-in" : ""
     }`}
   >
     <span className="fld-eyebrow-line w-5 h-px bg-[#C7954A]"></span>
-    The Fix
+    The Solution
   </div>
 
   <div className="overflow-hidden">
@@ -109,7 +113,7 @@ const FeaturesSection = () => {
       }`}
       style={{ fontFamily: "'Fraunces', Georgia, serif" }}
     >
-      Founders Legal Desk <span className="text-[#C7954A]">fixes this.</span> 
+      Your Extended <span className="text-[#C7954A]">Legal & Compliance Desk</span>
     </h2>
   </div>
 
@@ -119,8 +123,8 @@ const FeaturesSection = () => {
     }`}
     style={{ transitionDelay: inView ? "250ms" : "0ms" }}
   >
-    Fixed-price document packages for growing Indian businesses.
-    Specialists. Accountability. 48-hour delivery.
+    Get the support your growing business needs without the cost of building a
+    full in-house team.
   </p>
 </div>
 
@@ -161,7 +165,35 @@ const FeaturesSection = () => {
               </p>
             </div>
           ))}
+
+          
         </div>
+        {/* ✅ CTA Grid ke bahar */}
+<div
+  className={`fld-reveal flex justify-center mt-16 ${
+    inView ? "fld-in" : ""
+  }`}
+  style={{ transitionDelay: inView ? "700ms" : "0ms" }}
+>
+  <a
+    href="/contact"
+    className="group inline-flex items-center gap-3 rounded-full bg-[#C7954A] px-8 py-4 font-semibold text-[#080D1A] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(199,149,74,0.35)]"
+  >
+    Talk to Our Team
+
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
+      <line x1="5" y1="12" x2="19" y2="12" />
+      <polyline points="12 5 19 12 12 19" />
+    </svg>
+  </a>
+</div>
       </div>
 
       <style>{`
