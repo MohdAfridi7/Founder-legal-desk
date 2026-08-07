@@ -21,42 +21,42 @@ const services = [
     title: "Corporate Compliance",
     description:
       "Support for recurring corporate requirements, governance documentation, statutory records, annual compliance coordination and compliance tracking.",
-    image: "/services/corporate-compliance.jpg",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlCofvjZPNL7MTOKMSSCEG0zZNSIM1-PWwR1LSSLV9Jg&s=10",
     icon: Landmark,
   },
   {
     title: "Contracts & Commercial Agreements",
     description:
       "Founder Agreements, Shareholder Agreements, Vendor Agreements, Service Agreements, MSAs, NDAs, Employment Agreements and other commercial documentation.",
-    image: "/services/contracts.jpg",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbDvEvwGX1DdjdsAQc8LK0Laer4Um2c_ECkQHmEGzt6Q&s=10",
     icon: FileSignature,
   },
   {
     title: "Startup & Founder Support",
     description:
       "Business structuring, Startup India recognition, MSME/Udyam registration and startup documentation.",
-    image: "/services/startup.jpg",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQr54ejC_jcOKFULJQbNsJcF_OIO4gzMxkS1LYFz8k2g&s=10",
     icon: Users,
   },
   {
     title: "Trademark & Intellectual Property",
     description:
       "Trademark search, application support, renewals, objections and brand protection.",
-    image: "/services/trademark.jpg",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLgOHgnv0t_s3l7IuPL-nSNH7rhq5giM76U-HkuAUGZQ&s=10",
     icon: ShieldCheck,
   },
   {
     title: "Data Privacy & DPDP Compliance",
     description:
       "Privacy Policies, Cookie Policies, Terms & Conditions and DPDP readiness.",
-    image: "/services/privacy.jpg",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4CV2jv-57hRGGTvqR4e8TydJpaGEdbhbSUo0Tz5TATw&s=10",
     icon: ShieldCheck,
   },
   {
     title: "Employment & HR Compliance",
     description:
       "Employment Agreements, consultant documentation, confidentiality clauses and HR compliance support.",
-    image: "/services/hr.jpg",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsi5ULXtvycnvtAiVvKE-qPXJueJENXfW7yJxkSRaXIA&s=10",
     icon: Briefcase,
   },
 ];
@@ -172,12 +172,12 @@ className="group relative min-h-[520px] sm:min-h-[500px] overflow-hidden border 
                     </div>
 
                     {/* Content */}
-                    <div className="px-5 sm:px-8 pt-6 sm:pt-8 text-center">
+                    <div className="px-1 sm:px-2 pt-6 sm:pt-8 text-center">
                      <h3 className="min-h-[64px] sm:min-h-[72px] text-xl sm:text-2xl font-semibold leading-snug text-[#161d35]">
                         {service.title}
                       </h3>
 
-                      <p className="mt-4 text-sm sm:text-[15px] leading-6 sm:leading-7 text-[#777]">
+                      <p className="mt-1 text-sm sm:text-[15px] leading-6 sm:leading-7 text-[#777]">
                         {service.description}
                       </p>
                     </div>

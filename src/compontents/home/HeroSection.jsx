@@ -1,16 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, ArrowRight, Scale, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowUpRight, ArrowRight, Scale, ShieldCheck } from "lucide-react";
 
 const INK = "#1C1D20";
 const AMBER = "#E8BF96";
 const AMBER_DARK = "#b78d5a";
 
-const HERO_BG_IMAGE =
-  "https://theme.nanoit.biz/tf-lawgis-html-demo/assets/img/bg-img/64.jpg";
-const HERO_THUMBNAIL =
-  "https://theme.nanoit.biz/tf-lawgis-html-demo/assets/img/bg-img/63.png";
+const HERO_BG_IMAGE = "/Home-Hero.png";
 
 function HoverSwapButton({ href, children, icon: Icon }) {
   return (
@@ -75,9 +72,13 @@ export default function HeroSection() {
           0%, 100% { opacity: 0.35; }
           50% { opacity: 0.6; }
         }
+        @keyframes glowDrift {
+          0%, 100% { transform: translate(0px, 0px) scale(1); }
+          50% { transform: translate(24px, -28px) scale(1.1); }
+        }
       `}</style>
 
-      {/* Dark-to-transparent overlay */}
+      {/* Dark-to-transparent overlay — heavy behind content on the left, clear on the right */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -85,18 +86,34 @@ export default function HeroSection() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(90deg, rgba(0,0,0,0.95) 6%, rgba(0,0,0,0.9) 39%, rgba(0,0,0,0.15) 97%)",
+            "linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.88) 32%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.12) 75%, rgba(0,0,0,0) 100%)",
         }}
       />
 
-      {/* Decorative ambient glows */}
+      {/* Animated background glow — clustered behind the content column, nothing on the right */}
       <div
         className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full blur-3xl"
-        style={{ background: AMBER, opacity: 0.15, animation: "pulseGlow 6s ease-in-out infinite" }}
+        style={{
+          background: AMBER,
+          opacity: 0.15,
+          animation: "pulseGlow 6s ease-in-out infinite, glowDrift 12s ease-in-out infinite",
+        }}
       />
       <div
-        className="pointer-events-none absolute right-10 top-1/3 hidden h-96 w-96 rounded-full blur-3xl lg:block"
-        style={{ background: AMBER, opacity: 0.08, animation: "pulseGlow 8s ease-in-out infinite" }}
+        className="pointer-events-none absolute left-[6%] top-1/2 h-[420px] w-[420px] -translate-y-1/2 rounded-full blur-[110px]"
+        style={{
+          background: AMBER,
+          opacity: 0.12,
+          animation: "pulseGlow 8s ease-in-out infinite 1s, glowDrift 16s ease-in-out infinite 1s",
+        }}
+      />
+      <div
+        className="pointer-events-none absolute left-0 bottom-0 h-64 w-64 rounded-full blur-3xl"
+        style={{
+          background: AMBER,
+          opacity: 0.1,
+          animation: "pulseGlow 7s ease-in-out infinite 0.5s, glowDrift 14s ease-in-out infinite 0.5s",
+        }}
       />
 
       {/* Fine grid texture overlay for a premium feel */}
@@ -193,27 +210,6 @@ export default function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* Thumbnail */}
-          <motion.div
-            initial={{ opacity: 0, x: 80, scale: 0.94 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.35 }}
-            className="relative hidden lg:flex lg:items-center lg:justify-center lg:translate-y-[90px]"
-          >
-            {/* Amber frame accent behind image */}
-            <div
-              className="absolute h-[560px] w-[390px] rounded-2xl"
-              style={{ borderColor: `${AMBER}55`, transform: "translate(18px, 18px)" }}
-            />
-
-            <div className="relative" style={{ animation: "floatY 6s ease-in-out infinite" }}>
-              <img
-                src={HERO_THUMBNAIL}
-                alt="Founders Legal Desk"
-                className="mx-auto h-[580px] w-full max-w-[410px] rounded-2xl object-cover shadow-2xl"
-              />
-            </div>
-          </motion.div>
         </div>
       </div>
 

@@ -15,7 +15,6 @@ const PLATFORM_LINKS = [
   { label: 'Pricing', href: '/pricing' },
   { label: 'Free Consultation', href: 'free-consultation' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Profile', href: '/profile' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];

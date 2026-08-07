@@ -458,9 +458,9 @@ function SectorTabs({ active, onChange }) {
    SECTION
    ============================================================ */
 export default function AddOn({
-  eyebrow = "Add-Ons",
+  eyebrow = "Clear Pricing",
   title = "Modular Sector-Specific Add-Ons",
-  description = "Plug in exactly what your industry needs, on top of your base package — priced separately, added only when you need them.",
+  description = "Know what your legal work will cost before you get started. Choose the service you need, with clearly defined professional fees and no unnecessary retainers.",
   onSelect = (sector, item) => {},
 }) {
   const [active, setActive] = useState(SECTOR_KEYS[0]);
@@ -486,7 +486,7 @@ export default function AddOn({
             {eyebrow}
           </div>
           <h2 className="text-[26px] sm:text-[34px] lg:text-[42px] leading-[1.15] font-semibold mb-3" style={{ ...fontDisplay, color: C.white, letterSpacing: "-.01em" }}>
-            Modular Sector-Specific <span style={{ color: C.Gold }}>Add-Ons</span> 
+           Legal Services,<span style={{ color: C.Gold }}> Priced Upfront </span> 
           </h2>
           <p className="text-[15.5px] sm:text-[17px]" style={{ color: C.slate300 }}>{description}</p>
         </motion.div>

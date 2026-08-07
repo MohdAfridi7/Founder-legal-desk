@@ -79,44 +79,44 @@ const testimonials = [
   {
     name: "Balachander",
     role: "Litconnect — LegalTech, London",
-    avatar: "https://media.licdn.com/dms/image/v2/D5603AQHDEgifKh4O_Q/profile-displayphoto-shrink_800_800/B56ZW4g5w.GsAc-/0/1742557388313?e=1787184000&v=beta&t=C9Dwpe3XlGpXTesTpBoC4ZpfzLGEf3GhIfqXYdYcn4Y",
+    avatar: "https://media.licdn.com/dms/image/v2/C5603AQE_v3a_mvk7Yw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1650304809148?e=1787184000&v=beta&t=YsGc8m1NYLuhT6gy2i84niPwzgdm9UYQpKcNZr8VYLA",
     quote:
       "Founders Legal Desk supported us on complex privacy and technology documentation across multiple regulatory frameworks. The team understood the requirements thoroughly and delivered structured, business-focused documentation.",
   },
   {
     name: "Sohaib Ahmed",
     role: "Founder, Awliyah — Toronto",
-    avatar: "https://media.licdn.com/dms/image/v2/D4D03AQHAl54rMl8uDA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1690358867954?e=1787184000&v=beta&t=ztx34rlqXn72PZK6tFm6bi1phTuo9H1Jx3Uw0wijG5A",
+    avatar: "https://media.licdn.com/dms/image/v2/D5603AQGRyHD8z17U8w/profile-displayphoto-crop_800_800/B56Z7WkrnIGcAI-/0/1781716403019?e=1787184000&v=beta&t=0nmF2tpMHDZeTWwutsqEU9DRL6RWQYbsDmyXWiLXiWE",
     quote:
       "The team supported us with our privacy documentation and understood the international nature of our business. The entire process was clear, responsive and professionally managed.",
   },
   {
-    name: "Arjun Verma",
-    role: "SaaS Founder",
-    avatar: "https://media.licdn.com/dms/image/v2/D5603AQFuEUSHp0SVzg/profile-displayphoto-crop_800_800/B56Z0o4SWmJ8AI-/0/1774507339125?e=1787184000&v=beta&t=3YjEtw1YXq97tHbiEb7HrTP0x-jO2Sl4ybhLfrPP0XE",
+    name: "Ahmad Umar",
+    role: "Medixcy — HealthTech",
+    avatar: "https://media.licdn.com/dms/image/v2/D4E03AQGc4ijGE6qb6g/profile-displayphoto-shrink_800_800/B4EZTg6DPGHMAc-/0/1738940103940?e=1787184000&v=beta&t=9Y8HBnfhQwwfDITb6UXWsKgQalKqVFI9r_jxDOQTzf4",
     quote:
-      "Their specialist-reviewed contracts gave us confidence while closing enterprise deals. The quality and attention to detail were excellent.",
+      "We needed support across privacy, founder documentation and the regulatory requirements applicable to a digital healthcare business. The team took the time to understand our model and gave us practical, well-researched support.",
   },
   {
-    name: "Neha Kapoor",
-    role: "Operations Director",
-    avatar: "https://media.licdn.com/dms/image/v2/D5603AQEwiPCs-aHEJA/profile-displayphoto-crop_800_800/B56ZvquP5QGYAI-/0/1769169553087?e=1787184000&v=beta&t=OU61e-q_jMaKdYHKJgFoQ6k3ka-uKt9FAk7NznqNXkA",
+    name: "Aamish",
+    role: "Acqify Ltd.",
+    avatar: "https://media.licdn.com/dms/image/v2/D5603AQGc-CBKQ1s1UA/profile-displayphoto-crop_800_800/B56ZlIzLJWIsAI-/0/1757863001851?e=1787184000&v=beta&t=iuAUrpM0JxjC6F6Qo9AhiiKGY0J9M_fKvHrT6TGRzDE",
     quote:
-      "The compliance support and document management services helped us stay organized. Every deliverable was accurate and professionally prepared.",
+      "From NDAs and commercial contracts to data-protection requirements, the team understood what our business actually needed instead of giving us generic templates. The support was responsive and practical.",
   },
   {
-    name: "Vikram Singh",
-    role: "Managing Partner",
-    avatar: "https://media.licdn.com/dms/image/v2/D5603AQFi5eWO16enBA/profile-displayphoto-crop_800_800/B56Z3EQ07NHEAI-/0/1777114242790?e=1787184000&v=beta&t=0H2-EOPfh8VJpRrUNFSeWN1TFmnDNvMZHPthlO1hRJk",
+    name: "Suhaib Siddiqui",
+    role: "Chaichaska — F&B / QSR",
+    avatar: "https://media.licdn.com/dms/image/v2/D4D03AQEf280CtaBHQA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1678684584450?e=1787184000&v=beta&t=V8wrEK1PwE6U3Cu7elkqGLD_jsQrcLbiiJ_BkaSy6gc",
     quote:
-      "From shareholder agreements to vendor contracts, the team handled everything efficiently. A reliable partner for growing businesses.",
+      "We worked with the team across multiple requirements including trademark, franchise documentation, employment documentation and MSME registration. Having one team coordinate different requirements made the process much easier for us.",
   },
   {
-    name: "Ananya Gupta",
-    role: "Founder & CEO",
-    avatar: "https://media.licdn.com/dms/image/v2/D5603AQFfYTVeX6wACQ/profile-displayphoto-crop_800_800/B56Z9kqAl4KEAQ-/0/1784100165141?e=1787184000&v=beta&t=M2FKClxmEjwlq2wtLZzjlE7ld-jDnIxBcthfgecyUWc",
+    name: "Hammas Khan",
+    role: "V2V Garments — Retail",
+    avatar: "https://media.licdn.com/dms/image/v2/D4D03AQGNT9AXGiPXyg/profile-displayphoto-crop_800_800/B4DZ6torN4JcAI-/0/1781029584543?e=1787184000&v=beta&t=Dbm-U6EDJ5czkqgsRPqRJJD-z5JXML_-phWUhi-1fAE",
     quote:
-      "Excellent experience from start to finish. The specialists understood our requirements and delivered high-quality legal documents within the promised timeline.",
+      "The team supported us on an important intellectual-property matter with detailed documentation and research. They were thorough, responsive and clear throughout the process.",
   },
 ];
 

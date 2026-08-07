@@ -67,7 +67,7 @@ const plans = [
   },
   {
     name: "Premium",
-    price: "₹25,000 - ₹35,000",
+    price: "₹35,000",
     period: "/month",
     note : "The (Scale-Up GC Command)",
     items: [

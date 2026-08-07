@@ -25,48 +25,50 @@ const BORDER = 'rgba(18,21,31,0.09)';
 const PLANS = [
   {
     tier: 'Tier 1',
-    name: 'Starter',
-    audience: 'Pre-revenue / early stage, under 5 employees',
-    monthly: 7000,
-    yearly: 70000,
+    name: 'Basic',
+    audience: 'The Startup Legal Safety Net',
+    monthly: 3000,
+    yearly: 30000,
     popular: false,
-    feats: [
-      { label: 'Template Documents', value: 'Up to 3 per month (NDAs, vendor agreements)' },
-      { label: 'Custom Documents', value: 'Excluded' },
-      { label: 'Consultations', value: 'Basic WhatsApp support (48-hr response)' },
-      { label: 'Compliance Support', value: 'Automated calendar alerts (director KYC, GST)' },
-      { label: 'Special Inclusions', value: '—' },
+   feats: [
+      { label: 'Template Documents', value: 'Up to 3 template documents/month' },
+      { label: 'Consultations', value: 'Basic WhatsApp support (48-hour response)' },
+      { label: 'Compliance Support', value: 'Compliance calendar alerts' },
+      { label: 'Best For', value: 'Ideal for early-stage startups' },
     ],
+
   },
   {
     tier: 'Tier 2',
-    name: 'Growth',
-    audience: 'Seed-stage, 5–25 employees',
-    monthly: 16000,
-    yearly: 160000,
+    name: 'Standard',
+    audience: 'The (VC-Ready Fractional GC)',
+    monthly: 10000,
+    yearly: 100000,
     popular: true,
     feats: [
-      { label: 'Template Documents', value: '10 documents/month' },
-      { label: 'Custom Documents', value: 'Up to 5 per month (MSAs, SaaS terms)' },
-      { label: 'Consultations', value: '30-minute monthly strategic call' },
-      { label: 'Compliance Support', value: 'Comprehensive calendar management' },
-      { label: 'Special Inclusions', value: '1 trademark application/year (govt fees extra)' },
+      { label: 'Legal Consultancy', value: 'All-time ongoing legal consultancy' },
+      { label: 'Core Legal Service', value: 'One dedicated core legal service per month' },
+      { label: 'Template Library', value: 'Standard template library access' },
     ],
+
   },
   {
     tier: 'Tier 3',
-    name: 'Scale',
-    audience: 'Funded or highly profitable bootstrapped companies',
-    monthly: 36000,
-    yearly: 360000,
+    name: 'Premium',
+    audience: 'The (Scale-Up GC Command)',
+    monthly: 35000,
+    yearly: 350000,
     popular: false,
-    feats: [
-      { label: 'Template Documents', value: 'Unlimited drafting' },
-      { label: 'Custom Documents', value: 'Unlimited drafting' },
-      { label: 'Consultations', value: 'Two monthly consultation calls' },
-      { label: 'Compliance Support', value: 'Comprehensive data protection compliance reviews' },
-      { label: 'Special Inclusions', value: 'VC docs (SHA, SSA, term sheets) + end-to-end ESOP' },
+   feats: [
+      { label: 'GC Support', value: 'Unlimited fractional General Counsel support' },
+      { label: 'Legal Services', value: 'Up to seven dedicated legal services per month' },
+      { label: 'IP Protection', value: 'The "IP Lockbox" engine' },
+      { label: 'Compliance', value: 'Tech, AI & data protection compliance' },
+      { label: 'Due Diligence', value: 'Mock due diligence data room setup' },
+      { label: 'VC Docs', value: 'SHA, SSA & term sheet assistance' },
+      { label: 'ESOP', value: 'End-to-end ESOP architecture' },
     ],
+
   },
 ];
 
@@ -94,7 +96,7 @@ function PlanCard({ plan, index, yearly, inView }) {
       whileHover={{ y: -8, scale: isPopular ? 1.05 : 1.02 }}
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
-      className="relative flex flex-col overflow-visible rounded-2xl p-7 sm:p-8"
+      className="relative flex h-full flex-col overflow-visible rounded-2xl p-7 sm:p-8"
       style={{
         background: isPopular ? NAVY : '#FFFFFF',
         border: `1.5px solid ${isPopular ? AMBER : BORDER}`,
@@ -348,7 +350,7 @@ export default function PricingPlansSection() {
             color: INK,
           }}
         >
-          Simple plans. No surprises.
+         Flexible Legal Support For Every Stage
         </motion.h2>
 
         {/* Toggle */}
@@ -402,7 +404,7 @@ export default function PricingPlansSection() {
         </motion.div>
 
         {/* Plan cards */}
-       <div className="grid grid-cols-1 items-start gap-6 pt-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7">
+       <div className="grid grid-cols-1 items-stretch gap-6 pt-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7">
           {PLANS.map((plan, i) => (
             <PlanCard key={plan.name} plan={plan} index={i} yearly={yearly} inView={inView} />
           ))}
