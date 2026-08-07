@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 /* ============================================================
@@ -335,7 +335,7 @@ const PlugIcon = () => (
 );
 
 /* ============================================================
-   GLOBAL STYLE — shimmer + connector-line keyframes
+   GLOBAL STYLE — shimmer + connector-line keyframes + tabs scrollbar
    ============================================================ */
 const GlobalStyle = () => (
   <style>{`
@@ -360,6 +360,21 @@ const GlobalStyle = () => (
     .ao-plug-line{ stroke-dasharray:60; stroke-dashoffset:60; transition:stroke-dashoffset .5s ease; }
     .ao-card:hover .ao-plug-line{ stroke-dashoffset:0; }
     .ao-blob{ position:absolute; border-radius:9999px; filter:blur(80px); opacity:.18; pointer-events:none; }
+
+    /* --- Category tabs horizontal scroll + custom scrollbar --- */
+    .ao-tabs-scroll{
+      overflow-x:auto;
+      overflow-y:hidden;
+      scroll-behavior:smooth;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width: thin;
+      scrollbar-color: ${C.amber500} rgba(255,255,255,.06);
+    }
+    .ao-tabs-scroll::-webkit-scrollbar{ height:6px; }
+    .ao-tabs-scroll::-webkit-scrollbar-track{ background:rgba(255,255,255,.06); border-radius:999px; }
+    .ao-tabs-scroll::-webkit-scrollbar-thumb{ background:${C.amber500}; border-radius:999px; }
+    .ao-tabs-scroll::-webkit-scrollbar-thumb:hover{ background:${C.amber400}; }
+
     @media (prefers-reduced-motion: reduce){
       .ao-shine::after{ transition:none !important; transform:none !important; }
     }
@@ -420,36 +435,71 @@ function AddOnCard({ item, index }) {
 }
 
 /* ============================================================
-   SECTOR TABS — sliding highlight pill via layoutId
+   SECTOR TABS — horizontal scroll + custom scrollbar + arrow buttons
    ============================================================ */
 function SectorTabs({ active, onChange }) {
+  const scrollRef = useRef(null);
+
+  const scrollByAmount = (amount) => {
+    scrollRef.current?.scrollBy({ left: amount, behavior: "smooth" });
+  };
+
   return (
-    <div className="flex flex-wrap gap-2.5 mb-10 sm:mb-12">
-      {SECTOR_KEYS.map((key) => {
-        const isActive = key === active;
-        return (
-          <button
-            key={key}
-            onClick={() => onChange(key)}
-            className="relative px-5 py-3 rounded-full font-bold text-[13.5px] sm:text-[14px] transition-colors duration-300"
-            style={{ color: isActive ? C.navy950 : C.white }}
-          >
-            {isActive && (
-              <motion.span
-                layoutId="ao-tab-pill-dark"
-                className="absolute inset-0 rounded-full"
-                style={{ background: C.amber500, zIndex: 0 }}
-                transition={{ type: "spring", stiffness: 350, damping: 30 }}
+    <div className="relative mb-10 sm:mb-12">
+      {/* Left arrow button */}
+      <button
+        onClick={() => scrollByAmount(-220)}
+        className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full items-center justify-center flex-shrink-0"
+        style={{ background: C.navy900, border: `1.5px solid ${C.lineDark2}`, color: C.white }}
+        aria-label="Scroll categories left"
+        type="button"
+      >
+        ‹
+      </button>
+
+      {/* Scrollable tabs row */}
+      <div
+        ref={scrollRef}
+        className="ao-tabs-scroll flex gap-2.5 px-1 sm:px-12"
+      >
+        {SECTOR_KEYS.map((key) => {
+          const isActive = key === active;
+          return (
+            <button
+              key={key}
+              onClick={() => onChange(key)}
+              className="relative px-5 py-3 rounded-full font-bold text-[13.5px] sm:text-[14px] transition-colors duration-300 flex-shrink-0 whitespace-nowrap"
+              style={{ color: isActive ? C.navy950 : C.white }}
+              type="button"
+            >
+              {isActive && (
+                <motion.span
+                  layoutId="ao-tab-pill-dark"
+                  className="absolute inset-0 rounded-full"
+                  style={{ background: C.amber500, zIndex: 0 }}
+                  transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                />
+              )}
+              <span
+                className="absolute inset-0 rounded-full border-[1.5px]"
+                style={{ borderColor: isActive ? "transparent" : C.lineDark2, zIndex: 0 }}
               />
-            )}
-            <span
-              className="absolute inset-0 rounded-full border-[1.5px]"
-              style={{ borderColor: isActive ? "transparent" : C.lineDark2, zIndex: 0 }}
-            />
-            <span className="relative z-10">{key}</span>
-          </button>
-        );
-      })}
+              <span className="relative z-10">{key}</span>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Right arrow button */}
+      <button
+        onClick={() => scrollByAmount(220)}
+        className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full items-center justify-center flex-shrink-0"
+        style={{ background: C.navy900, border: `1.5px solid ${C.lineDark2}`, color: C.white }}
+        aria-label="Scroll categories right"
+        type="button"
+      >
+        ›
+      </button>
     </div>
   );
 }
