@@ -122,7 +122,7 @@ export default function Services() {
   whileInView={{ opacity: 1, y: 0 }}
   viewport={{ once: true }}
   transition={{ duration: 0.8, delay: 0.15 }}
-  className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl"
+  className="mt-4 text-3xl text-black font-semibold leading-tight sm:text-4xl md:text-5xl"
   style={{ fontFamily: "'Fraunces', Georgia, serif" }}
 >
 Corporate & Compliance Support

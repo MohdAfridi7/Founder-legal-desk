@@ -372,7 +372,7 @@ export default function WorkProcessSection() {
   </div>
 
   <h2
-  className="text-[28px] sm:text-[34px] lg:text-[42px] leading-[1.15] font-semibold"
+  className="text-[28px] sm:text-[34px] lg:text-[42px] leading-[1.15] text-black font-semibold"
   style={{ fontFamily: "'Fraunces', Georgia, serif" }}
 >
   How it <span className="text-[#C7954A]"> works

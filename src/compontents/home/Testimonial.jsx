@@ -167,7 +167,7 @@ function Header({
 
     <motion.h2
       variants={textVariants}
-      className="text-[26px] sm:text-[34px] lg:text-[42px] leading-[1.15] font-semibold"
+      className="text-[26px] text-black sm:text-[34px] lg:text-[42px] leading-[1.15] font-semibold"
       style={{ fontFamily: "'Fraunces', Georgia, serif" }}
     >
      What Our <span style={{ color: '#D9A867' }}>Clients Say</span>
@@ -176,7 +176,7 @@ function Header({
 
   <motion.p
     variants={textVariants}
-    className="text-[15.5px] sm:text-[17px] leading-relaxed max-w-md"
+    className="text-[15.5px] text-black sm:text-[17px] leading-relaxed max-w-md"
     
   >
    Businesses across technology, healthcare, retail, food & beverage and other sectors have trusted us with important corporate, privacy and commercial requirements.
@@ -188,12 +188,12 @@ function Header({
   >
     <StarIcon size={26} />
     <span
-      className="text-[26px] sm:text-[30px] font-bold"
+      className="text-[26px] text-black sm:text-[30px] font-bold"
       style={{ fontFamily: "'Fraunces', Georgia, serif" }}
     >
       4.9
     </span>
-    <div className="ml-1 text-[13px] leading-tight">
+    <div className="ml-1 text-black text-[13px] leading-tight">
       <div>500+ Reviews</div>
     </div>
   </motion.div>

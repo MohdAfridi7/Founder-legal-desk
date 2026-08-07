@@ -176,10 +176,10 @@ function ProblemCard({ num, title, desc, index }) {
         0{num}
       </div>
 
-      <h3 className="text-[18px] sm:text-[19px] mb-3 leading-snug font-semibold" style={fontDisplay}>
+      <h3 className="text-[18px] sm:text-[19px] ] mb-3 leading-snug  font-semibold" style={fontDisplay}>
         <span className="sf-hl-wrap">
           <span className="sf-hl-bar" />
-          <span className="sf-hl-text">{title}</span>
+          <span className="sf-hl-text text-black">{title}</span>
         </span>
       </h3>
 
