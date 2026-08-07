@@ -17,13 +17,21 @@ export const metadata = {
     template: "%s | Founders Legal Desk",
     default: "Founders Legal Desk — Business Legal Documents",
   },
-  description: "Fixed-price, specialist-reviewed legal documents for growing Indian businesses.",
-  keywords: "lawyer, legal documents, business contracts, startup legal, India",
+  description:
+    "Fixed-price, specialist-reviewed legal documents for growing Indian businesses.",
+  keywords:
+    "lawyer, legal documents, business contracts, startup legal, India",
   authors: [{ name: "Founders Legal Desk" }],
-  metadataBase: new URL("https://founderdesk.com"),
+  metadataBase: new URL("https://founderslegaldesk.com"),
   icons: {
     icon: "/favicon.ico",
   },
+
+  // 👇 Add this
+  verification: {
+    google: "fljvNMN6BWaJLL539alD7XC8XSeU5mDKWqPAEGcfUeE",
+  },
+
   robots: {
     index: true,
     follow: true,
