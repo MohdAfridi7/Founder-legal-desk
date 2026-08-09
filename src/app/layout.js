@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "sonner";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,17 +18,21 @@ export const metadata = {
     template: "%s | Founders Legal Desk",
     default: "Founders Legal Desk — Business Legal Documents",
   },
+
   description:
     "Fixed-price, specialist-reviewed legal documents for growing Indian businesses.",
+
   keywords:
     "lawyer, legal documents, business contracts, startup legal, India",
+
   authors: [{ name: "Founders Legal Desk" }],
+
   metadataBase: new URL("https://founderslegaldesk.com"),
+
   icons: {
     icon: "/favicon.ico",
   },
 
-  // 👇 Add this
   verification: {
     google: "fljvNMN6BWaJLL539alD7XC8XSeU5mDKWqPAEGcfUeE",
   },
@@ -36,11 +41,13 @@ export const metadata = {
     index: true,
     follow: true,
   },
+
   openGraph: {
     siteName: "Founders Legal Desk",
     type: "website",
     locale: "en_IN",
   },
+
   twitter: {
     card: "summary_large_image",
   },
@@ -60,7 +67,23 @@ export default function RootLayout({ children }) {
     >
       <body>
         {children}
-        <Toaster richColors position="top-right" />
+
+        <Toaster />
+
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-D8MEP4R2XV"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-D8MEP4R2XV');
+          `}
+        </Script>
       </body>
     </html>
   );
