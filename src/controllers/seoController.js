@@ -50,11 +50,11 @@ export const createSEO = async (req) => {
       );
     }
 
-    if (metaTitle.length > 60) {
+    if (metaTitle.length > 90) {
       return NextResponse.json(
         {
           success: false,
-          msg: "Meta Title should not exceed 60 characters",
+          msg: "Meta Title should not exceed 90 characters",
         },
         {
           status: 400,
@@ -62,11 +62,11 @@ export const createSEO = async (req) => {
       );
     }
 
-    if (metaDescription.length > 160) {
+    if (metaDescription.length > 200) {
       return NextResponse.json(
         {
           success: false,
-          msg: "Meta Description should not exceed 160 characters",
+          msg: "Meta Description should not exceed 200 characters",
         },
         {
           status: 400,
