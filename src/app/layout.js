@@ -22,43 +22,114 @@ export const metadata = {
   description:
     "Fixed-price, specialist-reviewed legal documents for growing Indian businesses.",
 
-  keywords:
-    "lawyer, legal documents, business contracts, startup legal, India",
+  keywords: [
+    "lawyer",
+    "legal documents",
+    "business contracts",
+    "startup legal",
+    "India",
+    "legal services",
+    "business legal documents",
+    "startup contracts",
+  ],
 
-  authors: [{ name: "Founders Legal Desk" }],
+  authors: [
+    {
+      name: "Founders Legal Desk",
+    },
+  ],
+
+  creator: "Founders Legal Desk",
+  publisher: "Founders Legal Desk",
 
   metadataBase: new URL("https://founderslegaldesk.com"),
 
+  /* =========================
+     FAVICON / LOGO
+  ========================= */
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon-32 x 32.png",
+    shortcut: "/favicon.png",
+    apple: "/logo-512.png",
   },
 
+  /* =========================
+     GOOGLE SEARCH CONSOLE
+  ========================= */
   verification: {
     google: "fljvNMN6BWaJLL539alD7XC8XSeU5mDKWqPAEGcfUeE",
   },
 
+  /* =========================
+     ROBOTS
+  ========================= */
   robots: {
     index: true,
     follow: true,
+
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 
+  /* =========================
+     OPEN GRAPH
+  ========================= */
   openGraph: {
+    title: "Founders Legal Desk — Business Legal Documents",
+
+    description:
+      "Fixed-price, specialist-reviewed legal documents for growing Indian businesses.",
+
+    url: "https://founderslegaldesk.com",
+
     siteName: "Founders Legal Desk",
+
     type: "website",
+
     locale: "en_IN",
+
+    images: [
+      {
+        url: "/logo-1200x630.png",
+        width: 1200,
+        height: 630,
+        alt: "Founders Legal Desk — Business Legal Documents",
+      },
+    ],
   },
 
+  /* =========================
+     TWITTER / X
+  ========================= */
   twitter: {
     card: "summary_large_image",
+
+    title: "Founders Legal Desk — Business Legal Documents",
+
+    description:
+      "Fixed-price, specialist-reviewed legal documents for growing Indian businesses.",
+
+    images: ["/logo-1200x630.png"],
   },
 };
 
+/* =========================
+   VIEWPORT
+========================= */
 export const viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: "#080D1A",
 };
 
+/* =========================
+   ROOT LAYOUT
+========================= */
 export default function RootLayout({ children }) {
   return (
     <html
@@ -68,19 +139,37 @@ export default function RootLayout({ children }) {
       <body>
         {children}
 
-        <Toaster />
+        {/* =========================
+            SONNER TOASTER
+        ========================= */}
+        <Toaster
+          position="top-right"
+          richColors
+          closeButton
+        />
 
-        {/* Google Analytics */}
+        {/* =========================
+            GOOGLE ANALYTICS
+        ========================= */}
+
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-D8MEP4R2XV"
           strategy="afterInteractive"
         />
 
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+        >
           {`
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
+
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+
             gtag('js', new Date());
+
             gtag('config', 'G-D8MEP4R2XV');
           `}
         </Script>

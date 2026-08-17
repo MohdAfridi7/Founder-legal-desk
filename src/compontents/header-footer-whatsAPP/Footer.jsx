@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, ArrowRight, ArrowUpRight, ArrowUp } from 'lucide-react';
 import { FaLinkedinIn, FaTwitter, FaInstagram } from "react-icons/fa";
+import Image from "next/image";
 const NAVY = '#19223A';
 const NAVY_DARK = '#141B2F';
 const GOLD = '#C7954A';
@@ -151,30 +152,37 @@ export default function Footer() {
       <div className="relative mx-auto max-w-[1200px] px-5 py-14 sm:px-8 sm:py-16 lg:py-20">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] lg:gap-8">
           {/* Brand */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <div
-              className="mb-1 text-[20px] font-normal text-white sm:text-[21px]"
-              style={{ fontFamily: "'Marcellus', serif" }}
-            >
-              Founders Legal Desk
-            </div>
-            <div className="mb-5 text-[11px] font-semibold uppercase tracking-[0.1em]" style={{ color: GOLD }}>
-              A Startup Times Venture
-            </div>
-            <p className="mb-6 max-w-full text-[14.5px] leading-relaxed sm:max-w-[280px]" style={{ color: TEXT_DARK }}>
-              Business document protection for Indian companies that are building something real.
-            </p>
-            <div className="flex items-center gap-3">
-              {SOCIALS.map((s, i) => (
-                <SocialButton key={i} {...s} />
-              ))}
-            </div>
-          </motion.div>
+       {/* Brand */}
+<motion.div
+  initial={{ opacity: 0, y: 16 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.5 }}
+>
+  <div className="mb-5">
+    <Image
+      src="/logo-white.png"
+      alt="Founders Legal Desk"
+      width={220}
+      height={70}
+      className="h-auto w-[180px] sm:w-[210px]"
+    />
+  </div>
+
+  <p
+    className="mb-6 max-w-full text-[14.5px] leading-relaxed sm:max-w-[280px]"
+    style={{ color: TEXT_DARK }}
+  >
+    Business document protection for Indian companies that are building
+    something real.
+  </p>
+
+  <div className="flex items-center gap-3">
+    {SOCIALS.map((s, i) => (
+      <SocialButton key={i} {...s} />
+    ))}
+  </div>
+</motion.div>
 
           {/* Platform links */}
           <motion.div
