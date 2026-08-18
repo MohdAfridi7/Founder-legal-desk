@@ -56,9 +56,9 @@ export const metadata = {
   /* =========================
      GOOGLE SEARCH CONSOLE
   ========================= */
-  verification: {
-    google: "fljvNMN6BWaJLL539alD7XC8XSeU5mDKWqPAEGcfUeE",
-  },
+ verification: {
+  google: "ld0RLUmG56ULo9jfgIiHUqsEa64m9nx--KO2VhScBzM",
+},
 
   /* =========================
      ROBOTS
