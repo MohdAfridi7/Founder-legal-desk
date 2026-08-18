@@ -13,7 +13,7 @@ import AddOnSaction from "../../compontents/home/AddOn";
 import Testimonial from "../../compontents/home/Testimonial";
 import Faq from "../../compontents/home/FaqSection";
 import { getSeo } from "@/lib/getSeo";
-
+export const revalidate = 60;
 export async function generateMetadata() {
   const seo = await getSeo("home");
 

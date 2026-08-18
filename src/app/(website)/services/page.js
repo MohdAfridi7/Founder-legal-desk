@@ -5,7 +5,7 @@ import WhoWeServe from "../../../compontents/home/WhoWeServe";
 import Testimonial from "../../../compontents/home/Testimonial";
 import Faq from "../../../compontents/home/FaqSection";
 import { getSeo } from "@/lib/getSeo";
-
+export const revalidate = 60;
 const servicesFaqs = [
   {
     q: "What legal services do you provide?",

@@ -6,7 +6,7 @@ import PricingQuoteCTA from "../../../compontents/pricing/PricingQuoteCTA";
 import Testimonial from "../../../compontents/home/Testimonial";
 import Faq from "../../../compontents/home/FaqSection";
 import { getSeo } from "@/lib/getSeo";
-
+export const revalidate = 60;
 const pricingFaqs = [
   {
     q: "Why is the specialist fee billed separately?",

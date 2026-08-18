@@ -7,7 +7,7 @@ import TrustSaction from "../../../compontents/home/TrustSaction";
 import Testimonial from "../../../compontents/home/Testimonial";
 import FaqSection from "../../../compontents/home/FaqSection";
 import { getSeo } from "@/lib/getSeo";
-
+export const revalidate = 60;
 export async function generateMetadata() {
   const seo = await getSeo("about");
 
