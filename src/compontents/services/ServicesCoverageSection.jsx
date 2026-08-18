@@ -355,7 +355,7 @@ export default function ServicesCoverageSection() {
         >
           <p className="text-[14.5px] text-[#777]">Not sure which service you need? Book a free consultation.</p>
           <motion.a
-            href="#consultation"
+            href="/free-consultation"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.98 }}
             className="group flex items-center gap-3 px-7 py-4 font-medium tracking-wide text-white transition-all duration-300"

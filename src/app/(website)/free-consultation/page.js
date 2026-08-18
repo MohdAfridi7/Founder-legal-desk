@@ -47,8 +47,8 @@ export default async function FreeConsultationPage() {
       <div className="min-h-screen bg-white">
         <Hero />
         <Brand />
+         <FormSection />
         <Consultationintrocards />
-        <FormSection />
         <Testimonial />
         <FaqSection />
       </div>

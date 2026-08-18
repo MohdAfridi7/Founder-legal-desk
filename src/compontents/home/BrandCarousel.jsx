@@ -33,10 +33,9 @@ export default function BrandCarousel() {
         }
       `}</style>
 
-      <div className="marquee-wrap relative w-full  overflow-hidden border-y border-neutral-300 bg-neutral-400 py-5 rounded-sm">
+      <div className="marquee-wrap relative w-full  overflow-hidden border-y border-neutral-300 bg-[#828282] py-5 rounded-sm">
         {/* left/right edge fade so the loop reads seamless */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-28 z-10 bg-gradient-to-r from-neutral-200 to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-28 z-10 bg-gradient-to-l from-neutral-200 to-transparent" />
+       
 
         <div className="marquee-track flex items-center gap-20 w-max">
          {track.map((logo, i) => (
@@ -48,7 +47,7 @@ export default function BrandCarousel() {
   src={logo.src}
   alt={logo.alt}
   className="max-h-12 max-w-full w-auto h-auto object-contain
-             grayscale sepia saturate-200 brightness-75 contrast-125
+            
              transition-all duration-500 ease-out
              group-hover:grayscale-0 group-hover:sepia-0 group-hover:saturate-100 group-hover:brightness-100 group-hover:contrast-100
              group-hover:opacity-100 group-hover:scale-110 group-hover:-translate-y-1"

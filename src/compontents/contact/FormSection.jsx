@@ -16,10 +16,10 @@ const NAVY = '#12182B';
 const BORDER = 'rgba(18,21,31,0.1)';
 
 const CONTACT_INFO = [
-  { Icon: Mail, label: 'Email', value: 'hello@founderslegaldesk.com' },
-  { Icon: MessageCircle, label: 'WhatsApp', value: '[Your WhatsApp business number]' },
+  { Icon: Mail, label: 'Email', value: 'legal@founderslegaldesk.com' },
+  { Icon: MessageCircle, label: 'WhatsApp', value: '+91 97117 52388' },
   { Icon: Clock, label: 'Response time', value: 'We respond to all enquiries within 1 business day.' },
-  { Icon: MapPin, label: 'Address', value: 'Founders Legal Desk Pvt Ltd, Lucknow' },
+  { Icon: MapPin, label: 'Address', value: 'A-522, Tower T3, NX One,Tech zone 4, Plot No - 17, Amrapali Dream Valley, Greater Noida, Uttar Pradesh 201318, India' },
 ];
 
 function ContactInfoRow({ Icon, label, value, index, isLast }) {

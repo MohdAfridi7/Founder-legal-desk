@@ -46,12 +46,12 @@ const plans = [
     price: "₹3,000",
     period: "/month",
     note : "The Startup Legal Safety Net ",
-    items: [
-      "Up to 3 template documents/month",
-      "Basic WhatsApp support (48-hour response)",
-      "Compliance calendar alerts",
-      "Ideal for early-stage startups",
+     items: [
+      "All-Time Ongoing Legal Consultancy",
+      "One Dedicated Core Legal Service per Month",
+      "Standard Template Library Access",
     ],
+ 
   },
   {
     name: "Standard",
@@ -59,10 +59,11 @@ const plans = [
     period: "/month",
     popular: true,
     note : "The (VC-Ready Fractional GC) ",
-    items: [
-      "All-Time Ongoing Legal Consultancy",
-      "One Dedicated Core Legal Service per Month",
-      "Standard Template Library Access",
+      items: [
+      "Up to 3 template documents/month",
+      "Basic WhatsApp support (48-hour response)",
+      "Compliance calendar alerts",
+      "Ideal for early-stage startups",
     ],
   },
   {

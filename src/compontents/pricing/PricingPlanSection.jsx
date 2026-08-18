@@ -30,11 +30,10 @@ const PLANS = [
     monthly: 3000,
     yearly: 30000,
     popular: false,
-   feats: [
-      { label: 'Template Documents', value: 'Up to 3 template documents/month' },
-      { label: 'Consultations', value: 'Basic WhatsApp support (48-hour response)' },
-      { label: 'Compliance Support', value: 'Compliance calendar alerts' },
-      { label: 'Best For', value: 'Ideal for early-stage startups' },
+  feats: [
+      { label: 'Legal Consultancy', value: 'All-time ongoing legal consultancy' },
+      { label: 'Core Legal Service', value: 'One dedicated core legal service per month' },
+      { label: 'Template Library', value: 'Standard template library access' },
     ],
 
   },
@@ -45,10 +44,11 @@ const PLANS = [
     monthly: 10000,
     yearly: 100000,
     popular: true,
-    feats: [
-      { label: 'Legal Consultancy', value: 'All-time ongoing legal consultancy' },
-      { label: 'Core Legal Service', value: 'One dedicated core legal service per month' },
-      { label: 'Template Library', value: 'Standard template library access' },
+      feats: [
+      { label: 'Template Documents', value: 'Up to 3 template documents/month' },
+      { label: 'Consultations', value: 'Basic WhatsApp support (48-hour response)' },
+      { label: 'Compliance Support', value: 'Compliance calendar alerts' },
+      { label: 'Best For', value: 'Ideal for early-stage startups' },
     ],
 
   },

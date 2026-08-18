@@ -81,7 +81,7 @@ export default function Header() {
           {/* Brand */}
       <Link href="/" className="flex items-center">
   <Image
-    src="/logo-white.png"
+    src="/logo-main-golden.png"
     alt="Founders Legal Desk"
     width={190}
     height={60}
