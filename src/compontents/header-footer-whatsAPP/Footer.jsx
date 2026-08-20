@@ -27,8 +27,9 @@ const LEGAL_LINKS = [
 ];
 
 const SOCIALS = [
-  { Icon: FaLinkedinIn, href: "https://www.linkedin.com/in/advsagir?utm_source=share_via&utm_content=profile&utm_medium=member_android", label: "LinkedIn" },
-  { Icon: FaInstagram, href: "https://www.instagram.com/sagir_.ahmad_/", label: "Instagram" },
+  { Icon: FaLinkedinIn, href: "https://www.linkedin.com/company/founders-legal-desk/", label: "LinkedIn" },
+  { Icon: FaInstagram, href: "https://www.instagram.com/founderslegaldesk/", label: "Instagram" },
+    { Icon: FaTwitter, href: "https://x.com/found_legaldesk", label: "Twitter" },
 ];
 
 function FooterLinkList({ title, links }) {
