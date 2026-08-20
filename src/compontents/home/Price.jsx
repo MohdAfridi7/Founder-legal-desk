@@ -40,48 +40,54 @@ const ArrowIcon = () => (
 /* ============================================================
    DATA — edit plans / features here
    ============================================================ */
-const plans = [
-  {
-    name: "Basic",
-    price: "₹3,000",
-    period: "/month",
-    note : "The Startup Legal Safety Net ",
-     items: [
-      "All-Time Ongoing Legal Consultancy",
-      "One Dedicated Core Legal Service per Month",
-      "Standard Template Library Access",
-    ],
- 
-  },
-  {
-    name: "Standard",
-    price: "₹10,000",
-    period: "/month",
-    popular: true,
-    note : "The (VC-Ready Fractional GC) ",
+  const plans = [
+    {
+      name: "Basic",
+      price: "₹3,000",
+      period: "/month",
+      note : "Early-stage businesses ",
       items: [
-      "Up to 3 template documents/month",
-      "Basic WhatsApp support (48-hour response)",
-      "Compliance calendar alerts",
-      "Ideal for early-stage startups",
-    ],
-  },
-  {
-    name: "Premium",
-    price: "₹35,000",
-    period: "/month",
-    note : "The (Scale-Up GC Command)",
-    items: [
-      "Unlimited Fractional General Counsel Support",
-      "Up to Seven Dedicated Legal Services per Month",
-      "The \"IP Lockbox\" Engine",
-      "Tech, AI & Data Protection Compliance",
-      "Mock Due Diligence Data Room Setup",
-      "SHA, SSA & Term Sheet Assistance",
-      "End-to-End ESOP Architecture",
-    ],
-  },
-];
+        "Ongoing legal consultation",
+        "Business legal guidance",
+        "1 legal document/month",
+        "Basic document review",
+      ],
+  
+    },
+    {
+      name: "Standard",
+      price: "₹10,000",
+      period: "/month",
+      popular: true,
+      note : "Growing startups & MSMEs ",
+        items: [
+        "Everything in Essential, plus",
+        "Up to 3 legal documents/month",
+        "Contract & agreement review",
+        "Compliance guidance",
+        "Employment & HR support",
+        "IP & trademark support",
+        "Priority communication",
+      ],
+    },
+    {
+      name: "Premium",
+      price: "₹35,000",
+      period: "/month",
+      note : "Scaling businesses",
+      items: [
+        "Everything in Growth, plus",
+        "Up to 7 legal services/month",
+        "Advanced contract & commercial support",
+        "Corporate & shareholder matters",
+        "Data & technology compliance",
+        "Fundraising documentation support",
+        "Due diligence support",
+        "ESOP & corporate structuring support",
+        "Preferential Pricing",
+      ],
+    },
+  ];
 
 /* ============================================================
    PRICING SECTION
@@ -122,10 +128,11 @@ export default function Price({
       ease: [0.22, 1, 0.36, 1],
     }}
   >
-Flexible Legal Support <span className="text-[#C7954A]"> For Every Stage
+A Legal Plan That Grows With <span className="text-[#C7954A]"> Your Business. 
 </span>
   </motion.span>
 </h2>
+
         </div>
 
         {/* Cards */}

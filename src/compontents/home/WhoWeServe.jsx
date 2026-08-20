@@ -242,8 +242,8 @@ function IndustryCard({ name, icon: Icon, index }) {
 export default function WhoWeServe({
   eyebrow = "Who we serve",
 
-  description = "We work with businesses where contracts, compliance, employees, intellectual property, customer data and commercial relationships become increasingly important as the company grows.",
-  footNote = "If your business is growing faster than your compliance function, we're built for you.",
+  description = "From technology and healthcare to manufacturing, retail and professional services, Founders Legal Desk supports businesses across industries as they build, operate and grow.",
+  footNote = "Whatever your industry, if you're building a business, we're here to support the legal side.",
   ctaLabel = "Book a Free Consultation →",
   onCta = () => {},
 }) {
@@ -265,8 +265,8 @@ export default function WhoWeServe({
             {eyebrow}
           </div>
           <h2 className="text-[26px] sm:text-[34px] lg:text-[42px] leading-[1.15] font-semibold mb-3" style={{ ...fontDisplay, color: C.ink900, letterSpacing: "-.01em" }}>
-          Built for Startups.
-Ready to Scale With <span className="text-[#C7954A]">You.</span>
+          Built for Startups & MSMEs. 
+<span className="text-[#C7954A]"> Across Industries</span>
           </h2>
           <p className="text-[15.5px] sm:text-[17px]" style={{ color: C.slate500 }}>{description}</p>
        </motion.div>

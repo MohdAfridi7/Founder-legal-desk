@@ -2,39 +2,47 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import {  FileSearch,Scale,FileCheck,ShieldCheck,Award } from 'lucide-react';
+import {
+  MessageSquareText,
+  SearchCheck,
+  FileCheck2,
+  ShieldCheck,
+} from "lucide-react";
 
 const steps = [
   {
     id: 1,
     label: "01",
-    title: "Tell Us What Your Business Needs",
+    title: "Share Your Problem",
     description:
-      "Share your requirement, whether it involves a contract, compliance, trademark, privacy, fundraising, employment or another corporate matter.",
-    Icon: FileSearch,
+      "Tell us what you're facing, whether it's a legal issue, business requirement or something you're unsure about.",
+    Icon: MessageSquareText,
   },
+
   {
     id: 2,
     label: "02",
-    title: "We Identify the Right Support",
+    title: "We Assess the Situation",
     description:
-      "We assess the requirement and identify the relevant specialist and process.",
-    Icon: Scale,
+      "We understand the facts, business context and legal requirement to determine the right course of action.",
+    Icon: SearchCheck,
   },
+
   {
     id: 3,
     label: "03",
-    title: "We Get to Work",
+    title: "We Take It Forward",
     description:
-      "The required information and documents are collected and the appropriate work is coordinated.",
-    Icon: FileCheck,
+      "You receive a clear scope and fee upfront. Once approved, we coordinate and execute the required legal work.",
+    Icon: FileCheck2,
   },
+
   {
     id: 4,
     label: "04",
-    title: "Stay Supported as You Grow",
+    title: "We Stay With You",
     description:
-      "Use Founders Legal Desk for individual requirements or ongoing support as your business evolves.",
+      "As new legal needs arise, your legal desk remains available to guide and support your business.",
     Icon: ShieldCheck,
   },
 ];
@@ -375,7 +383,9 @@ export default function WorkProcessSection() {
   className="text-[28px] sm:text-[34px] lg:text-[42px] leading-[1.15] text-black font-semibold"
   style={{ fontFamily: "'Fraunces', Georgia, serif" }}
 >
-  How it <span className="text-[#C7954A]"> works
+  Your Legal Desk, From First Question to  
+  <br />
+  <span className="text-[#C7954A]"> Final Resolution
   </span>
 </h2>
 </motion.div>

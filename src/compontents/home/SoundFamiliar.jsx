@@ -112,16 +112,16 @@ const GlobalStyle = () => (
    ============================================================ */
 const problems = [
   {
-    t: "In-House Teams Cost Too Much",
-    d: "Large companies can afford dedicated teams for contracts, compliance and corporate matters. Most startups can't.",
+    t: "Legal Questions Keep Coming",
+    d: "Contracts, employees, compliance, IP, vendors, customers, notices. There is always something that needs legal attention.",
   },
   {
-    t: "So Founders Rely on Templates",
-    d: "Generic templates may save money initially, but they aren't built around your business, risks or specific requirements.",
+    t: "But Who Do You Call?",
+    d: "Most startups and MSMEs don't have a dedicated legal team. Every new issue means finding the right person, getting advice and starting from scratch.",
   },
   {
-    t: "Problems Surface Later",
-    d: "Gaps often appear during fundraising, compliance checks, disputes or due diligence, when fixing them becomes harder and more expensive.",
+    t: "And Problems Don't Wait",
+    d: "A small legal gap today can become a costly dispute, compliance issue or business risk tomorrow.",
   },
 ];
 
@@ -239,8 +239,8 @@ export default function SoundFamiliar({
       opacity: headIn ? 1 : 0,
     }}
   >
-      Startups Need Support. 
-    <span style={{ color: C.Gold }}> In-House Is Expensive.</span>
+      Every Growing Business Runs Into
+    <span style={{ color: C.Gold }}> Legal Problems.</span>
   </span>
 </h2>
         </div>

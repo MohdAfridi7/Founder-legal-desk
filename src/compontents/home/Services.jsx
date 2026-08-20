@@ -18,44 +18,44 @@ import {
 
 const services = [
   {
-    title: "Corporate Compliance",
+    title: "Business Setup & Registrations",
     description:
-      "Support for recurring corporate requirements, governance documentation, statutory records, annual compliance coordination and compliance tracking.",
+      "Business registrations, structuring, Startup India, MSME/Udyam and other business setup requirements.",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlCofvjZPNL7MTOKMSSCEG0zZNSIM1-PWwR1LSSLV9Jg&s=10",
     icon: Landmark,
   },
   {
-    title: "Contracts & Commercial Agreements",
+    title: "Contracts & Agreements",
     description:
-      "Founder Agreements, Shareholder Agreements, Vendor Agreements, Service Agreements, MSAs, NDAs, Employment Agreements and other commercial documentation.",
+      "NDAs, founder agreements, shareholder agreements, vendor contracts, employment agreements and more.",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbDvEvwGX1DdjdsAQc8LK0Laer4Um2c_ECkQHmEGzt6Q&s=10",
     icon: FileSignature,
   },
   {
-    title: "Startup & Founder Support",
+    title: "Compliance & Regulatory",
     description:
-      "Business structuring, Startup India recognition, MSME/Udyam registration and startup documentation.",
+      "Corporate compliance, regulatory requirements, documentation, filings and ongoing compliance support.",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQr54ejC_jcOKFULJQbNsJcF_OIO4gzMxkS1LYFz8k2g&s=10",
     icon: Users,
   },
   {
-    title: "Trademark & Intellectual Property",
+    title: "Intellectual Property",
     description:
-      "Trademark search, application support, renewals, objections and brand protection.",
+      "Trademark, copyright, brand protection and other intellectual property requirements.",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLgOHgnv0t_s3l7IuPL-nSNH7rhq5giM76U-HkuAUGZQ&s=10",
     icon: ShieldCheck,
   },
   {
-    title: "Data Privacy & DPDP Compliance",
+    title: "Employment & HR",
     description:
-      "Privacy Policies, Cookie Policies, Terms & Conditions and DPDP readiness.",
+      "Employment documentation, consultant agreements, workplace policies and HR-related legal support.",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4CV2jv-57hRGGTvqR4e8TydJpaGEdbhbSUo0Tz5TATw&s=10",
     icon: ShieldCheck,
   },
   {
-    title: "Employment & HR Compliance",
+    title: "Legal Issues & Business Disputes",
     description:
-      "Employment Agreements, consultant documentation, confidentiality clauses and HR compliance support.",
+      "Support when things go wrong with employees, vendors, customers, partners or other business relationships.",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsi5ULXtvycnvtAiVvKE-qPXJueJENXfW7yJxkSRaXIA&s=10",
     icon: Briefcase,
   },
@@ -125,10 +125,10 @@ export default function Services() {
   className="mt-4 text-3xl text-black font-semibold leading-tight sm:text-4xl md:text-5xl"
   style={{ fontFamily: "'Fraunces', Georgia, serif" }}
 >
-Corporate & Compliance Support
+Legal Support Across 
   <br />
   <span className="text-[#C7954A]">
-    Across Your Business
+    Your Business
   </span>
 </motion.h2>
 <motion.p
@@ -138,9 +138,7 @@ Corporate & Compliance Support
   transition={{ duration: 0.8, delay: 0.3 }}
   className="mx-auto mt-6 max-w-3xl text-center text-[16px] leading-8 text-[#666]"
 >
-  Founders Legal Desk provides support across the corporate lifecycle,
-  from setting up and protecting your business to managing contracts,
-  compliance, people, data and fundraising.
+  From setting up your business to handling the legal challenges that come with growth, we're here whenever you need us.
 </motion.p>
         </motion.div>
 

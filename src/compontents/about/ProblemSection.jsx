@@ -17,19 +17,25 @@ const PROBLEM_IMAGE =
 const PAIN_POINTS = [
   {
     Icon: ScrollText,
-    text: "Vendor agreements that don't hold up in a dispute.",
+    number: '01',
+    title: 'Legal Needs Keep Coming',
+    text: 'New contracts, compliance requirements, employees, registrations and business decisions bring new legal questions.',
   },
   {
     Icon: FileWarning,
-    text: 'Offer letters missing key clauses.',
+    number: '02',
+    title: 'Support Is Often Reactive',
+    text: 'Many businesses look for legal help only when a problem has already surfaced.',
   },
   {
     Icon: UserX,
-    text: 'Co-founder agreements that were never signed — because "we trust each other."',
+    number: '03',
+    title: "In-House Isn't Practical for Everyone",
+    text: 'A dedicated legal team can be expensive for startups and MSMEs to build and maintain.',
   },
 ];
 
-function PainPointRow({ Icon, text, index }) {
+function PainPointRow({ Icon, number, title, text, index }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.5 });
 
@@ -51,9 +57,17 @@ function PainPointRow({ Icon, text, index }) {
       >
         <Icon size={17} strokeWidth={2} style={{ color: AMBER }} className="transition-colors duration-300 group-hover:text-white" />
       </motion.div>
-      <p className="pt-1 text-[15px] leading-relaxed" style={{ color: INK }}>
-        {text}
-      </p>
+      <div className="pt-1">
+        <p className="mb-0.5 text-[11px] font-bold tracking-[0.1em]" style={{ color: AMBER }}>
+          {number}
+        </p>
+        <p className="mb-1 text-[15.5px] font-semibold leading-snug" style={{ color: INK }}>
+          {title}
+        </p>
+        <p className="text-[14px] leading-relaxed" style={{ color: MUTED }}>
+          {text}
+        </p>
+      </div>
     </motion.div>
   );
 }
@@ -61,6 +75,9 @@ function PainPointRow({ Icon, text, index }) {
 export default function ProblemSection() {
   const headingRef = useRef(null);
   const headingInView = useInView(headingRef, { once: true, amount: 0.5 });
+
+  const headingWords = "Every Business Needs Legal Support.".split(' ');
+  const headingWords2 = "Not Every Business Has a Legal Team.".split(' ');
 
   return (
     <section
@@ -192,18 +209,34 @@ export default function ProblemSection() {
               color: INK,
             }}
           >
-            {'The problem we\u2019re solving'.split(' ').map((w, i) => (
-              <motion.span
-                key={i}
-                initial={{ opacity: 0, y: 18 }}
-                animate={headingInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.55, delay: i * 0.07, ease: 'easeOut' }}
-                className="inline-block"
-              >
-                {w}
-                {i < 3 ? '\u00A0' : ''}
-              </motion.span>
-            ))}
+            <span className="block">
+              {headingWords.map((w, i) => (
+                <motion.span
+                  key={`l1-${i}`}
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={headingInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.55, delay: i * 0.06, ease: 'easeOut' }}
+                  className="inline-block"
+                >
+                  {w}
+                  {i < headingWords.length - 1 ? '\u00A0' : ''}
+                </motion.span>
+              ))}
+            </span>
+            <span className="block" style={{ color: AMBER }}>
+              {headingWords2.map((w, i) => (
+                <motion.span
+                  key={`l2-${i}`}
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={headingInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.55, delay: (headingWords.length + i) * 0.06, ease: 'easeOut' }}
+                  className="inline-block"
+                >
+                  {w}
+                  {i < headingWords2.length - 1 ? '\u00A0' : ''}
+                </motion.span>
+              ))}
+            </span>
           </h2>
 
           <motion.p
@@ -214,9 +247,9 @@ export default function ProblemSection() {
             className="mb-8 max-w-[520px] text-[16px] leading-relaxed"
             style={{ color: MUTED }}
           >
-            Most Indian startups and growing businesses fall into a document no-man&apos;s-land.
-            Too small to justify a retainer. Too exposed to rely on downloaded templates. Too busy
-            to figure out what they actually need. The result:
+            As businesses grow, legal requirements grow with them. Contracts, compliance, employees,
+            IP and business decisions all require legal attention, but most startups and MSMEs
+            don&apos;t have a dedicated legal team to rely on.
           </motion.p>
 
           {/* Pain points */}
@@ -248,10 +281,9 @@ export default function ProblemSection() {
                 <CheckCircle2 size={22} strokeWidth={2} style={{ color: AMBER }} />
               </motion.div>
               <p className="text-[15px] leading-relaxed text-white/90">
-                <span className="font-semibold text-white">Founders Legal Desk closes that gap.</span>{' '}
-                Fixed-price packages. Qualified specialists who review and verify every document. A
-                platform built by people who understand startups — not by people who&apos;ve only
-                ever worked for large corporations.
+                <span className="font-semibold text-white">Founders Legal Desk closes that gap</span>{' '}
+                — giving growing businesses a trusted legal desk for ongoing support, without the
+                cost of building an in-house team.
               </p>
             </div>
           </motion.div>

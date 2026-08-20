@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, ArrowRight, Scale, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, ArrowRight, Scale, ShieldCheck, BadgeIndianRupee } from "lucide-react";
 
 const INK = "#1C1D20";
 const AMBER = "#E8BF96";
@@ -141,7 +141,7 @@ export default function HeroSection() {
                 className="text-[13px] font-semibold uppercase tracking-wide text-white/90"
                 style={{ fontFamily: "'Manrope', sans-serif" }}
               >
-                Business Compliance • Corporate Support • Specialist-Led
+                YOUR BUSINESS • YOUR LEGAL DESK 
               </span>
             </motion.div>
 
@@ -161,7 +161,7 @@ export default function HeroSection() {
                     variants={slideUp}
                     className="block"
                   >
-                 The Legal & Compliance Desk Built for Growing Businesses.
+                 Legal Support for Everything Your Business Faces.
                   </motion.span>
                 </span>
             </h1>
@@ -171,18 +171,15 @@ export default function HeroSection() {
               className="mb-8 max-w-[540px] text-white/80"
               style={{ fontFamily: "'Manrope', sans-serif", fontSize: "17px", lineHeight: 1.67 }}
             >
-              Get ongoing corporate, compliance and business support without the
-              cost of building a full in-house team.
+              From everyday legal questions and business documentation to compliance, contracts, intellectual property and unexpected legal issues, Founders Legal Desk gives startups and MSMEs a dedicated legal partner they can turn to.
               <br />
-              From contracts and corporate compliance to trademarks, privacy,
-              employment, fundraising and business registrations, Founders
-              Legal Desk gives growing businesses access to specialist support
-              through one platform.
+              <br />
+              <strong>Build your business. We’ll help you navigate the legal side</strong>
             </motion.p>
 
             <motion.div variants={slideLeft} className="flex flex-wrap items-center gap-6">
               <HoverSwapButton href="free-consultation" icon={ArrowUpRight}>
-                Book Free Consultation
+                Book a Free Consultation
               </HoverSwapButton>
 
               <HoverSwapButton href="services" icon={ArrowRight}>
@@ -195,16 +192,23 @@ export default function HeroSection() {
               variants={slideLeft}
               className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-white/10 pt-6"
             >
-              <div className="flex items-center gap-2 text-white/70">
-                <ShieldCheck size={18} style={{ color: AMBER }} />
+                <div className="flex items-center gap-2 text-white/70">
+                <Scale size={18} style={{ color: AMBER }} />
                 <span className="text-sm" style={{ fontFamily: "'Manrope', sans-serif" }}>
-                  Specialist-led legal team
+                  Ongoing Legal Support
                 </span>
               </div>
               <div className="flex items-center gap-2 text-white/70">
-                <Scale size={18} style={{ color: AMBER }} />
+                <ShieldCheck size={18} style={{ color: AMBER }} />
                 <span className="text-sm" style={{ fontFamily: "'Manrope', sans-serif" }}>
-                  End-to-end compliance support
+                  Practical Guidance
+                </span>
+              </div>
+            
+                <div className="flex items-center gap-2 text-white/70">
+                <BadgeIndianRupee size={18} style={{ color: AMBER }} />
+                <span className="text-sm" style={{ fontFamily: "'Manrope', sans-serif" }}>
+                  Transparent Pricing
                 </span>
               </div>
             </motion.div>

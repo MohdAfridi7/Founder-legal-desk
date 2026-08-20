@@ -24,51 +24,119 @@ const BORDER = 'rgba(18,21,31,0.09)';
 
 const PLANS = [
   {
-    tier: 'Tier 1',
-    name: 'Basic',
-    audience: 'The Startup Legal Safety Net',
+    tier: "Tier 1",
+    name: "Basic",
+    audience: "Early-stage businesses",
     monthly: 3000,
     yearly: 30000,
     popular: false,
-  feats: [
-      { label: 'Legal Consultancy', value: 'All-time ongoing legal consultancy' },
-      { label: 'Core Legal Service', value: 'One dedicated core legal service per month' },
-      { label: 'Template Library', value: 'Standard template library access' },
-    ],
 
+    feats: [
+      {
+        label: "Ongoing Legal Consultation",
+        value: "Ongoing legal consultation",
+      },
+      {
+        label: "Business Legal Guidance",
+        value: "Business legal guidance",
+      },
+      {
+        label: "Legal Document",
+        value: "1 legal document/month",
+      },
+      {
+        label: "Document Review",
+        value: "Basic document review",
+      },
+    ],
   },
+
   {
-    tier: 'Tier 2',
-    name: 'Standard',
-    audience: 'The (VC-Ready Fractional GC)',
+    tier: "Tier 2",
+    name: "Standard",
+    audience: "Growing startups & MSMEs",
     monthly: 10000,
     yearly: 100000,
     popular: true,
-      feats: [
-      { label: 'Template Documents', value: 'Up to 3 template documents/month' },
-      { label: 'Consultations', value: 'Basic WhatsApp support (48-hour response)' },
-      { label: 'Compliance Support', value: 'Compliance calendar alerts' },
-      { label: 'Best For', value: 'Ideal for early-stage startups' },
-    ],
 
+    feats: [
+      {
+        label: "Included",
+        value: "Everything in Essential, plus",
+      },
+      {
+        label: "Legal Documents",
+        value: "Up to 3 legal documents/month",
+      },
+      {
+        label: "Contract Review",
+        value: "Contract & agreement review",
+      },
+      {
+        label: "Compliance",
+        value: "Compliance guidance",
+      },
+      {
+        label: "Employment & HR",
+        value: "Employment & HR support",
+      },
+      {
+        label: "IP & Trademark",
+        value: "IP & trademark support",
+      },
+      {
+        label: "Communication",
+        value: "Priority communication",
+      },
+    ],
   },
+
   {
-    tier: 'Tier 3',
-    name: 'Premium',
-    audience: 'The (Scale-Up GC Command)',
+    tier: "Tier 3",
+    name: "Premium",
+    audience: "Scaling businesses",
     monthly: 35000,
     yearly: 350000,
     popular: false,
-   feats: [
-      { label: 'GC Support', value: 'Unlimited fractional General Counsel support' },
-      { label: 'Legal Services', value: 'Up to seven dedicated legal services per month' },
-      { label: 'IP Protection', value: 'The "IP Lockbox" engine' },
-      { label: 'Compliance', value: 'Tech, AI & data protection compliance' },
-      { label: 'Due Diligence', value: 'Mock due diligence data room setup' },
-      { label: 'VC Docs', value: 'SHA, SSA & term sheet assistance' },
-      { label: 'ESOP', value: 'End-to-end ESOP architecture' },
-    ],
 
+    feats: [
+      {
+        label: "Included",
+        value: "Everything in Growth, plus",
+      },
+      {
+        label: "Legal Services",
+        value: "Up to 7 legal services/month",
+      },
+      {
+        label: "Commercial Support",
+        value: "Advanced contract & commercial support",
+      },
+      {
+        label: "Corporate Matters",
+        value: "Corporate & shareholder matters",
+      },
+      {
+        label: "Data & Technology",
+        value: "Data & technology compliance",
+      },
+      {
+        label: "Fundraising",
+        value: "Fundraising documentation support",
+      },
+      {
+        label: "Due Diligence",
+        value: "Due diligence support",
+      },
+      {
+        label: "ESOP & Structuring",
+        value: "ESOP & corporate structuring support",
+      },
+      {
+        label: "Pricing",
+        value: "Preferential Pricing",
+      },
+    ],
   },
 ];
 

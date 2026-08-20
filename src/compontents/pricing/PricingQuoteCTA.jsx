@@ -11,9 +11,9 @@ const WHITE = '#FFFFFF';
 const MUTED = '#A6ACC0';
 
 const STEPS = [
-  { Icon: MessageSquareText, title: 'Tell us what you need', desc: 'A specific agreement, policy, or one-off document.' },
-  { Icon: UserCheck, title: 'A specialist reviews it', desc: 'Same review quality as every plan we offer.' },
-  { Icon: FileCheck2, title: 'Fixed quote & timeline', desc: 'No hourly billing. No surprise invoices.' },
+  { Icon: MessageSquareText, title: 'Tell us what you need', desc: 'Share the requirement, document or legal matter you need assistance with.' },
+  { Icon: UserCheck, title: 'We Assess the Requirement', desc: 'We understand the requirement and determine the appropriate scope of work.' },
+  { Icon: FileCheck2, title: 'Get a Clear Quote', desc: 'Receive the scope, timeline and professional fee upfront.' },
 ];
 
 function ProcessStep({ step, index, inView, isLast }) {
@@ -99,7 +99,7 @@ export default function PricingQuoteCTA() {
 
       {/* Radial spotlight behind the heading */}
       <div
-        className="pointer-events-none absolute left-1/2 top-0 h-[420px] w-[720px] -translate-x-1/2"
+        className="pointer-events-none absolute left-1/2 top-0 h-[420px] w-[820px] -translate-x-1/2"
         style={{ background: `radial-gradient(ellipse at center, ${AMBER}1a 0%, transparent 65%)` }}
       />
 
@@ -111,7 +111,7 @@ export default function PricingQuoteCTA() {
         transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
       />
 
-      <div className="relative mx-auto max-w-[760px] text-center">
+      <div className="relative mx-auto max-w-[820px] text-center">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -146,9 +146,9 @@ export default function PricingQuoteCTA() {
             color: WHITE,
           }}
         >
-          Need a single document?
+         Need a Specific Legal Service?
           <br />
-          <span style={{ color: AMBER_LIGHT }}>We quote it.</span>
+          <span style={{ color: AMBER_LIGHT }}>We’ll Take It From Here.</span>
         </motion.h2>
 
         <motion.p
@@ -159,8 +159,7 @@ export default function PricingQuoteCTA() {
           className="mx-auto mb-10 max-w-[520px] text-[16px] leading-relaxed"
           style={{ color: MUTED }}
         >
-          Tell us what you need — a specific agreement, policy, or document — and we&apos;ll come
-          back with a fixed quote and timeline. Same specialist-review quality as our plans.
+         Whether you need a document, registration, certification, compliance support or any other specific legal requirement, tell us what you need and we’ll provide a clear scope and quote.
         </motion.p>
 
         <motion.div

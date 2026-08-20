@@ -9,9 +9,10 @@ const GOLD = '#C7954A';
 
 
 const STATS = [
-  { value: 15, suffix: '+', label: 'Privacy & Technology Contracts Drafted' },
-  { value: 7, suffix: '+', label: 'Early-Stage & Startup Clients Advised', large: true },
-  { value: 5, suffix: '', label: 'Global Jurisdictions Served (India, UK, Canada, EU, US-California)' },
+  { value: 51, suffix: '+', label: 'Businesses Supported' },
+  { value: 249, suffix: '+', label: 'Startups & MSMEs Advised', large: true  },
+  { value: 5, suffix: '', label: 'Global Markets Served'},
+  
 ];
 
 function AnimatedNumber({ target, suffix, inView }) {
@@ -299,7 +300,7 @@ const ref = useRef(null);
               fontSize: 'clamp(32px, 4.5vw, 56px)',
             }}
           >
-            Businesses that trust 
+             Businesses Trust 
             <br />
           
             <motion.span
@@ -317,7 +318,7 @@ const ref = useRef(null);
             className="mb-9 max-w-[440px] text-[15px] leading-relaxed"
             style={{ color: '#8892A4' }}
           >
-          From early-stage startups to growing technology, healthcare, retail and consumer businesses, we have supported clients with privacy, contracts, corporate requirements, intellectual property and business compliance.
+          From startups taking their first steps to growing businesses navigating complex legal requirements, we help founders stay legally prepared as they build and scale. 
           </motion.p>
 
           {/* Pulsing dot */}

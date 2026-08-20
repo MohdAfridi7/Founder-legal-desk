@@ -1,248 +1,215 @@
 "use client";
 
-import { motion } from 'framer-motion';
-import { ArrowUpRight, ArrowRight, Check } from 'lucide-react';
-const blogImage = "/blog_hero.png";
+import { motion } from "framer-motion";
+import { ArrowUpRight, ArrowRight, Scale, ShieldCheck, BadgeIndianRupee } from "lucide-react";
 
-const INK = '#1C1D20';
-const AMBER = '#E8BF96';
-const AMBER_DARK = '#b78d5a';
+const INK = "#1C1D20";
+const AMBER = "#E8BF96";
+const AMBER_DARK = "#b78d5a";
 
-// Same hero background used across the site so every page feels part of one system.
-const HERO_BG_IMAGE = '';
-
-// Seal colors — matched to the uploaded badge (deep navy disc, amber ring + text, amber check)
-const SEAL_NAVY = '#0D1526';
-const SEAL_AMBER = '#F5A623';
+const HERO_BG_IMAGE = "/blog_hero.png";
 
 function HoverSwapButton({ href, children, icon: Icon }) {
   return (
-    <motion.a
+    <a
       href={href}
-      whileHover={{ scale: 1.04, y: -2 }}
-      whileTap={{ scale: 0.97 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 18 }}
-      className="group relative inline-flex h-[52px] items-center justify-center overflow-hidden rounded-full px-7 font-semibold sm:h-[54px] sm:px-8"
+      className="group relative inline-flex h-[54px] items-center justify-center overflow-hidden rounded-full px-8 font-semibold"
       style={{ background: AMBER, color: INK }}
       onMouseEnter={(e) => (e.currentTarget.style.background = AMBER_DARK)}
       onMouseLeave={(e) => (e.currentTarget.style.background = AMBER)}
     >
-      <span className="flex items-center gap-2 text-[14.5px] transition-all duration-300 ease-out group-hover:-translate-y-10 group-hover:opacity-0 group-hover:text-white sm:text-[15px]">
+      <span className="flex items-center gap-2 transition-all duration-300 ease-out group-hover:-translate-y-10 group-hover:opacity-0 group-hover:text-white">
         {children}
-        <Icon size={19} />
+        <Icon size={20} />
       </span>
-      <span className="absolute flex translate-y-10 items-center gap-2 text-[14.5px] text-white opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 sm:text-[15px]">
+      <span className="absolute flex translate-y-10 items-center gap-2 text-white opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
         {children}
-        <Icon size={19} />
+        <Icon size={20} />
       </span>
-    </motion.a>
+    </a>
   );
 }
 
-// Splits the heading into words so each one animates in individually.
-function AnimatedHeading({ text, className, style }) {
-  const words = text.split(' ');
-  return (
-    <h1 className={className} style={style}>
-      {words.map((word, i) => (
-        <motion.span
-          key={i}
-          initial={{ opacity: 0, y: 26, filter: 'blur(6px)' }}
-          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          transition={{ duration: 0.65, ease: 'easeOut', delay: 0.35 + i * 0.05 }}
-          className="inline-block"
-        >
-          {word}
-          {i < words.length - 1 ? '\u00A0' : ''}
-        </motion.span>
-      ))}
-    </h1>
-  );
-}
+// slide-in-from-left variant for text column children
+const slideLeft = {
+  hidden: { opacity: 0, x: -60 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+  },
+};
 
-// Recreation of the uploaded "Specialist Verified" seal — fully animated:
-// outer ring draws itself in, the whole mark rotates continuously, and the
-// checkmark pops in once the draw finishes.
-function VerifiedSealLarge() {
-  const size = 260;
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.75 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.8, delay: 0.3, ease: [0.34, 1.56, 0.64, 1] }}
-      className="relative flex items-center justify-center"
-      style={{ width: size, height: size }}
-    >
-      {/* Soft glow pulse behind the seal */}
-      <motion.div
-        className="absolute rounded-full"
-        style={{ inset: -20, background: SEAL_AMBER, opacity: 0.18, filter: 'blur(40px)' }}
-        animate={{ scale: [1, 1.15, 1], opacity: [0.14, 0.24, 0.14] }}
-        transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
-      />
+// slide-up variant (used for heading lines / badges)
+const slideUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+  },
+};
 
-      {/* Disc background */}
-      <div
-        className="absolute rounded-full"
-        style={{ inset: 6, background: SEAL_NAVY, boxShadow: '0 24px 60px -14px rgba(0,0,0,0.55)' }}
-      />
+const container = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.16, delayChildren: 0.15 } },
+};
 
-      {/* Continuously rotating ring + circular text */}
-      <motion.svg
-        width={size}
-        height={size}
-        viewBox="0 0 260 260"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 34, repeat: Infinity, ease: 'linear' }}
-        className="absolute inset-0"
-      >
-        <circle cx="130" cy="130" r="118" fill="none" stroke={`${SEAL_AMBER}40`} strokeWidth="1.5" />
-        <motion.circle
-          cx="130"
-          cy="130"
-          r="106"
-          fill="none"
-          stroke={SEAL_AMBER}
-          strokeWidth="2.5"
-          strokeDasharray="666"
-          initial={{ strokeDashoffset: 666 }}
-          animate={{ strokeDashoffset: 0 }}
-          transition={{ duration: 1.8, delay: 0.5, ease: 'easeInOut' }}
-        />
-        <path id="heroSealPath" d="M 130,130 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0" fill="none" />
-        <text fontSize="12.5" fill={SEAL_AMBER} letterSpacing="3" fontFamily="'Manrope', sans-serif" fontWeight="700">
-          <textPath href="#heroSealPath">
-            SPECIALIST VERIFIED &#8226; FOUNDERS LEGAL DESK &#8226;
-          </textPath>
-        </text>
-      </motion.svg>
-
-      {/* Checkmark, pops in after the ring finishes drawing */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.3, rotate: -25 }}
-        animate={{ opacity: 1, scale: 1, rotate: 0 }}
-        transition={{ duration: 0.5, delay: 1.9, ease: [0.34, 1.56, 0.64, 1] }}
-        className="relative z-10 flex h-16 w-16 items-center justify-center"
-      >
-        <Check size={54} strokeWidth={2.5} style={{ color: SEAL_AMBER }} />
-      </motion.div>
-
-      {/* Gentle continuous float on the whole badge */}
-      <motion.div
-        className="absolute inset-0"
-        animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 2.4 }}
-      />
-    </motion.div>
-  );
-}
-
-export default function ResourcesHeroSection() {
-  const container = {
-    hidden: {},
-    visible: { transition: { staggerChildren: 0.15, delayChildren: 0.1 } },
-  };
-  const item = {
-    hidden: { opacity: 0, y: 24 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } },
-  };
+export default function HeroSection() {
 
   return (
-    <motion.section
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1, ease: 'easeOut' }}
-      className="relative overflow-hidden pt-24 sm:pt-28 lg:pt-[126px]"
-      style={{ backgroundColor: INK }}
+    <section
+      className="relative overflow-hidden bg-cover bg-center pt-24 sm:pt-28 lg:pt-[120px]"
+      style={{ backgroundColor: INK, backgroundImage: `url(${HERO_BG_IMAGE})` }}
     >
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap');
+        @keyframes floatY {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-14px); }
+        }
+        @keyframes pulseGlow {
+          0%, 100% { opacity: 0.35; }
+          50% { opacity: 0.6; }
+        }
+        @keyframes glowDrift {
+          0%, 100% { transform: translate(0px, 0px) scale(1); }
+          50% { transform: translate(24px, -28px) scale(1.1); }
+        }
       `}</style>
 
-      {/* Background image — slow continuous Ken Burns zoom */}
-      <motion.div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${blogImage})` }}
-        initial={{ scale: 1.08 }}
-        animate={{ scale: 1.18 }}
-        transition={{ duration: 20, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
-      />
-
-      {/* Dark-to-transparent overlay, matching the rest of the site */}
+      {/* Dark-to-transparent overlay — heavy behind content on the left, clear on the right */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, ease: 'easeOut', delay: 0.15 }}
+        transition={{ duration: 1.2, ease: "easeOut", delay: 0.1 }}
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            'linear-gradient(90deg, rgba(0,0,0,0.95) 6%, rgba(0,0,0,0.85) 42%, rgba(0,0,0,0.35) 100%)',
+            "linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.88) 32%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.12) 75%, rgba(0,0,0,0) 100%)",
         }}
       />
 
-      {/* Floating ambient glow */}
-      <motion.div
-        className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full sm:h-96 sm:w-96"
-        style={{ background: AMBER, opacity: 0.16, filter: 'blur(90px)' }}
-        animate={{ x: [0, 26, 0], y: [0, 20, 0], scale: [1, 1.1, 1] }}
-        transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
+      {/* Animated background glow — clustered behind the content column, nothing on the right */}
+      <div
+        className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full blur-3xl"
+        style={{
+          background: AMBER,
+          opacity: 0.15,
+          animation: "pulseGlow 6s ease-in-out infinite, glowDrift 12s ease-in-out infinite",
+        }}
+      />
+      <div
+        className="pointer-events-none absolute left-[6%] top-1/2 h-[420px] w-[420px] -translate-y-1/2 rounded-full blur-[110px]"
+        style={{
+          background: AMBER,
+          opacity: 0.12,
+          animation: "pulseGlow 8s ease-in-out infinite 1s, glowDrift 16s ease-in-out infinite 1s",
+        }}
+      />
+      <div
+        className="pointer-events-none absolute left-0 bottom-0 h-64 w-64 rounded-full blur-3xl"
+        style={{
+          background: AMBER,
+          opacity: 0.1,
+          animation: "pulseGlow 7s ease-in-out infinite 0.5s, glowDrift 14s ease-in-out infinite 0.5s",
+        }}
       />
 
-      <div className="container relative z-10 mx-auto max-w-[1320px] px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8 lg:pb-24">
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
-          {/* Left — text content */}
+      {/* Fine grid texture overlay for a premium feel */}
+    
+
+      <div className="container relative z-10 mx-auto max-w-[1320px] px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-10 pb-16 lg:grid-cols-2 lg:gap-20 lg:pb-0">
+          {/* Content */}
           <motion.div
             initial="hidden"
             animate="visible"
             variants={container}
-            className="max-w-[720px] py-10 lg:py-6"
+            className="py-10 lg:py-0"
           >
+            {/* Eyebrow badge */}
             <motion.div
-              variants={item}
-              whileHover={{ x: 4 }}
-              className="mb-4 inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-wide text-white sm:text-[15px]"
-              style={{ fontFamily: "'Manrope', sans-serif" }}
-            >
-              <span className="h-px w-5" style={{ background: AMBER }} />
-              <span style={{ color: AMBER }}>LEGAL RESOURCES</span>
-            </motion.div>
+                      
+                       whileHover={{ x: 4 }}
+                       className="mb-4 inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-wide text-white sm:text-[15px]"
+                       style={{ fontFamily: "'Manrope', sans-serif" }}
+                     >
+                       <span className="h-px w-5" style={{ background: AMBER }} />
+                       <span style={{ color: AMBER }}>Blog</span>
+                     </motion.div>
 
-            <AnimatedHeading
-              text="Legal Insights, Guides & Resources for Every Business."
+            {/* Heading — each line slides up independently */}
+            <h1
               className="mb-6 text-white"
               style={{
                 fontFamily: "'DM Serif Display', serif",
                 fontWeight: 400,
-                letterSpacing: '-1.5px',
-                fontSize: 'clamp(30px, 5vw, 54px)',
-                lineHeight: 1.14,
+                letterSpacing: "-1.88px",
+                fontSize: "clamp(36px, 6vw, 57px)",
+                lineHeight: 1.08,
               }}
-            />
+            >
+                <span className="block overflow-hidden">
+                  <motion.span
+                    variants={slideUp}
+                    className="block"
+                  >
+              Legal Insights for Founders Building Businesses.
+                  </motion.span>
+                </span>
+            </h1>
 
             <motion.p
-              variants={item}
-              className="mb-8 max-w-[560px] text-white/85"
-              style={{ fontFamily: "'Manrope', sans-serif", fontSize: '16.5px', lineHeight: 1.7 }}
+              variants={slideLeft}
+              className="mb-8 max-w-[540px] text-white/80"
+              style={{ fontFamily: "'Manrope', sans-serif", fontSize: "17px", lineHeight: 1.67 }}
             >
-             Discover practical legal articles, compliance updates,
-contract guidance, and business law insights designed to
-help startups, entrepreneurs, and growing companies.
+Practical legal guidance, compliance updates and business insights to help startups and MSMEs make informed decisions and stay legally prepared.
+
+
             </motion.p>
 
-            <motion.div variants={item} className="flex flex-wrap items-center gap-4 sm:gap-6">
-              <HoverSwapButton href="#articles" icon={ArrowRight}>
-                Explore Articles 
+            <motion.div variants={slideLeft} className="flex flex-wrap items-center gap-6">
+              <HoverSwapButton href="free-consultation" icon={ArrowUpRight}>
+                Book a Free Consultation
               </HoverSwapButton>
+               <HoverSwapButton href="#articles" icon={ArrowUpRight}>
+              Explore Articles
+              </HoverSwapButton>
+            </motion.div>
 
-              <HoverSwapButton href="/free-consultation" icon={ArrowUpRight}>
-                Book Free Consultation
-              </HoverSwapButton>
+            {/* Trust strip */}
+            <motion.div
+              variants={slideLeft}
+              className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-white/10 pt-6"
+            >
+                <div className="flex items-center gap-2 text-white/70">
+                <Scale size={18} style={{ color: AMBER }} />
+                <span className="text-sm" style={{ fontFamily: "'Manrope', sans-serif" }}>
+                  Ongoing Legal Support
+                </span>
+              </div>
+              <div className="flex items-center gap-2 text-white/70">
+                <ShieldCheck size={18} style={{ color: AMBER }} />
+                <span className="text-sm" style={{ fontFamily: "'Manrope', sans-serif" }}>
+                  Practical Guidance
+                </span>
+              </div>
+            
+                <div className="flex items-center gap-2 text-white/70">
+                <BadgeIndianRupee size={18} style={{ color: AMBER }} />
+                <span className="text-sm" style={{ fontFamily: "'Manrope', sans-serif" }}>
+                  Transparent Pricing
+                </span>
+              </div>
             </motion.div>
           </motion.div>
 
-         
         </div>
       </div>
-    </motion.section>
+
+      <div className="hidden h-[60px] lg:block" />
+    </section>
   );
 }

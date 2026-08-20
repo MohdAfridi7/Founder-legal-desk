@@ -148,7 +148,7 @@ export default function ContactFormSection() {
       message: formData.get('message')?.toString().trim() || '',
     };
 
-    if (!payload.name || !payload.email || !payload.helpType || !payload.message) {
+    if (!payload.name || !payload.email || !payload.phone || !payload.companyName || !payload.helpType || !payload.message) {
       toast.error('Please fill in all required fields');
       return;
     }
@@ -281,18 +281,18 @@ export default function ContactFormSection() {
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                   <FloatField label="Name" name="name" required />
                   <FloatField label="Email" type="email" name="email" required />
-                  <FloatField label="Phone (optional)" type="tel" name="phone" />
-                  <FloatField label="Company name (optional)" name="company" />
+                  <FloatField label="Phone" type="tel" name="phone" required />
+                  <FloatField label="Company name" name="company" required />
                   <div className="sm:col-span-2">
                     <FloatField
                       label="What do you need help with?"
                       name="reason"
                       required
-                      options={['Free Consultation', 'Specific Document Quote', 'General Enquiry', 'Partnership', 'Press', 'Other']}
+                      options={['Ongoing Legal Support', 'Contracts & Agreements', 'Compliance & Registrations', 'IP & Trademark', 'Employment & Business Matters', 'Other']}
                     />
                   </div>
                   <div className="sm:col-span-2">
-                    <FloatField label="Message" name="message" required textarea rows={4} />
+                    <FloatField label="Tell us briefly about your requirement" name="message" required textarea rows={4} />
                   </div>
                 </div>
 

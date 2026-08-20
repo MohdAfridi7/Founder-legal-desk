@@ -36,23 +36,23 @@ const NODES = [
 const FEATURES = [
   {
     Icon: Landmark,
-    title: "Built for Startups",
-    desc: "Get structured corporate and compliance support without having to build a full in-house function from day one.",
+    title: "Built for Startups & MSMEs",
+    desc: "Legal support designed around the realities, budgets and evolving needs of growing businesses.",
   },
   {
     Icon: Scale,
-    title: "Specialist Network",
-    desc: "Different business requirements are coordinated with specialists based on the nature of the work, ensuring the right expertise for every matter.",
+    title: "One Desk. Multiple Legal Needs.",
+    desc: "Bring your contracts, compliance, IP, employment and other legal requirements to one trusted desk.",
   },
   {
     Icon: ShieldCheck,
-    title: "One Point of Coordination",
-    desc: "Manage contracts, compliance, intellectual property, employment and corporate matters through one trusted platform instead of multiple providers.",
+    title: "Practical & Business-Focused",
+    desc: "We look beyond the legal issue to understand your business and help you move forward with clarity.",
   },
   {
     Icon: Clock,
     title: "Ongoing Support",
-    desc: "Move from reactive problem-solving to proactive documentation, compliance and business protection as your company grows.",
+    desc: "Your business keeps evolving. Your legal support should evolve with it.",
   },
 ];
 const cardVariants = {
@@ -428,10 +428,10 @@ export default function WhyUs() {
     color: INK,
   }}
 >
-  Why Growing Businesses
+  More Than Legal Support. 
   <br />
   <span style={{ color: BLUE }}>
-    Choose Us Founders Legal Desk
+    A Legal Partner for Your Business.
   </span>
 </motion.h2>
 
@@ -443,7 +443,7 @@ export default function WhyUs() {
             className="mb-8 max-w-[540px] text-[15.5px] leading-relaxed"
             style={{ color: MUTED }}
           >
-            What sets Founders Legal Desk apart from downloaded templates and expensive law firms.
+        We make it easier for founders to manage the legal side of their business with accessible, ongoing and practical support.
           </motion.p>
 
         <motion.div

@@ -6,49 +6,102 @@ import React, { useEffect, useRef, useState } from 'react';
 const features = [
   {
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2l3 6 6 .9-4.5 4.4 1.1 6.2L12 17l-5.6 2.5 1.1-6.2L3 8.9 9 8z"/>
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        {/* Briefcase / Legal Desk */}
+        <rect x="3" y="7" width="18" height="13" rx="2" />
+        <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+        <path d="M3 11h18" />
+        <path d="M10 11v2h4v-2" />
       </svg>
     ),
-    title: "Specialist Support",
+    title: "One Desk. Every Legal Need.",
     description:
-      "Get the right specialist for each business requirement instead of relying on generic solutions."
+      "From everyday legal questions to contracts, compliance, IP, documentation and business disputes, you have one place to turn to."
   },
+
   {
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 7h18"/>
-        <path d="M6 3h12v18H6z"/>
-        <path d="M9 11h6"/>
-        <path d="M9 15h6"/>
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        {/* Handshake / Legal Partner */}
+        <path d="M4 12l3-3 4 1 2-2 4 1 3 3" />
+        <path d="M3 13l3 3 3-2" />
+        <path d="M21 13l-3 3-3-2" />
+        <path d="M9 14l2 2 4-4" />
+        <path d="M7 9l2-3h4l2 2" />
       </svg>
     ),
-    title: "One Business. One Desk.",
+    title: "A Partner You Can Call",
     description:
-      "Manage contracts, compliance, trademarks, privacy, employment and corporate requirements in one place."
+      "No need to figure out which lawyer or specialist you need. Bring the issue to us and we'll help you navigate it."
   },
+
   {
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2v20"/>
-        <path d="M5 7l7-5 7 5"/>
-        <path d="M5 17l7 5 7-5"/>
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        {/* Building / Growing Business */}
+        <path d="M4 21V5a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v16" />
+        <path d="M17 9h2a2 2 0 0 1 2 2v10" />
+        <path d="M2 21h20" />
+        <path d="M8 7h2" />
+        <path d="M8 11h2" />
+        <path d="M8 15h2" />
+        <path d="M12 7h2" />
+        <path d="M12 11h2" />
+        <path d="M12 15h2" />
       </svg>
     ),
-    title: "Built for Startups",
+    title: "Built for Growing Businesses",
     description:
-      "Practical support designed around startup budgets, speed and changing requirements."
+      "Practical legal support designed around the realities, budgets and changing needs of startups and MSMEs."
   },
+
   {
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 8v4l3 3"/>
-        <circle cx="12" cy="12" r="9"/>
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        {/* Shield / Protection */}
+        <path d="M12 3l7 3v5c0 4.5-2.8 7.8-7 10-4.2-2.2-7-5.5-7-10V6l7-3z" />
+        <path d="M9 12l2 2 4-4" />
       </svg>
     ),
-    title: "Ongoing Support",
+    title: "Support Before Problems Grow",
     description:
-      "Stay ahead of compliance and documentation needs instead of fixing problems after they happen."
+      "Stay on top of legal and compliance matters instead of waiting for a small issue to become a bigger one."
   }
 ];
 
@@ -113,7 +166,7 @@ const FeaturesSection = () => {
       }`}
       style={{ fontFamily: "'Fraunces', Georgia, serif" }}
     >
-      Your Extended <span className="text-[#C7954A]">Legal & Compliance Desk</span>
+      Your Business Has a<span className="text-[#C7954A]">Legal Team Now.</span>
     </h2>
   </div>
 
@@ -123,8 +176,7 @@ const FeaturesSection = () => {
     }`}
     style={{ transitionDelay: inView ? "250ms" : "0ms" }}
   >
-    Get the support your growing business needs without the cost of building a
-    full in-house team.
+   Founders Legal Desk gives startups and MSMEs ongoing legal support without the cost of building a full-time in-house team.
   </p>
 </div>
 

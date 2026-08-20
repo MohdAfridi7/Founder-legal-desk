@@ -173,8 +173,9 @@ export default function Footer() {
     className="mb-6 max-w-full text-[14.5px] leading-relaxed sm:max-w-[280px]"
     style={{ color: TEXT_DARK }}
   >
-    Business document protection for Indian companies that are building
-    something real.
+    Your Legal Desk for Building & Growing Your Business.
+    <br />
+    Practical, ongoing legal support for startups and MSMEs across India.
   </p>
 
   <div className="flex items-center gap-3">
@@ -215,53 +216,30 @@ export default function Footer() {
               Stay in the loop
             </h5>
             <p className="mb-4 text-[14.5px] leading-relaxed" style={{ color: TEXT_DARK }}>
-              One practical business document tip for Indian founders — every two weeks.
+              Practical legal insights and business tips for founders, delivered every two weeks.
             </p>
-
-            {!subscribed ? (
-              <form
-                onSubmit={handleSubmit}
-                className="flex w-full overflow-hidden rounded-lg border"
-                style={{ borderColor: 'rgba(255,255,255,0.14)' }}
-              >
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@company.com"
-                  className="h-[52px] min-w-0 flex-1 bg-white px-4 text-[13px] font-medium outline-none"
-                  style={{ color: '#262629' }}
-                />
-                <button
-                  type="submit"
-                  aria-label="Subscribe"
-                  className="flex h-[52px] w-[52px] shrink-0 items-center justify-center transition-colors duration-300"
-                  style={{ background: GOLD }}
-                  onMouseEnter={(e) => (e.currentTarget.style.background = GOLD_DARK)}
-                  onMouseLeave={(e) => (e.currentTarget.style.background = GOLD)}
-                >
-                  <ArrowRight size={18} strokeWidth={2.25} color={NAVY} />
-                </button>
-              </form>
-            ) : (
-              <p className="text-[14px] font-semibold" style={{ color: GOLD }}>
-                You&apos;re subscribed — welcome aboard.
-              </p>
-            )}
 
             <div className="mt-6 flex items-center gap-2 text-[13.5px] break-all sm:break-normal" style={{ color: TEXT_DARK }}>
               <Mail size={16} strokeWidth={2} style={{ color: GOLD }} className="shrink-0" />
-              advocatesagir1@gmail.com
+              legal@founderslegaldesk.com
             </div>
-            <div className="flex items-center gap-2" style={{ color: TEXT_DARK }}> 
-    <Phone
-      size={16}
-      strokeWidth={2}
-      style={{ color: GOLD }}
+            <div className="mt-6 flex items-center gap-2 text-[13.5px] break-all sm:break-normal" style={{ color: TEXT_DARK }}>
+              <Phone
+                size={16}
+                strokeWidth={2}
+                style={{ color: GOLD }}
       className="shrink-0"
     />
-    +91 97117 52388
+    +91 9711752388
+  </div>
+    <div className="mt-6 flex items-center gap-2 text-[13.5px] break-all sm:break-normal" style={{ color: TEXT_DARK }}>
+              <Phone
+                size={16}
+                strokeWidth={2}
+                style={{ color: GOLD }}
+      className="shrink-0"
+    />
+    +91 90587 17847
   </div>
           </motion.div>
         </div>

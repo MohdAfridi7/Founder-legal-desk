@@ -81,42 +81,42 @@ const testimonials = [
     role: "Litconnect — LegalTech, London",
     avatar: "https://media.licdn.com/dms/image/v2/C5603AQE_v3a_mvk7Yw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1650304809148?e=1787184000&v=beta&t=YsGc8m1NYLuhT6gy2i84niPwzgdm9UYQpKcNZr8VYLA",
     quote:
-      "Founders Legal Desk supported us on complex privacy and technology documentation across multiple regulatory frameworks. The team understood the requirements thoroughly and delivered structured, business-focused documentation.",
+      "We needed several agreements tailored to how our business actually operates. The team understood the commercial requirements, explained the important points clearly and helped us put the right documentation in place.",
   },
   {
     name: "Sohaib Ahmed",
     role: "Founder, Awliyah — Toronto",
     avatar: "https://media.licdn.com/dms/image/v2/D5603AQGRyHD8z17U8w/profile-displayphoto-crop_800_800/B56Z7WkrnIGcAI-/0/1781716403019?e=1787184000&v=beta&t=0nmF2tpMHDZeTWwutsqEU9DRL6RWQYbsDmyXWiLXiWE",
     quote:
-      "The team supported us with our privacy documentation and understood the international nature of our business. The entire process was clear, responsive and professionally managed.",
+      "We wanted to protect our brand properly and needed guidance on the trademark process. The team helped us understand the requirements and guided us through the process from start to finish.",
   },
   {
     name: "Ahmad Umar",
     role: "Medixcy — HealthTech",
     avatar: "https://media.licdn.com/dms/image/v2/D4E03AQGc4ijGE6qb6g/profile-displayphoto-shrink_800_800/B4EZTg6DPGHMAc-/0/1738940103940?e=1787184000&v=beta&t=9Y8HBnfhQwwfDITb6UXWsKgQalKqVFI9r_jxDOQTzf4",
     quote:
-      "We needed support across privacy, founder documentation and the regulatory requirements applicable to a digital healthcare business. The team took the time to understand our model and gave us practical, well-researched support.",
+      "Setting up a business comes with a lot of things to figure out. Having one team guide us through the registration and documentation requirements made the entire process much simpler.",
   },
   {
     name: "Aamish",
     role: "Acqify Ltd.",
     avatar: "https://media.licdn.com/dms/image/v2/D5603AQGc-CBKQ1s1UA/profile-displayphoto-crop_800_800/B56ZlIzLJWIsAI-/0/1757863001851?e=1787184000&v=beta&t=iuAUrpM0JxjC6F6Qo9AhiiKGY0J9M_fKvHrT6TGRzDE",
     quote:
-      "From NDAs and commercial contracts to data-protection requirements, the team understood what our business actually needed instead of giving us generic templates. The support was responsive and practical.",
+      "As our team started growing, we needed proper employment documentation and a better understanding of our legal requirements. FLD helped us put the necessary documentation in place without making the process complicated.",
   },
   {
     name: "Suhaib Siddiqui",
     role: "Chaichaska — F&B / QSR",
     avatar: "https://media.licdn.com/dms/image/v2/D4D03AQEf280CtaBHQA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1678684584450?e=1787184000&v=beta&t=V8wrEK1PwE6U3Cu7elkqGLD_jsQrcLbiiJ_BkaSy6gc",
     quote:
-      "We worked with the team across multiple requirements including trademark, franchise documentation, employment documentation and MSME registration. Having one team coordinate different requirements made the process much easier for us.",
+      "We needed help understanding and managing our ongoing compliance requirements. The team helped us identify what needed attention and gave us a clear way forward.",
   },
   {
     name: "Hammas Khan",
     role: "V2V Garments — Retail",
     avatar: "https://media.licdn.com/dms/image/v2/D4D03AQGNT9AXGiPXyg/profile-displayphoto-crop_800_800/B4DZ6torN4JcAI-/0/1781029584543?e=1787184000&v=beta&t=Dbm-U6EDJ5czkqgsRPqRJJD-z5JXML_-phWUhi-1fAE",
     quote:
-      "The team supported us on an important intellectual-property matter with detailed documentation and research. They were thorough, responsive and clear throughout the process.",
+      "What we value most is having someone we can turn to whenever a legal question comes up. Instead of looking for a different professional every time, we have one legal desk that understands our business.",
   },
 ];
 
@@ -170,7 +170,7 @@ function Header({
       className="text-[26px] text-black sm:text-[34px] lg:text-[42px] leading-[1.15] font-semibold"
       style={{ fontFamily: "'Fraunces', Georgia, serif" }}
     >
-     What Our <span style={{ color: '#D9A867' }}>Clients Say</span>
+     Trusted by Founders. <br /> <span style={{ color: '#D9A867' }}>Built Around Their Needs</span>
     </motion.h2>
   </div>
 
@@ -179,7 +179,7 @@ function Header({
     className="text-[15.5px] text-black sm:text-[17px] leading-relaxed max-w-md"
     
   >
-   Businesses across technology, healthcare, retail, food & beverage and other sectors have trusted us with important corporate, privacy and commercial requirements.
+  From business registrations and contracts to intellectual property, compliance and ongoing legal support, founders rely on Founders Legal Desk to help them navigate the legal side of building a business.
   </motion.p>
 
   <motion.div

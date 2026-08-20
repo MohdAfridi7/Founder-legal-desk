@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
+  Scale,
   FileSignature,
   Handshake,
   Lock,
@@ -34,39 +35,128 @@ const img = (seed) => `https://picsum.photos/seed/${seed}/700/500`;
 
 const STAGES = {
   foundation: {
-    label: 'Building your foundation',
-    sub: 'The documents every incorporated business needs before anything goes wrong.',
+    label: "BUILDING YOUR FOUNDATION",
+    sub: "Set up your business on the right legal footing.",
+
     items: [
-      { Icon: FileSignature, title: 'Vendor & Supplier Agreements', desc: 'Protect every vendor relationship with a clear, enforceable agreement covering scope, payment, deliverables, and dispute resolution.', image: img('fld-vendor') },
-      { Icon: Handshake, title: 'Client Service Agreements', desc: 'Define what you deliver, what you charge, and what happens if something goes wrong — before it does.', image: img('fld-client') },
-      { Icon: Lock, title: 'Non-Disclosure Agreements (NDA)', desc: 'For investor conversations, vendor discussions, freelancer onboarding, and pilot partnerships.', image: img('fld-nda') },
-      { Icon: Users, title: 'Founder & Co-Founder Agreement', desc: 'Equity split, roles, vesting schedule, IP ownership, exit provisions — the most-skipped document in startup history.', image: img('fld-cofounder') },
-      { Icon: Laptop, title: 'Freelancer & Consultant Agreements', desc: 'Scope, deliverables, payment terms, IP assignment, and exit clause for every freelance engagement.', image: img('fld-freelancer') },
+      {
+        Icon: FileSignature,
+        title: "Business Registration & Structuring",
+        desc: "Company, LLP, MSME/Udyam, Startup India and other registration requirements.",
+        image: img("fld-registration"),
+      },
+
+      {
+        Icon: Users,
+        title: "Founder & Shareholder Agreements",
+        desc: "Protect founder relationships, roles, ownership and decision-making.",
+        image: img("fld-founder"),
+      },
+
+      {
+        Icon: Handshake,
+        title: "Contracts & Commercial Agreements",
+        desc: "NDAs, vendor agreements, client agreements, service agreements and more.",
+        image: img("fld-contracts"),
+      },
+
+      {
+        Icon: Briefcase,
+        title: "Employment & Consultant Agreements",
+        desc: "Put the right legal framework in place for your team and consultants.",
+        image: img("fld-employment"),
+      },
+
+      {
+        Icon: ShieldCheck,
+        title: "Intellectual Property Protection",
+        desc: "Trademark, copyright and other brand protection requirements.",
+        image: img("fld-ip"),
+      },
     ],
   },
+
   growing: {
-    label: 'Managing your growth',
-    sub: 'As your team and vendor relationships grow, so does your exposure.',
+    label: "MANAGING YOUR GROWTH",
+    sub: "Stay legally prepared as your business expands.",
+
     items: [
-      { Icon: Briefcase, title: 'Employment Contracts', desc: 'Role, compensation, IP assignment, non-solicitation, and notice period — all in one reviewed agreement.', image: img('fld-employment') },
-      { Icon: Mail, title: 'Offer Letters', desc: 'Professional, sound offer letters that protect the company and set clear expectations from day one.', image: img('fld-offer') },
-      { Icon: ShieldAlert, title: 'POSH Policy & Committee', desc: 'Mandatory at 10+ employees under the POSH Act, 2013. Non-compliance shows up in investor due diligence.', image: img('fld-posh') },
-      { Icon: ShieldCheck, title: 'Privacy Policy & Terms of Service', desc: "If your business collects user data, these are no longer optional under the DPDP Act 2023.", image: img('fld-privacy') },
-      { Icon: ClipboardCheck, title: 'DPDP Act Compliance Review', desc: "A structured review of your data handling practices against India's DPDP Act, 2023.", image: img('fld-dpdp') },
-      { Icon: BellRing, title: 'Compliance Tracking & Reminders', desc: 'Automated alerts for ROC filings, board meetings, DIR-3 KYC, AGM deadlines, and TDS dates.', image: img('fld-compliance') },
-      { Icon: FileWarning, title: 'Formal Notice Drafting', desc: 'For non-payment, breach of contract, or IP infringement — from a specialist, not an email.', image: img('fld-notice') },
+      {
+        Icon: ShieldCheck,
+        title: "Corporate & Regulatory Compliance",
+        desc: "Ongoing corporate, statutory and regulatory requirements.",
+        image: img("fld-compliance"),
+      },
+
+      {
+        Icon: FileSignature,
+        title: "Contract Management",
+        desc: "Drafting, reviewing and negotiating agreements as your business deals grow.",
+        image: img("fld-contract-management"),
+      },
+
+      {
+        Icon: Users,
+        title: "Employment & HR Legal Support",
+        desc: "Employment documentation, policies and workplace-related legal requirements.",
+        image: img("fld-hr"),
+      },
+
+      {
+        Icon: Lock,
+        title: "Data Privacy & Technology",
+        desc: "Privacy policies, data protection and technology-related legal requirements.",
+        image: img("fld-privacy"),
+      },
+
+      {
+        Icon: BadgeCheck,
+        title: "Licences & Certifications",
+        desc: "Support with business-specific licences, registrations and certifications.",
+        image: img("fld-licences"),
+      },
     ],
   },
+
   scaling: {
-    label: 'Protecting your scale',
-    sub: 'Fundraising, high-volume hiring, and new markets all create complexity.',
+    label: "PROTECTING YOUR SCALE",
+    sub: "Protect the business you've built.",
+
     items: [
-      { Icon: Landmark, title: 'Shareholder Agreement (SHA)', desc: 'Rights, obligations, drag-along, tag-along, anti-dilution — reviewed for the round you\u2019re raising.', image: img('fld-sha') },
-      { Icon: Files, title: 'Share Subscription Agreement (SSA)', desc: 'The investment instrument, reviewed and prepared for your round.', image: img('fld-ssa') },
-      { Icon: PieChart, title: 'ESOP Scheme Documentation', desc: 'Option pool creation, vesting schedule, exercise price, forfeiture — documented correctly.', image: img('fld-esop') },
-      { Icon: FileSearch, title: 'Term Sheet Review', desc: 'A specialist reads your term sheet and identifies what to push back on — before you sign.', image: img('fld-termsheet') },
-      { Icon: BadgeCheck, title: 'Trademark Filing Support', desc: 'Application, follow-up, and objection response — brand protection made simple.', image: img('fld-trademark') },
-      { Icon: Handshake, title: 'MoU & Partnership Agreements', desc: 'For joint ventures, channel partnerships, and strategic alliances.', image: img('fld-mou') },
+      {
+        Icon: ShieldCheck,
+        title: "Intellectual Property & Brand Protection",
+        desc: "Trademark matters, IP protection and brand-related legal requirements.",
+        image: img("fld-ip-brand"),
+      },
+
+      {
+        Icon: Landmark,
+        title: "Corporate & Shareholder Matters",
+        desc: "Shareholding, governance, restructuring and other corporate requirements.",
+        image: img("fld-shareholder"),
+      },
+
+      {
+        Icon: FileSignature,
+        title: "Fundraising & Investment Documentation",
+        desc: "Legal documentation and support for investment and fundraising requirements.",
+        image: img("fld-fundraising"),
+      },
+
+      {
+        Icon: FileSearch,
+        title: "Due Diligence & Legal Readiness",
+        desc: "Organise and address legal documentation and compliance requirements before major business transactions.",
+        image: img("fld-due-diligence"),
+      },
+
+      {
+        Icon: Scale,
+        title: "Business Disputes & Legal Issues",
+        desc: "Support when issues arise with employees, vendors, customers, partners or other business relationships.",
+        image: img("fld-disputes"),
+      },
     ],
   },
 };
@@ -287,32 +377,46 @@ export default function ServicesCoverageSection() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
-        <div className="mb-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 text-[12.5px] font-bold uppercase tracking-[0.14em]"
-            style={{ color: GOLD }}
-          >
-            <span className="h-px w-5" style={{ background: GOLD }} />
-            Coverage
-          </motion.div>
+       <div className="mb-10 text-center">
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5 }}
+    className="inline-flex items-center gap-2 text-[12.5px] font-bold uppercase tracking-[0.14em]"
+    style={{ color: GOLD }}
+  >
+    <span className="h-px w-5" style={{ background: GOLD }} />
+    Coverage
+  </motion.div>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl"
-            style={{ fontFamily: "'Fraunces', Georgia, serif", color: INK }}
-          >
-            What we handle
-            <br />
-            <span style={{ color: GOLD }}>for you</span>
-          </motion.h2>
-        </div>
+  <motion.h2
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8, delay: 0.1 }}
+    className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl"
+    style={{
+      fontFamily: "'Fraunces', Georgia, serif",
+      color: INK,
+    }}
+  >
+    Legal Support for Every Stage
+    <br />
+    <span style={{ color: GOLD }}>of Your Business.</span>
+  </motion.h2>
+
+  <motion.p
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6, delay: 0.2 }}
+    className="mx-auto mt-5 max-w-2xl text-base leading-7 text-black/60 sm:text-lg"
+    style={{ fontFamily: "'Manrope', sans-serif" }}
+  >
+   From getting started to growing and protecting your business, we help you navigate the legal requirements that come with running a company.
+  </motion.p>
+</div>
 
         {/* Stage tabs — scrollable + arrows on mobile */}
         <motion.div
