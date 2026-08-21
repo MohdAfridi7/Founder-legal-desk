@@ -107,14 +107,17 @@
         "
         >
           {/* Logo */}
-         <span className="flex flex-col mb-6 leading-tight">
-              <span className="font-serif text-lg font-bold text-black">
-                Founders Legal Desk
-              </span>
-              <span className="mt-0.5 text-[10.5px] font-semibold uppercase tracking-[.08em] text-[#C7954A]">
-                A Startup Times Venture
-              </span>
-            </span>
+       {/* Logo */}
+<div className="flex flex-col mb-6">
+  <Image
+    src="/logo-main.png"
+    alt="Founders Legal Desk"
+    width={180}
+    height={60}
+    priority
+    className="w-auto h-12 object-contain object-left"
+  />
+</div>
 
           <p className="text-gray-500 mb-3 text-sm">
             Sign in to continue your dashboard

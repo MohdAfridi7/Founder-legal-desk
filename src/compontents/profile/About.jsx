@@ -98,7 +98,7 @@ function Portrait() {
       <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#0b1a2e]">
         {!imgError ? (
           <img
-            src="https://media.licdn.com/dms/image/v2/D5603AQEGD7WmaDUHBQ/profile-displayphoto-crop_800_800/B56Z.lLOtrG4AI-/0/1785182615999?e=1787184000&v=beta&t=o-5W0Vlr73OkBJQ6_iqAaWKehl1k3qWGl0nv_NaKnFs"
+            src="/Adv-sagir-ahmad.png"
             alt="Adv. Sagir Ahmad"
             onError={() => setImgError(true)}
             className="w-full h-full object-cover grayscale-[20%] contrast-[1.05]"

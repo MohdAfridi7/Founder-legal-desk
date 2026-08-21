@@ -1,18 +1,21 @@
 const BASE_URL = "https://founderslegaldesk.com";
 
-// TODO: replace this with your actual backend API endpoint that returns blog posts
-// Expected shape (adjust to match your API): [{ slug: "my-post", updatedAt: "2026-08-01" }, ...]
 async function getBlogPosts() {
   try {
-    const res = await fetch(`${BASE_URL}/api/blogs`, {
-      // revalidate every hour so new posts show up in the sitemap without a redeploy
+    const res = await fetch(`${BASE_URL}/api/blog`, {
       next: { revalidate: 3600 },
     });
 
-    if (!res.ok) return [];
+    if (!res.ok) {
+      console.error("Blog API failed:", res.status);
+      return [];
+    }
 
-    const posts = await res.json();
-    return posts;
+    const data = await res.json();
+
+    return data?.success && Array.isArray(data.blogs)
+      ? data.blogs
+      : [];
   } catch (error) {
     console.error("Failed to fetch blog posts for sitemap:", error);
     return [];
@@ -20,55 +23,71 @@ async function getBlogPosts() {
 }
 
 export default async function sitemap() {
-  // Static pages
+  const now = new Date();
+
   const staticRoutes = [
     {
       url: `${BASE_URL}/`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "weekly",
       priority: 1.0,
     },
     {
-      url: `${BASE_URL}/services`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
       url: `${BASE_URL}/about`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${BASE_URL}/profile`,
-      lastModified: new Date(),
+      url: `${BASE_URL}/advsagir`,
+      lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.7,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/services`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/pricing`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/free-consultation`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
       url: `${BASE_URL}/contact`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${BASE_URL}/blog`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.8,
     },
   ];
 
-  // Dynamic blog post pages
   const posts = await getBlogPosts();
 
-  const blogRoutes = posts.map((post) => ({
-    url: `${BASE_URL}/blog/${post.slug}`,
-    lastModified: post.updatedAt ? new Date(post.updatedAt) : new Date(),
-    changeFrequency: "monthly",
-    priority: 0.6,
-  }));
+  const blogRoutes = posts
+    .filter((post) => post.slug)
+    .map((post) => ({
+      url: `${BASE_URL}/blog/${post.slug}`,
+      lastModified: post.updatedAt
+        ? new Date(post.updatedAt)
+        : now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    }));
 
   return [...staticRoutes, ...blogRoutes];
 }

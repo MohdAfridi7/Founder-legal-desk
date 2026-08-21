@@ -79,42 +79,42 @@ const testimonials = [
   {
     name: "Balachander",
     role: "Litconnect — LegalTech, London",
-    avatar: "https://media.licdn.com/dms/image/v2/C5603AQE_v3a_mvk7Yw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1650304809148?e=1787184000&v=beta&t=YsGc8m1NYLuhT6gy2i84niPwzgdm9UYQpKcNZr8VYLA",
+    avatar: "/Balachander.jfif",
     quote:
       "We needed several agreements tailored to how our business actually operates. The team understood the commercial requirements, explained the important points clearly and helped us put the right documentation in place.",
   },
   {
     name: "Sohaib Ahmed",
     role: "Founder, Awliyah — Toronto",
-    avatar: "https://media.licdn.com/dms/image/v2/D5603AQGRyHD8z17U8w/profile-displayphoto-crop_800_800/B56Z7WkrnIGcAI-/0/1781716403019?e=1787184000&v=beta&t=0nmF2tpMHDZeTWwutsqEU9DRL6RWQYbsDmyXWiLXiWE",
+    avatar: "/Sohaib Ahmed.png",
     quote:
       "We wanted to protect our brand properly and needed guidance on the trademark process. The team helped us understand the requirements and guided us through the process from start to finish.",
   },
   {
     name: "Ahmad Umar",
     role: "Medixcy — HealthTech",
-    avatar: "https://media.licdn.com/dms/image/v2/D4E03AQGc4ijGE6qb6g/profile-displayphoto-shrink_800_800/B4EZTg6DPGHMAc-/0/1738940103940?e=1787184000&v=beta&t=9Y8HBnfhQwwfDITb6UXWsKgQalKqVFI9r_jxDOQTzf4",
+    avatar: "/Ahmad Umar.jfif",
     quote:
       "Setting up a business comes with a lot of things to figure out. Having one team guide us through the registration and documentation requirements made the entire process much simpler.",
   },
   {
     name: "Aamish",
     role: "Acqify Ltd.",
-    avatar: "https://media.licdn.com/dms/image/v2/D5603AQGc-CBKQ1s1UA/profile-displayphoto-crop_800_800/B56ZlIzLJWIsAI-/0/1757863001851?e=1787184000&v=beta&t=iuAUrpM0JxjC6F6Qo9AhiiKGY0J9M_fKvHrT6TGRzDE",
+    avatar: "/Aamish.jfif",
     quote:
       "As our team started growing, we needed proper employment documentation and a better understanding of our legal requirements. FLD helped us put the necessary documentation in place without making the process complicated.",
   },
   {
     name: "Suhaib Siddiqui",
     role: "Chaichaska — F&B / QSR",
-    avatar: "https://media.licdn.com/dms/image/v2/D4D03AQEf280CtaBHQA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1678684584450?e=1787184000&v=beta&t=V8wrEK1PwE6U3Cu7elkqGLD_jsQrcLbiiJ_BkaSy6gc",
+    avatar: "/Suhaib Siddiqui.jfif",
     quote:
       "We needed help understanding and managing our ongoing compliance requirements. The team helped us identify what needed attention and gave us a clear way forward.",
   },
   {
     name: "Hammas Khan",
     role: "V2V Garments — Retail",
-    avatar: "https://media.licdn.com/dms/image/v2/D4D03AQGNT9AXGiPXyg/profile-displayphoto-crop_800_800/B4DZ6torN4JcAI-/0/1781029584543?e=1787184000&v=beta&t=Dbm-U6EDJ5czkqgsRPqRJJD-z5JXML_-phWUhi-1fAE",
+    avatar: "/Hammas Khan.png",
     quote:
       "What we value most is having someone we can turn to whenever a legal question comes up. Instead of looking for a different professional every time, we have one legal desk that understands our business.",
   },

@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, ArrowRight, ArrowUpRight, ArrowUp } from 'lucide-react';
-import { FaLinkedinIn, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaLinkedinIn, FaTwitter, FaInstagram, FaFacebook } from "react-icons/fa";
 import Image from "next/image";
 const NAVY = '#19223A';
 const NAVY_DARK = '#141B2F';
@@ -30,6 +30,7 @@ const SOCIALS = [
   { Icon: FaLinkedinIn, href: "https://www.linkedin.com/company/founders-legal-desk/", label: "LinkedIn" },
   { Icon: FaInstagram, href: "https://www.instagram.com/founderslegaldesk/", label: "Instagram" },
     { Icon: FaTwitter, href: "https://x.com/found_legaldesk", label: "Twitter" },
+  { Icon: FaFacebook, href: "https://www.facebook.com/founderslegaldesk", label: "Facebook" },
 ];
 
 function FooterLinkList({ title, links }) {

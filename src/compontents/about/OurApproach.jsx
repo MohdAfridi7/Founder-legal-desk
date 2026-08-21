@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { BadgeCheck, ShieldCheck, UserCheck, ScrollText } from 'lucide-react';
+import { BadgeCheck } from 'lucide-react';
 
 const INK = '#12151F';
 const MUTED = '#6B7184';
@@ -16,20 +16,23 @@ const VERIFY_IMAGE =
 
 const CHECKLIST = [
   {
-    Icon: UserCheck,
-    text: 'A named professional reviews every single document — not an algorithm.',
+    number: '01',
+    title: 'Business First',
+    text: 'We look beyond the immediate legal question to understand what your business actually needs.',
   },
   {
-    Icon: ShieldCheck,
-    text: 'Checked for accuracy, enforceability, and completeness before delivery.',
+    number: '02',
+    title: 'Practical Guidance',
+    text: 'Clear, actionable legal support that helps you make informed business decisions.',
   },
   {
-    Icon: ScrollText,
-    text: 'Personal accountability — the specialist stands behind the work.',
+    number: '03',
+    title: 'The Right Expertise',
+    text: 'Every requirement is approached with the relevant legal expertise and attention it deserves.',
   },
 ];
 
-function ChecklistRow({ Icon, text, index }) {
+function ChecklistRow({ number, title, text, index }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.5 });
 
@@ -49,11 +52,21 @@ function ChecklistRow({ Icon, text, index }) {
         className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-colors duration-300 group-hover:bg-[#C7954A]"
         style={{ background: AMBER_SOFT }}
       >
-        <Icon size={17} strokeWidth={2} style={{ color: AMBER }} className="transition-colors duration-300 group-hover:text-white" />
+        <span
+          className="text-[13px] font-extrabold transition-colors duration-300 group-hover:text-white"
+          style={{ color: AMBER, fontFamily: "'Manrope', sans-serif" }}
+        >
+          {number}
+        </span>
       </motion.div>
-      <p className="pt-1 text-[15px] leading-relaxed" style={{ color: INK }}>
-        {text}
-      </p>
+      <div className="pt-1">
+        <p className="mb-1 text-[15px] font-bold leading-snug" style={{ color: INK }}>
+          {title}
+        </p>
+        <p className="text-[14.5px] leading-relaxed" style={{ color: MUTED }}>
+          {text}
+        </p>
+      </div>
     </motion.div>
   );
 }
@@ -93,7 +106,7 @@ function VerifiedSeal({ inView }) {
         />
         <path id="sealPath" d="M 66,66 m -40,0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" fill="none" />
         <text fontSize="7" fill={AMBER} letterSpacing="2" fontFamily="'Manrope', sans-serif" fontWeight="700">
-          <textPath href="#sealPath">SPECIALIST VERIFIED &#8226; FOUNDERS LEGAL DESK &#8226; </textPath>
+          <textPath href="#sealPath">OUR APPROACH &#8226; FOUNDERS LEGAL DESK &#8226; </textPath>
         </text>
       </motion.svg>
 
@@ -110,12 +123,14 @@ function VerifiedSeal({ inView }) {
   );
 }
 
-export default function VerifiedSection() {
+export default function OurApproachSection() {
   const headingRef = useRef(null);
   const headingInView = useInView(headingRef, { once: true, amount: 0.5 });
 
   const sealRef = useRef(null);
   const sealInView = useInView(sealRef, { once: true, amount: 0.5 });
+
+  const headingWords = 'Legal Support That Understands Your Business.'.split(' ');
 
   return (
     <section
@@ -169,7 +184,7 @@ export default function VerifiedSection() {
             style={{ color: AMBER }}
           >
             <span className="h-px w-5" style={{ background: AMBER }} />
-            Verification
+            Our Approach
           </motion.div>
 
           <h2
@@ -183,7 +198,7 @@ export default function VerifiedSection() {
               color: INK,
             }}
           >
-            {'What "specialist-verified" means'.split(' ').map((w, i) => (
+            {headingWords.map((w, i) => (
               <motion.span
                 key={i}
                 initial={{ opacity: 0, y: 18 }}
@@ -192,7 +207,7 @@ export default function VerifiedSection() {
                 className="inline-block"
               >
                 {w}
-                {i < 3 ? '\u00A0' : ''}
+                {i < headingWords.length - 1 ? '\u00A0' : ''}
               </motion.span>
             ))}
           </h2>
@@ -202,27 +217,12 @@ export default function VerifiedSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-4 max-w-[540px] text-[16px] leading-relaxed"
-            style={{ color: MUTED }}
-          >
-            Every document delivered through Founders Legal Desk is reviewed and verified by the
-            specialist who prepared it. This isn&apos;t a platform badge or an automated quality
-            check.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.18 }}
             className="mb-8 max-w-[540px] text-[16px] leading-relaxed"
             style={{ color: MUTED }}
           >
-            A named professional has reviewed your document, checked it for accuracy and
-            enforceability, and takes personal responsibility for the work. That&apos;s different
-            from any template platform or anonymous marketplace — and it&apos;s what makes a
-            document from Founders Legal Desk worth more than a downloaded format, at a price
-            that works for a growing business.
+            Legal advice is most useful when it works in the context of the business behind it.
+            At Founders Legal Desk, we focus on understanding the requirement, the business
+            situation and the practical way forward.
           </motion.p>
 
           {/* Checklist */}
@@ -259,7 +259,7 @@ export default function VerifiedSection() {
           >
             <img
               src={VERIFY_IMAGE}
-              alt="Specialist reviewing and verifying a legal document"
+              alt="Founders Legal Desk specialist advising on a business legal matter"
               className="h-full w-full object-cover"
             />
             <div
@@ -268,7 +268,7 @@ export default function VerifiedSection() {
             />
           </motion.div>
 
-          {/* Rotating "verified" seal, overlapping the bottom-left corner */}
+          {/* Rotating seal, overlapping the bottom-left corner */}
           <VerifiedSeal inView={sealInView} />
         </motion.div>
       </div>

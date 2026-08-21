@@ -9,7 +9,7 @@ import Trust from "../../compontents/home/TrustSaction";
 import Clientportfolio from "../../compontents/home/ClientPortfolio";
 import Brand from "../../compontents/home/BrandCarousel";
 import Price from "../../compontents/home/Price";
-import AddOnSaction from "../../compontents/home/AddOn";
+// import AddOnSaction from "../../compontents/home/AddOn";
 import Testimonial from "../../compontents/home/Testimonial";
 import Faq from "../../compontents/home/FaqSection";
 import { getSeo } from "@/lib/getSeo";
@@ -65,7 +65,7 @@ export default async function Home() {
         <WhyUs />
         <Testimonial />
         <Price />
-        <AddOnSaction />
+        {/* <AddOnSaction /> */}
         <Faq />
       </div>
     </>

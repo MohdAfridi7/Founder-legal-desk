@@ -31,7 +31,7 @@ const GOLD = '#C7954A';
 const BG = '#f8f6f3';
 
 // Deterministic, guaranteed-to-load placeholder photo per card (swap with real photography later).
-const img = (seed) => `https://picsum.photos/seed/${seed}/700/500`;
+
 
 const STAGES = {
   foundation: {
@@ -43,35 +43,35 @@ const STAGES = {
         Icon: FileSignature,
         title: "Business Registration & Structuring",
         desc: "Company, LLP, MSME/Udyam, Startup India and other registration requirements.",
-        image: img("fld-registration"),
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2fogwLmq5Xvbk2PZNPImoFWzKK0FY6GEzD8eQ2vTq1w&s=10",
       },
 
       {
         Icon: Users,
         title: "Founder & Shareholder Agreements",
         desc: "Protect founder relationships, roles, ownership and decision-making.",
-        image: img("fld-founder"),
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb4uwIQI4KWK_6VvPVObntD0OEgJSmOXi9ephbZQE5Jw&s",
       },
 
       {
         Icon: Handshake,
         title: "Contracts & Commercial Agreements",
         desc: "NDAs, vendor agreements, client agreements, service agreements and more.",
-        image: img("fld-contracts"),
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbDvEvwGX1DdjdsAQc8LK0Laer4Um2c_ECkQHmEGzt6Q&s=10",
       },
 
       {
         Icon: Briefcase,
         title: "Employment & Consultant Agreements",
         desc: "Put the right legal framework in place for your team and consultants.",
-        image: img("fld-employment"),
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJwmXutKOZT2egKeNWex7FE9avDooKeFw8BWmoqMZxpQ&s=10",
       },
 
       {
         Icon: ShieldCheck,
         title: "Intellectual Property Protection",
         desc: "Trademark, copyright and other brand protection requirements.",
-        image: img("fld-ip"),
+        image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2dN1ZtvP0XQryLWITKS9RFYNk0q5CdfyflKoHcAtwvQ&s=10",
       },
     ],
   },
@@ -85,35 +85,35 @@ const STAGES = {
         Icon: ShieldCheck,
         title: "Corporate & Regulatory Compliance",
         desc: "Ongoing corporate, statutory and regulatory requirements.",
-        image: img("fld-compliance"),
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSql9LhWPsxnPpeaYhdYmGIBj-p6XTDsY14Iv0hBUJwoQ&s=10",
       },
 
       {
         Icon: FileSignature,
         title: "Contract Management",
         desc: "Drafting, reviewing and negotiating agreements as your business deals grow.",
-        image: img("fld-contract-management"),
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl7lVitOkVD5U5SF6yMXcjn81pcyBp2cSV2DdKFk_8Iw&s=10",
       },
 
       {
         Icon: Users,
         title: "Employment & HR Legal Support",
         desc: "Employment documentation, policies and workplace-related legal requirements.",
-        image: img("fld-hr"),
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2oye02sA9bjlw4CpHxDZIPrHi7Kb-4U4fVi7paDHEPw&s=10",
       },
 
       {
         Icon: Lock,
         title: "Data Privacy & Technology",
         desc: "Privacy policies, data protection and technology-related legal requirements.",
-        image: img("fld-privacy"),
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXixxQF2W_RC7MirFKbtKH9rBWdsynn7dSX7roGJC-OQ&s=10",
       },
 
       {
         Icon: BadgeCheck,
         title: "Licences & Certifications",
         desc: "Support with business-specific licences, registrations and certifications.",
-        image: img("fld-licences"),
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRunbqrM4f24MZzBrWvzd4JTXlgEFSX6qQagOjP8CYSew&s=10",
       },
     ],
   },
@@ -127,35 +127,35 @@ const STAGES = {
         Icon: ShieldCheck,
         title: "Intellectual Property & Brand Protection",
         desc: "Trademark matters, IP protection and brand-related legal requirements.",
-        image: img("fld-ip-brand"),
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWZrCYtAWdfpNATJcRnx1QPUEEc3wAV83d4vv4YNF19Q&s=10",
       },
 
       {
         Icon: Landmark,
         title: "Corporate & Shareholder Matters",
         desc: "Shareholding, governance, restructuring and other corporate requirements.",
-        image: img("fld-shareholder"),
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDszl8XaAyHlZeAdXOKPdmssu0dUZvhzFcCEvYquoHPQ&s=10",
       },
 
       {
         Icon: FileSignature,
         title: "Fundraising & Investment Documentation",
         desc: "Legal documentation and support for investment and fundraising requirements.",
-        image: img("fld-fundraising"),
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRAHJKfLzkveoqBYDr4DtrCyOVtzdr0ppYfdBHJGr2vA&s=10",
       },
 
       {
         Icon: FileSearch,
         title: "Due Diligence & Legal Readiness",
         desc: "Organise and address legal documentation and compliance requirements before major business transactions.",
-        image: img("fld-due-diligence"),
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4khaZ79wf4GGoqOY39_MQ2jPViCiOL7jMLjLdSNy9Yg&s=10",
       },
 
       {
         Icon: Scale,
         title: "Business Disputes & Legal Issues",
         desc: "Support when issues arise with employees, vendors, customers, partners or other business relationships.",
-        image: img("fld-disputes"),
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmM4LZJHQpt5ByJDp-He5np_SxyBd0favaJip7KUcrzw&s=10",
       },
     ],
   },

@@ -1,8 +1,8 @@
 import Hero from "../../../compontents/about/HomeSection";
 import Brand from "../../../compontents/home/BrandCarousel";
 import ProblemSaction from "../../../compontents/about/ProblemSection";
-import OriginSection from "../../../compontents/about/OriginSection";
-import Verifiedsection from "../../../compontents/about/Verifiedsection";
+// import OriginSection from "../../../compontents/about/OriginSection";
+import OurApproachSection from "../../../compontents/about/OurApproach";
 import TrustSaction from "../../../compontents/home/TrustSaction";
 import Testimonial from "../../../compontents/home/Testimonial";
 import FaqSection from "../../../compontents/home/FaqSection";
@@ -50,8 +50,8 @@ export default async function AboutPage() {
         <Hero />
         <Brand />
         <ProblemSaction />
-        <OriginSection />
-        <Verifiedsection />
+        {/* <OriginSection /> */}
+        <OurApproachSection />
         <TrustSaction />
         <Testimonial />
         <FaqSection />

@@ -32,7 +32,7 @@ const CLIENTS = [
     deliverables:
       "Supported comprehensive data privacy requirements, including GDPR/UK-GDPR and CCPA-oriented Privacy and Cookie Policies covering data-subject rights, cross-border transfers, cookie consent and processor obligations.",
     seed: "litconnect-legal",
-    image: "https://media.licdn.com/dms/image/v2/C5603AQE_v3a_mvk7Yw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1650304809148?e=1787184000&v=beta&t=YsGc8m1NYLuhT6gy2i84niPwzgdm9UYQpKcNZr8VYLA",
+    image: "/Balachander.jfif",
   },
   {
     name: "Awliyah",
@@ -42,7 +42,7 @@ const CLIENTS = [
     deliverables:
       "Prepared privacy documentation benchmarked against Canada's PIPEDA framework with GDPR-oriented privacy considerations.",
     seed: "awliyah-office",
-    image: "https://media.licdn.com/dms/image/v2/D5603AQGRyHD8z17U8w/profile-displayphoto-crop_800_800/B56Z7WkrnIGcAI-/0/1781716403019?e=1787184000&v=beta&t=0nmF2tpMHDZeTWwutsqEU9DRL6RWQYbsDmyXWiLXiWE",
+    image: "/Sohaib Ahmed.png",
   },
   {
     name: "Mumbra One",
@@ -52,7 +52,7 @@ const CLIENTS = [
     deliverables:
       "Prepared Privacy Policy and supporting user-facing documentation considering India's data-protection and information-technology framework.",
     seed: "mumbra-startup",
-    image: "https://media.licdn.com/dms/image/v2/D5603AQH7IqG1YxQ6Iw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1726560837872?e=1787184000&v=beta&t=8NBKOdD4SeE6YxkrEDWod3BpyBhOp6upRd9liGa-n2c",
+    image: "/Sufiyan.jfif",
   },
   {
     name: "Medixcy",
@@ -62,7 +62,7 @@ const CLIENTS = [
     deliverables:
       "Supported the business with Privacy Notice, Founders' Agreement and Terms & Conditions, together with regulatory research relating to telemedicine and data-protection requirements.",
     seed: "medixcy-health",
-    image: "https://media.licdn.com/dms/image/v2/D4E03AQGc4ijGE6qb6g/profile-displayphoto-shrink_800_800/B4EZTg6DPGHMAc-/0/1738940103940?e=1787184000&v=beta&t=9Y8HBnfhQwwfDITb6UXWsKgQalKqVFI9r_jxDOQTzf4",
+    image: "/Ahmad Umar.jfif",
   },
   {
     name: "Acqify Ltd.",
@@ -72,7 +72,7 @@ const CLIENTS = [
     deliverables:
       "Prepared customised NDAs and commercial contracts and supported business-specific data-protection requirements.",
     seed: "acqify-remote",
-    image: "https://media.licdn.com/dms/image/v2/D5603AQGc-CBKQ1s1UA/profile-displayphoto-crop_800_800/B56ZlIzLJWIsAI-/0/1757863001851?e=1787184000&v=beta&t=iuAUrpM0JxjC6F6Qo9AhiiKGY0J9M_fKvHrT6TGRzDE",
+    image: "/Aamish.jfif",
   },
   {
     name: "Chaichaska",
@@ -82,7 +82,7 @@ const CLIENTS = [
     deliverables:
       "Supported trademark application, Franchise Agreement, Employment Agreement and MSME/Udyam registration requirements.",
     seed: "chaichaska-cafe",
-    image: "https://media.licdn.com/dms/image/v2/D4D03AQEf280CtaBHQA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1678684584450?e=1787184000&v=beta&t=V8wrEK1PwE6U3Cu7elkqGLD_jsQrcLbiiJ_BkaSy6gc",
+    image: "/Suhaib Siddiqui.jfif",
   },
   {
     name: "V2V Garments",
@@ -92,7 +92,7 @@ const CLIENTS = [
     deliverables:
       "Supported the business with documentation relating to an intellectual-property dispute and trademark-related requirements.",
     seed: "v2v-garments-retail",
-    image: "https://media.licdn.com/dms/image/v2/D4D03AQGNT9AXGiPXyg/profile-displayphoto-crop_800_800/B4DZ6torN4JcAI-/0/1781029584543?e=1787184000&v=beta&t=Dbm-U6EDJ5czkqgsRPqRJJD-z5JXML_-phWUhi-1fAE",
+    image: "/Hammas Khan.png",
   },
 ];
 

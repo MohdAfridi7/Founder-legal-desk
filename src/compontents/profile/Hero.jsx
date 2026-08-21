@@ -43,7 +43,7 @@ function SealRing({ size = 150 }) {
       {/* Profile Image */}
       <div className="absolute inset-[28px] rounded-full overflow-hidden ring-1 ring-[#d7ac66]/50 shadow-[0_0_0_4px_rgba(11,26,46,0.6)]">
         <img
-          src="https://media.licdn.com/dms/image/v2/D5603AQEGD7WmaDUHBQ/profile-displayphoto-crop_800_800/B56Z.lLOtrG4AI-/0/1785182615999?e=1787184000&v=beta&t=o-5W0Vlr73OkBJQ6_iqAaWKehl1k3qWGl0nv_NaKnFs"
+          src="/Adv-sagir-ahmad.png"
           alt="Adv. Sagir Ahmad"
           className="w-full h-full object-cover"
         />

@@ -35,28 +35,28 @@ const services = [
     title: "Compliance & Regulatory",
     description:
       "Corporate compliance, regulatory requirements, documentation, filings and ongoing compliance support.",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQr54ejC_jcOKFULJQbNsJcF_OIO4gzMxkS1LYFz8k2g&s=10",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK8BA96oSwzoGXJd22dp-GXv-Ybib5-MS60I3jdD3dBQ&s=10",
     icon: Users,
   },
   {
     title: "Intellectual Property",
     description:
       "Trademark, copyright, brand protection and other intellectual property requirements.",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLgOHgnv0t_s3l7IuPL-nSNH7rhq5giM76U-HkuAUGZQ&s=10",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEiLYm2t5r1_1QcCkwKsJqSGSIOQX_GeS0yvzy2kyvCQ&s=10",
     icon: ShieldCheck,
   },
   {
     title: "Employment & HR",
     description:
       "Employment documentation, consultant agreements, workplace policies and HR-related legal support.",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4CV2jv-57hRGGTvqR4e8TydJpaGEdbhbSUo0Tz5TATw&s=10",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDpm9g1fzE___rMyHBXm95YckcJN-H9m32u8D8IZhqhg&s=10",
     icon: ShieldCheck,
   },
   {
     title: "Legal Issues & Business Disputes",
     description:
       "Support when things go wrong with employees, vendors, customers, partners or other business relationships.",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsi5ULXtvycnvtAiVvKE-qPXJueJENXfW7yJxkSRaXIA&s=10",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_zywzFp7qAvHHZz-vs6-0bzkpgaH96fnhWyJIn12jKA&s=10",
     icon: Briefcase,
   },
 ];

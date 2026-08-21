@@ -166,7 +166,7 @@ const FeaturesSection = () => {
       }`}
       style={{ fontFamily: "'Fraunces', Georgia, serif" }}
     >
-      Your Business Has a<span className="text-[#C7954A]">Legal Team Now.</span>
+      Your Business Has a<span className="text-[#C7954A]"> Legal Team Now.</span>
     </h2>
   </div>
 
