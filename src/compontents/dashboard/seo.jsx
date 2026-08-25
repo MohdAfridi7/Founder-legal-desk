@@ -18,6 +18,8 @@ const PAGE_NAMES = [
   "pricing",
   "services",
   "free-consultation",
+  "advsagir",
+  "blog",
 ];
 
 const EMPTY_FORM = {

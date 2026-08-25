@@ -4,19 +4,15 @@ import { getBlog, getRelatedBlogs } from "@/lib/getBlog";
 import { notFound } from "next/navigation";
 import { ArrowLeft, CalendarDays, Clock3, User } from "lucide-react";
 
-
-
-
-
 export async function generateMetadata({ params }) {
   const { slug } = await params;
- const blog = await getBlog(slug);
+  const blog = await getBlog(slug);
 
-if (!blog) {
-  return {
-    title: "Blog Not Found",
-  };
-}
+  if (!blog) {
+    return {
+      title: "Blog Not Found",
+    };
+  }
   return {
     title: blog.metaTitle || blog.title,
     description: blog.metaDescription,
@@ -26,15 +22,15 @@ if (!blog) {
 
 export default async function BlogDetails({ params }) {
   const { slug } = await params;
- const blog = await getBlog(slug);
+  const blog = await getBlog(slug);
 
-if (!blog) notFound();
+  if (!blog) notFound();
 
-const relatedBlogs = await getRelatedBlogs(blog._id);
+  const relatedBlogs = await getRelatedBlogs(blog._id);
 
   return (
     <section className="bg-white">
-     <style>{`
+      <style>{`
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -62,86 +58,165 @@ const relatedBlogs = await getRelatedBlogs(blog._id);
   .blog-content em { font-style: italic; }
   .blog-content u { text-decoration: underline; }
   .blog-content s { text-decoration: line-through; }
+
+  /* --- FIX: Quill tables overflow on mobile / behind sticky sidebar --- */
+  .blog-content table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+  }
+  .blog-content table tbody,
+  .blog-content table thead,
+  .blog-content table tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+  .blog-content table th,
+  .blog-content table td {
+    border: 1px solid #e5e7eb;
+    padding: 0.6rem 0.9rem;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    vertical-align: top;
+  }
+  .blog-content table th {
+    background-color: #f9fafb;
+    font-weight: 700;
+    text-align: left;
+  }
+
+  /* long unbreakable words/links inside prose shouldn't blow out the layout */
+  .blog-content img,
+  .blog-content iframe,
+  .blog-content video {
+    max-width: 100%;
+    height: auto;
+  }
+  .blog-content pre,
+  .blog-content code {
+    max-width: 100%;
+    overflow-x: auto;
+    word-break: break-word;
+    white-space: pre-wrap;
+  }
+  .blog-content a {
+    overflow-wrap: anywhere;
+  }
 `}</style>
 
-      {/* Full-width hero image with overlay content */}
-      <div className="relative h-[70vh] min-h-[420px] w-full overflow-hidden sm:h-[85vh] md:h-[95vh]">
-        <Image
-          src={blog.featuredImage}
-          alt={blog.title}
-          fill
-          sizes="100vw"
-          className="object-cover"
-          priority
-        />
+      {/*
+        Full-width hero image with overlay content.
 
-        {/* dark gradient for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B1739] via-[#0B1739]/60 to-[#0B1739]/10" />
-
-       <div className="absolute inset-0 flex flex-col justify-end">
-  <div className="container mx-auto px-4 pb-10 sm:px-5 md:pb-14">
-    <Link
-      href="/blog"
-      className="fade-up mb-4 inline-flex w-fit items-center gap-2 text-sm font-medium text-white/90 transition-transform duration-200 hover:-translate-x-1 hover:text-white"
-      style={{ animationDelay: "0ms" }}
-    >
-      <ArrowLeft size={18} />
-      Back to Blogs
-    </Link>
-
-    <div>
-      <span
-        className="fade-up inline-block rounded-full bg-[#C7954A] px-4 py-1.5 text-sm font-semibold text-white"
-        style={{ animationDelay: "80ms" }}
+        FIX: instead of a fixed/min-height container with an absolutely
+        positioned content overlay (which made the image height independent
+        of the text — long titles/descriptions used to overflow upward past
+        the hero), we use CSS grid stacking:
+          - both the image layer and the content layer sit in the SAME
+            grid cell (col-start-1 row-start-1)
+          - the content layer is in normal flow, so its natural height
+            (title + description + meta) sets the grid row's height
+          - the image layer stretches (h-full) to match that row height
+        Result: hero height always auto-follows the content, and the image
+        always covers exactly the area behind the text — no overflow, no
+        clipping. `minmax(…, auto)` keeps a sensible minimum height when
+        content is short, while letting it grow when content is long.
+      */}
+      <div
+        className="relative grid w-full overflow-hidden"
+        style={{
+          gridTemplateColumns: "1fr",
+          gridTemplateRows: "minmax(480px, auto)",
+        }}
       >
-        {blog.category}
-      </span>
-    </div>
-
-    <h1
-      className="fade-up mt-5 max-w-4xl text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl"
-      style={{ animationDelay: "160ms" }}
-    >
-      {blog.title}
-    </h1>
-
-    {blog.shortDescription && (
-      <p
-        className="fade-up mt-5 max-w-2xl text-base leading-relaxed text-gray-200 sm:text-lg"
-        style={{ animationDelay: "240ms" }}
-      >
-        {blog.shortDescription}
-      </p>
-    )}
-
-    <div
-      className="fade-up mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-gray-200"
-      style={{ animationDelay: "320ms" }}
-    >
-      <div className="flex items-center gap-2">
-        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/15">
-          <User size={14} />
+        {/* Image layer */}
+        <div className="relative col-start-1 row-start-1 h-full w-full">
+          <Image
+            src={blog.featuredImage}
+            alt={blog.title}
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority
+          />
+          {/* dark gradient for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B1739] via-[#0B1739]/60 to-[#0B1739]/10" />
         </div>
-        <span className="text-sm font-medium">{blog.author}</span>
-      </div>
 
-      <div className="flex items-center gap-1.5 text-sm">
-        <CalendarDays size={15} className="text-[#C7954A]" />
-        {new Date(blog.date || blog.createdAt).toLocaleDateString(
-          "en-US",
-          { year: "numeric", month: "long", day: "numeric" }
-        )}
-      </div>
+        {/*
+          Content layer — normal flow (not absolute), so it defines the
+          grid row's auto height. pt-24/28/32 keeps it clear of the
+          fixed/sticky navbar regardless of content length.
+        */}
+        <div className="relative z-10 col-start-1 row-start-1 flex flex-col justify-end pt-24 sm:pt-28 md:pt-32">
+          <div className="container mx-auto px-4 pb-10 sm:px-5 md:pb-14">
+            <Link
+              href="/blog"
+              className="fade-up mb-4 inline-flex w-fit items-center gap-2 text-sm font-medium text-white/90 transition-transform duration-200 hover:-translate-x-1 hover:text-white"
+              style={{ animationDelay: "0ms" }}
+            >
+              <ArrowLeft size={18} />
+              Back to Blogs
+            </Link>
 
-      {blog.readTime && (
-        <div className="flex items-center gap-1.5 text-sm">
-          <Clock3 size={15} className="text-[#C7954A]" />
-          {blog.readTime}
+            <div>
+              <span
+                className="fade-up inline-block rounded-full bg-[#C7954A] px-4 py-1.5 text-xs font-semibold text-white sm:text-sm"
+                style={{ animationDelay: "80ms" }}
+              >
+                {blog.category}
+              </span>
+            </div>
+
+            <h1
+              className="fade-up mt-5 max-w-4xl break-words text-2xl font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl"
+              style={{ animationDelay: "160ms" }}
+            >
+              {blog.title}
+            </h1>
+
+            {blog.shortDescription && (
+              <p
+                className="fade-up mt-5 max-w-2xl text-sm leading-relaxed text-gray-200 sm:text-base md:text-lg"
+                style={{ animationDelay: "240ms" }}
+              >
+                {blog.shortDescription}
+              </p>
+            )}
+
+            <div
+              className="fade-up mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-gray-200"
+              style={{ animationDelay: "320ms" }}
+            >
+              <div className="flex items-center gap-2">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/15">
+                  <User size={14} />
+                </div>
+                <span className="text-sm font-medium">{blog.author}</span>
+              </div>
+
+              <div className="flex items-center gap-1.5 text-sm">
+                <CalendarDays size={15} className="text-[#C7954A]" />
+                {new Date(blog.date || blog.createdAt).toLocaleDateString(
+                  "en-US",
+                  { year: "numeric", month: "long", day: "numeric" }
+                )}
+              </div>
+
+              {blog.readTime && (
+                <div className="flex items-center gap-1.5 text-sm">
+                  <Clock3 size={15} className="text-[#C7954A]" />
+                  {blog.readTime}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
-      )}
-    </div>
-  </div>
-</div>
       </div>
 
       {/* Below hero: two-section layout */}
@@ -150,10 +225,10 @@ const relatedBlogs = await getRelatedBlogs(blog._id);
           {/* Left: full description */}
           <div className="min-w-0 lg:col-span-8">
             <div
-  className="fade-up prose prose-lg max-w-none break-words blog-content prose-headings:text-[#0B1739] prose-a:text-[#C7954A] prose-a:no-underline hover:prose-a:underline prose-img:rounded-2xl prose-img:shadow-md"
-  style={{ animationDelay: "0ms" }}
-  dangerouslySetInnerHTML={{ __html: blog.description }}
-/>
+              className="fade-up prose prose-lg max-w-none break-words blog-content prose-headings:text-[#0B1739] prose-a:text-[#C7954A] prose-a:no-underline hover:prose-a:underline prose-img:rounded-2xl prose-img:shadow-md"
+              style={{ animationDelay: "0ms" }}
+              dangerouslySetInnerHTML={{ __html: blog.description }}
+            />
 
             {Array.isArray(blog.tags) && blog.tags.length > 0 && (
               <div className="fade-up mt-10 flex flex-wrap items-center gap-2 border-t border-gray-100 pt-8">
@@ -181,39 +256,39 @@ const relatedBlogs = await getRelatedBlogs(blog._id);
                   No related articles yet.
                 </p>
               ) : (
-              <div className="flex flex-col divide-y divide-gray-100">
-  {relatedBlogs.map((item) => (
-    <Link
-      key={item._id}
-      href={`/blog/${item.slug}`}
-      className="group flex gap-4 p-3 transition-colors hover:bg-[#0B1739]/5"
-    >
-      <div className="relative h-20 w-24 shrink-0 overflow-hidden rounded-lg">
-        <Image
-          src={item.featuredImage}
-          alt={item.title}
-          fill
-          className="object-cover transition-transform duration-500 group-hover:scale-110"
-        />
-      </div>
+                <div className="flex flex-col divide-y divide-gray-100">
+                  {relatedBlogs.map((item) => (
+                    <Link
+                      key={item._id}
+                      href={`/blog/${item.slug}`}
+                      className="group flex gap-4 p-3 transition-colors hover:bg-[#0B1739]/5"
+                    >
+                      <div className="relative h-20 w-24 shrink-0 overflow-hidden rounded-lg">
+                        <Image
+                          src={item.featuredImage}
+                          alt={item.title}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                      </div>
 
-      <div className="min-w-0">
-        <span className="text-[11px] font-semibold uppercase tracking-wide text-[#C7954A]">
-          {item.category}
-        </span>
+                      <div className="min-w-0">
+                        <span className="text-[11px] font-semibold uppercase tracking-wide text-[#C7954A]">
+                          {item.category}
+                        </span>
 
-        <h4 className="mt-1 line-clamp-2 text-sm font-semibold leading-snug text-[#0B1739] group-hover:text-[#C7954A]">
-          {item.title}
-        </h4>
+                        <h4 className="mt-1 line-clamp-2 text-sm font-semibold leading-snug text-[#0B1739] group-hover:text-[#C7954A]">
+                          {item.title}
+                        </h4>
 
-        <span className="mt-2 flex items-center gap-1 text-xs text-gray-500">
-          <Clock3 size={12} />
-          {item.readTime}
-        </span>
-      </div>
-    </Link>
-  ))}
-</div>
+                        <span className="mt-2 flex items-center gap-1 text-xs text-gray-500">
+                          <Clock3 size={12} />
+                          {item.readTime}
+                        </span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
               )}
             </div>
           </aside>
