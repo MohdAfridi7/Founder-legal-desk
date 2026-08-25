@@ -51,8 +51,33 @@ export default async function BlogDetails({ params }) {
   .blog-content .ql-indent-4 { margin-left: 6rem; }
 
   .blog-content .ql-size-small { font-size: 0.85em; }
-  .blog-content .ql-size-large { font-size: 1.4em; }
-  .blog-content .ql-size-huge { font-size: 2em; }
+
+  /* --- FIX: these were fixed em multipliers (1.4em / 2em). On desktop's
+     larger prose-lg base that's fine, but on a narrow phone screen the
+     same multiplier renders visually huge. clamp() scales them smoothly
+     between a sane mobile minimum and the original desktop size. --- */
+  .blog-content .ql-size-large { font-size: clamp(1.05rem, 1rem + 1vw, 1.4em); }
+  .blog-content .ql-size-huge { font-size: clamp(1.15rem, 1rem + 2vw, 2em); }
+
+  /* --- FIX: Quill (and pasted Word content) often emits hardcoded inline
+     font-size in px directly on spans/paragraphs, e.g. style="font-size:32px".
+     Inline styles beat every class-based rule below by CSS specificity, so
+     none of the responsive sizing above could touch them — this was the
+     main cause of "text bahut badi" on phone. We cap it on small screens. --- */
+  @media (max-width: 640px) {
+    .blog-content [style*="font-size"] {
+      font-size: 1.05rem !important;
+      line-height: 1.65 !important;
+    }
+  }
+
+  /* Headings inside the body content itself (not the hero h1) — Tailwind's
+     default prose heading scale is desktop-sized; clamp keeps it readable
+     on phones without a media query per breakpoint. */
+  .blog-content h1 { font-size: clamp(1.5rem, 1.1rem + 3vw, 2.5rem); }
+  .blog-content h2 { font-size: clamp(1.3rem, 1rem + 2.2vw, 2rem); }
+  .blog-content h3 { font-size: clamp(1.15rem, 0.95rem + 1.6vw, 1.5rem); }
+  .blog-content h4 { font-size: clamp(1.05rem, 0.9rem + 1vw, 1.25rem); }
 
   .blog-content strong { font-weight: 700; }
   .blog-content em { font-style: italic; }
@@ -225,7 +250,7 @@ export default async function BlogDetails({ params }) {
           {/* Left: full description */}
           <div className="min-w-0 lg:col-span-8">
             <div
-              className="fade-up prose prose-lg max-w-none break-words blog-content prose-headings:text-[#0B1739] prose-a:text-[#C7954A] prose-a:no-underline hover:prose-a:underline prose-img:rounded-2xl prose-img:shadow-md"
+              className="fade-up prose prose-sm sm:prose-base md:prose-lg max-w-none break-words blog-content prose-headings:text-[#0B1739] prose-a:text-[#C7954A] prose-a:no-underline hover:prose-a:underline prose-img:rounded-2xl prose-img:shadow-md"
               style={{ animationDelay: "0ms" }}
               dangerouslySetInnerHTML={{ __html: blog.description }}
             />
