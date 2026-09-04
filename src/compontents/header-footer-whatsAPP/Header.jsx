@@ -68,11 +68,17 @@ export default function Header() {
 
   const isActive = (href) => pathname === href;
 
+  // FIX: blog detail pages (/blog/<slug>) should always show the solid
+  // navbar background, even before the user scrolls. Every other route
+  // keeps the original transparent-until-scroll behavior untouched.
+  const isBlogDetail = /^\/blog\/[^/]+\/?$/.test(pathname);
+  const showSolidNav = scrolled || isBlogDetail;
+
   return (
     <>
       <nav
         className={`fixed inset-x-0 top-0 z-[1000] transition-[background-color,box-shadow,padding] duration-400 ${
-          scrolled
+          showSolidNav
             ? "bg-[#080D1A]/90 backdrop-blur-xl shadow-[0_8px_30px_-10px_rgba(0,0,0,.4)] py-3"
             : "bg-transparent py-5"
         }`}

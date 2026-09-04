@@ -5,13 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Clock3,
   CalendarDays,
-  ArrowUpRight,
   User,
   Search,
   ChevronLeft,
   ChevronRight,
+  ChevronsRight,
 } from "lucide-react";
 
 const ITEMS_PER_PAGE = 6;
@@ -28,74 +27,87 @@ function SingleBlogCard({ blog, index }) {
       whileHover={{ y: -6 }}
       className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200/80 bg-white shadow-sm transition-shadow duration-500 hover:shadow-xl hover:shadow-gray-200/60"
     >
-      {/* image */}
-      <Link href={`/blog/${blog.slug}`} className="relative block aspect-[16/10] w-full overflow-hidden bg-gray-100">
+      {/* image with flash-sweep hover effect (mega-hover style) */}
+      <Link
+        href={`/blog/${blog.slug}`}
+        className="relative block aspect-[16/10] w-full overflow-hidden bg-gray-100
+          before:content-[''] before:absolute before:pointer-events-none before:z-[3] before:opacity-100
+          before:top-[-10%] before:bottom-[-10%] before:left-[50%] before:right-[51%]
+          before:bg-white/30 before:[transform:rotate(5deg)]
+          before:transition-all before:duration-[900ms] before:ease-linear
+          group-hover:before:left-0 group-hover:before:right-0 group-hover:before:opacity-0
+          after:content-[''] after:absolute after:pointer-events-none after:z-[3] after:opacity-100
+          after:top-[50%] after:bottom-[50%] after:left-[-10%] after:right-[-10%]
+          after:bg-white/60 after:[transform:rotate(5deg)]
+          after:transition-all after:duration-[900ms] after:ease-linear
+          group-hover:after:top-0 group-hover:after:bottom-0 group-hover:after:opacity-0"
+      >
         <Image
           src={blog.featuredImage}
           alt={blog.title}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
         />
-
-        {/* permanent subtle scrim for legibility of badge */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
-
-        {/* category badge */}
-        <span className="absolute left-3 top-3 sm:left-4 sm:top-4 rounded-full bg-white/95 px-2.5 py-1 text-[10px] sm:text-xs font-semibold uppercase tracking-wide text-[#0B1739] shadow-sm backdrop-blur-sm">
-          {blog.category}
-        </span>
-
-        {/* read-time badge */}
-        <span className="absolute right-3 top-3 sm:right-4 sm:top-4 flex items-center gap-1 rounded-full bg-black/45 px-2.5 py-1 text-[10px] sm:text-xs font-medium text-white backdrop-blur-sm">
-          <Clock3 size={12} />
-          {blog.readTime}
-        </span>
-
-        {/* floating arrow */}
-        <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 flex h-9 w-9 sm:h-10 sm:w-10 translate-y-2 items-center justify-center rounded-full bg-[#C7954A] text-white opacity-0 shadow-lg transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-          <ArrowUpRight size={18} />
-        </div>
       </Link>
 
       {/* content */}
       <div className="flex flex-1 flex-col p-5 sm:p-6">
-        <div className="mb-2.5 flex items-center gap-3 text-[11px] sm:text-xs text-gray-500">
-          <span className="flex items-center gap-1">
-            <CalendarDays size={13} />
+        <div className="mb-3 flex items-center gap-3 text-[11px] sm:text-xs text-gray-500">
+          <span className="flex items-center gap-1.5">
+            <CalendarDays size={13} className="text-[#C7954A]" />
             {new Date(blog.createdAt).toLocaleDateString(undefined, {
               day: "numeric",
               month: "short",
               year: "numeric",
             })}
           </span>
-          <span className="text-gray-300">•</span>
-          <span className="flex items-center gap-1">
-            <User size={13} />
+          <span className="h-3 w-px bg-gray-200" />
+          <span className="flex items-center gap-1.5">
+            <User size={13} className="text-[#C7954A]" />
             {blog.author}
           </span>
         </div>
 
-        <Link href={`/blog/${blog.slug}`}>
-          <h2 className="line-clamp-2 text-lg sm:text-xl font-bold leading-snug text-[#0B1739] transition-colors duration-300 group-hover:text-[#C7954A]">
-            {blog.title}
-          </h2>
-        </Link>
-
-        <p className="mt-2.5 line-clamp-2 text-sm text-gray-500 leading-relaxed">
-          {blog.shortDescription}
-        </p>
+<Link href={`/blog/${blog.slug}`} className="block">
+  <h2
+    className="
+      h-[5.7rem]
+      overflow-hidden
+      break-words
+      border-b
+      border-dashed
+      border-gray-400
+      pb-5
+      text-lg
+      font-bold
+      leading-[1.75rem]
+      text-[#0B1739]
+      transition-colors
+      duration-300
+      [-webkit-box]
+      [-webkit-box-orient:vertical]
+      [-webkit-line-clamp:3]
+      [display:-webkit-box]
+      group-hover:text-[#C7954A]
+      sm:h-[6rem]
+      sm:text-xl
+      sm:leading-[1.85rem]
+    "
+  >
+    {blog.title}
+  </h2>
+</Link>
 
         <div className="mt-auto pt-5">
           <Link
             href={`/blog/${blog.slug}`}
-            className="group/link inline-flex items-center gap-1.5 border-t border-gray-100 pt-4 w-full text-sm font-semibold text-[#C7954A] transition-colors duration-300"
+            className="inline-flex items-center gap-2.5 text-sm font-bold text-[#0B1739] transition-colors duration-300 group-hover:text-[#C7954A]"
           >
-            Read article
-            <ArrowUpRight
-              size={16}
-              className="transition-transform duration-300 group-hover/link:translate-x-1 group-hover/link:-translate-y-1"
-            />
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#C7954A] text-white transition-colors duration-300 group-hover:bg-[#0B1739]">
+              <ChevronsRight size={16} />
+            </span>
+            Read More
           </Link>
         </div>
       </div>

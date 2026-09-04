@@ -30,7 +30,7 @@ export default async function BlogDetails({ params }) {
 
   return (
     <section className="bg-white">
-      <style>{`
+          <style>{`
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -51,19 +51,9 @@ export default async function BlogDetails({ params }) {
   .blog-content .ql-indent-4 { margin-left: 6rem; }
 
   .blog-content .ql-size-small { font-size: 0.85em; }
-
-  /* --- FIX: these were fixed em multipliers (1.4em / 2em). On desktop's
-     larger prose-lg base that's fine, but on a narrow phone screen the
-     same multiplier renders visually huge. clamp() scales them smoothly
-     between a sane mobile minimum and the original desktop size. --- */
   .blog-content .ql-size-large { font-size: clamp(1.05rem, 1rem + 1vw, 1.4em); }
   .blog-content .ql-size-huge { font-size: clamp(1.15rem, 1rem + 2vw, 2em); }
 
-  /* --- FIX: Quill (and pasted Word content) often emits hardcoded inline
-     font-size in px directly on spans/paragraphs, e.g. style="font-size:32px".
-     Inline styles beat every class-based rule below by CSS specificity, so
-     none of the responsive sizing above could touch them — this was the
-     main cause of "text bahut badi" on phone. We cap it on small screens. --- */
   @media (max-width: 640px) {
     .blog-content [style*="font-size"] {
       font-size: 1.05rem !important;
@@ -71,20 +61,18 @@ export default async function BlogDetails({ params }) {
     }
   }
 
-  /* Headings inside the body content itself (not the hero h1) — Tailwind's
-     default prose heading scale is desktop-sized; clamp keeps it readable
-     on phones without a media query per breakpoint. */
+  /* Headings inside the body content — stay dark/navy, untouched by the
+     gray body-text rule below */
   .blog-content h1 { font-size: clamp(1.5rem, 1.1rem + 3vw, 2.5rem); }
   .blog-content h2 { font-size: clamp(1.3rem, 1rem + 2.2vw, 2rem); }
   .blog-content h3 { font-size: clamp(1.15rem, 0.95rem + 1.6vw, 1.5rem); }
   .blog-content h4 { font-size: clamp(1.05rem, 0.9rem + 1vw, 1.25rem); }
 
-  .blog-content strong { font-weight: 700; }
   .blog-content em { font-style: italic; }
   .blog-content u { text-decoration: underline; }
   .blog-content s { text-decoration: line-through; }
 
-  /* --- FIX: Quill tables overflow on mobile / behind sticky sidebar --- */
+  /* Quill tables overflow on mobile / behind sticky sidebar */
   .blog-content table {
     display: block;
     width: 100%;
@@ -116,7 +104,6 @@ export default async function BlogDetails({ params }) {
     text-align: left;
   }
 
-  /* long unbreakable words/links inside prose shouldn't blow out the layout */
   .blog-content img,
   .blog-content iframe,
   .blog-content video {
@@ -133,93 +120,73 @@ export default async function BlogDetails({ params }) {
   .blog-content a {
     overflow-wrap: anywhere;
   }
+
+  /* Body text (paragraphs, list items etc.) — gray. Headings are NOT
+     included here, so they keep their navy/black color from
+     prose-headings:text-[#0B1739] in the JSX. */
+  .blog-content p,
+  .blog-content li,
+  .blog-content div,
+  .blog-content span {
+    color: #4b5563 !important;
+  }
+
+  .blog-content strong,
+  .blog-content b {
+    color: #0B1739 !important;
+    font-weight: 700;
+  }
 `}</style>
 
-      {/*
-        Full-width hero image with overlay content.
-
-        FIX: instead of a fixed/min-height container with an absolutely
-        positioned content overlay (which made the image height independent
-        of the text — long titles/descriptions used to overflow upward past
-        the hero), we use CSS grid stacking:
-          - both the image layer and the content layer sit in the SAME
-            grid cell (col-start-1 row-start-1)
-          - the content layer is in normal flow, so its natural height
-            (title + description + meta) sets the grid row's height
-          - the image layer stretches (h-full) to match that row height
-        Result: hero height always auto-follows the content, and the image
-        always covers exactly the area behind the text — no overflow, no
-        clipping. `minmax(…, auto)` keeps a sensible minimum height when
-        content is short, while letting it grow when content is long.
-      */}
-      <div
-        className="relative grid w-full overflow-hidden"
-        style={{
-          gridTemplateColumns: "1fr",
-          gridTemplateRows: "minmax(480px, auto)",
-        }}
-      >
-        {/* Image layer */}
-        <div className="relative col-start-1 row-start-1 h-full w-full">
-          <Image
-            src={blog.featuredImage}
-            alt={blog.title}
-            fill
-            sizes="100vw"
-            className="object-cover"
-            priority
-          />
-          {/* dark gradient for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B1739] via-[#0B1739]/60 to-[#0B1739]/10" />
-        </div>
-
-        {/*
-          Content layer — normal flow (not absolute), so it defines the
-          grid row's auto height. pt-24/28/32 keeps it clear of the
-          fixed/sticky navbar regardless of content length.
-        */}
-        <div className="relative z-10 col-start-1 row-start-1 flex flex-col justify-end pt-24 sm:pt-28 md:pt-32">
-          <div className="container mx-auto px-4 pb-10 sm:px-5 md:pb-14">
+      {/* pt clears the fixed/sticky navbar, pb replaces the old hero-section bottom spacing */}
+      <div className="container mx-auto px-4 pb-12 pt-24 sm:px-5 sm:pt-28 md:pb-16 md:pt-32">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
+          {/* Left: stacked content — back link, title, image, meta, desc, tags */}
+          <div className="min-w-0 lg:col-span-8">
             <Link
               href="/blog"
-              className="fade-up mb-4 inline-flex w-fit items-center gap-2 text-sm font-medium text-white/90 transition-transform duration-200 hover:-translate-x-1 hover:text-white"
+              className="fade-up mb-4 inline-flex w-fit items-center gap-2 text-sm font-medium text-gray-500 transition-transform duration-200 hover:-translate-x-1 hover:text-[#C7954A]"
               style={{ animationDelay: "0ms" }}
             >
               <ArrowLeft size={18} />
               Back to Blogs
             </Link>
 
-            <div>
-              <span
-                className="fade-up inline-block rounded-full bg-[#C7954A] px-4 py-1.5 text-xs font-semibold text-white sm:text-sm"
-                style={{ animationDelay: "80ms" }}
-              >
-                {blog.category}
-              </span>
-            </div>
-
             <h1
-              className="fade-up mt-5 max-w-4xl break-words text-2xl font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl"
-              style={{ animationDelay: "160ms" }}
+              className="fade-up mt-2 max-w-4xl break-words text-2xl font-bold leading-tight text-[#0B1739] sm:text-3xl md:text-4xl"
+              style={{ animationDelay: "80ms" }}
             >
               {blog.title}
             </h1>
 
-            {blog.shortDescription && (
-              <p
-                className="fade-up mt-5 max-w-2xl text-sm leading-relaxed text-gray-200 sm:text-base md:text-lg"
-                style={{ animationDelay: "240ms" }}
-              >
-                {blog.shortDescription}
-              </p>
-            )}
-
+            {/* Image with category badge overlaid on top-left of the image */}
             <div
-              className="fade-up mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-gray-200"
-              style={{ animationDelay: "320ms" }}
+              className="fade-up relative mt-6 w-full overflow-hidden rounded-2xl"
+              style={{ animationDelay: "160ms" }}
+            >
+              <div className="relative aspect-[16/9] w-full">
+                <Image
+                  src={blog.featuredImage}
+                  alt={blog.title}
+                  fill
+                  sizes="(min-width: 1024px) 66vw, 100vw"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+
+              <span className="absolute left-4 top-4 rounded-full bg-[#C7954A] px-4 py-1.5 text-xs font-semibold text-white shadow-md sm:text-sm">
+                {blog.category}
+              </span>
+            </div>
+
+            {/* Author / date / read time — below the image */}
+            <div
+              className="fade-up mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-gray-600"
+              style={{ animationDelay: "240ms" }}
             >
               <div className="flex items-center gap-2">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/15">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#0B1739]/5">
                   <User size={14} />
                 </div>
                 <span className="text-sm font-medium">{blog.author}</span>
@@ -240,18 +207,21 @@ export default async function BlogDetails({ params }) {
                 </div>
               )}
             </div>
-          </div>
-        </div>
-      </div>
 
-      {/* Below hero: two-section layout */}
-      <div className="container mx-auto px-4 py-12 sm:px-5 md:py-16">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
-          {/* Left: full description */}
-          <div className="min-w-0 lg:col-span-8">
+            {/* Short description */}
+            {blog.shortDescription && (
+              <p
+                className="fade-up mt-6 text-sm leading-relaxed text-gray-600 sm:text-base md:text-lg"
+                style={{ animationDelay: "320ms" }}
+              >
+                {blog.shortDescription}
+              </p>
+            )}
+
+            {/* Full description */}
             <div
-              className="fade-up prose prose-sm sm:prose-base md:prose-lg max-w-none break-words blog-content prose-headings:text-[#0B1739] prose-a:text-[#C7954A] prose-a:no-underline hover:prose-a:underline prose-img:rounded-2xl prose-img:shadow-md"
-              style={{ animationDelay: "0ms" }}
+              className="fade-up prose prose-sm sm:prose-base md:prose-lg mt-8 max-w-none break-words blog-content prose-headings:text-[#0B1739] prose-a:text-[#C7954A] prose-a:no-underline hover:prose-a:underline prose-img:rounded-2xl prose-img:shadow-md"
+              style={{ animationDelay: "400ms" }}
               dangerouslySetInnerHTML={{ __html: blog.description }}
             />
 
@@ -269,9 +239,9 @@ export default async function BlogDetails({ params }) {
             )}
           </div>
 
-          {/* Right: sticky related blogs */}
+          {/* Right: sticky related blogs (unchanged) */}
           <aside className="lg:col-span-4">
-            <div className="fade-up rounded-2xl border border-gray-100 bg-gray-50 p-5 transition-shadow duration-300 hover:shadow-lg lg:sticky lg:top-24">
+            <div className="fade-up rounded-2xl border border-gray-100 bg-[#F4EDE7] p-5 transition-shadow duration-300 hover:shadow-lg lg:sticky lg:top-24">
               <h3 className="mb-4 text-lg font-bold text-[#0B1739]">
                 Related Articles
               </h3>
