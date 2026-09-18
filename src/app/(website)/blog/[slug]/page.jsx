@@ -44,6 +44,7 @@ export default async function BlogDetails({ params }) {
    * ---------------------------------------------------------
    */
   const formattedDescription = blog.description
+   ?.replace(/&nbsp;/g, " ") 
     ?.replace(
       /<table(\s[^>]*)?>/gi,
       '<div class="table-scroll"><table$1>'
@@ -71,7 +72,7 @@ export default async function BlogDetails({ params }) {
           line-height: 1.85;
           letter-spacing: -0.01em;
 
-          overflow-wrap: anywhere;
+          overflow-wrap: break-word;
           word-break: normal;
         }
 
@@ -112,7 +113,7 @@ export default async function BlogDetails({ params }) {
           letter-spacing: -0.025em;
           line-height: 1.25;
 
-          overflow-wrap: anywhere;
+          overflow-wrap: break-word;
           word-break: normal;
         }
 
@@ -187,7 +188,7 @@ export default async function BlogDetails({ params }) {
           font-size: inherit;
           line-height: 1.85;
 
-          overflow-wrap: anywhere;
+          overflow-wrap: break-word;
         }
 
         .blog-content p span {
@@ -257,7 +258,7 @@ export default async function BlogDetails({ params }) {
             color 0.2s ease,
             text-decoration-color 0.2s ease;
 
-          overflow-wrap: anywhere;
+          overflow-wrap: break-word;
         }
 
         .blog-content a:hover {
@@ -292,7 +293,7 @@ export default async function BlogDetails({ params }) {
   color: #6B7280 !important;
 
   line-height: 1.75;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   word-break: normal;
 }
 
@@ -699,7 +700,7 @@ export default async function BlogDetails({ params }) {
             "Liberation Mono",
             monospace;
 
-          overflow-wrap: anywhere;
+          overflow-wrap: break-word;
         }
 
         .blog-content pre {
@@ -767,7 +768,7 @@ export default async function BlogDetails({ params }) {
         .blog-content h5,
         .blog-content h6,
         .blog-content a {
-          overflow-wrap: anywhere;
+          overflow-wrap: break-word;
         }
 
         /* =====================================================
