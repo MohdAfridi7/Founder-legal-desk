@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -15,12 +16,50 @@ export default function AdminLayout({ children }) {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
+    // Token nahi hai
     if (!token) {
       router.replace("/login");
       return;
     }
 
-    setLoading(false);
+    try {
+      // JWT payload decode
+      const payload = JSON.parse(atob(token.split(".")[1]));
+
+      // Token expiration time
+      const expirationTime = payload.exp * 1000;
+
+      // Current time
+      const currentTime = Date.now();
+
+      // Token already expired
+      if (expirationTime <= currentTime) {
+        localStorage.removeItem("token");
+        router.replace("/login");
+        return;
+      }
+
+      // Token valid hai
+      setLoading(false);
+
+      // Exact expiration tak timer
+      const remainingTime = expirationTime - currentTime;
+
+      const timer = setTimeout(() => {
+        localStorage.removeItem("token");
+        router.replace("/login");
+      }, remainingTime);
+
+      // Cleanup
+      return () => {
+        clearTimeout(timer);
+      };
+    } catch (error) {
+      console.error("Invalid token:", error);
+
+      localStorage.removeItem("token");
+      router.replace("/login");
+    }
   }, [router]);
 
   if (loading) {
@@ -69,3 +108,4 @@ export default function AdminLayout({ children }) {
     </div>
   );
 }
+
