@@ -196,15 +196,142 @@ export default function BlogAdmin() {
     setIsFormOpen(false);
   };
 
-  const handleImageChange = (e) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
+ const compressImage = (file, maxWidth = 1600, quality = 0.8) => {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const objectUrl = URL.createObjectURL(file);
+
+    img.onload = () => {
+      URL.revokeObjectURL(objectUrl);
+
+      let { width, height } = img;
+
+      if (width > maxWidth) {
+        height = Math.round((height * maxWidth) / width);
+        width = maxWidth;
+      }
+
+      const canvas = document.createElement("canvas");
+
+      canvas.width = width;
+      canvas.height = height;
+
+      const ctx = canvas.getContext("2d");
+
+      if (!ctx) {
+        reject(new Error("Canvas is not supported"));
+        return;
+      }
+
+      ctx.drawImage(img, 0, 0, width, height);
+
+      canvas.toBlob(
+        (blob) => {
+          if (!blob) {
+            reject(new Error("Image compression failed"));
+            return;
+          }
+
+          const compressedFile = new File(
+            [blob],
+            file.name.replace(/\.[^/.]+$/, "") + ".jpg",
+            {
+              type: "image/jpeg",
+              lastModified: Date.now(),
+            }
+          );
+
+          resolve(compressedFile);
+        },
+        "image/jpeg",
+        quality
+      );
+    };
+
+    img.onerror = () => {
+      URL.revokeObjectURL(objectUrl);
+      reject(new Error("Unable to process image"));
+    };
+
+    img.src = objectUrl;
+  });
+};
+
+
+const handleImageChange = async (e) => {
+  const file = e.target.files?.[0];
+
+  if (!file) return;
+
+  if (!file.type.startsWith("image/")) {
+    toast.error("Please select a valid image");
+    e.target.value = "";
+    return;
+  }
+
+  try {
+    toast.loading("Compressing image...", {
+      id: "image-compress",
+    });
+
+    const originalSize = file.size;
+
+    const compressedFile = await compressImage(
+      file,
+      1600,
+      0.8
+    );
+
+    const compressedSize = compressedFile.size;
+
+    console.log(
+      `Original: ${(originalSize / 1024 / 1024).toFixed(2)} MB`
+    );
+
+    console.log(
+      `Compressed: ${(compressedSize / 1024 / 1024).toFixed(2)} MB`
+    );
+
+    // 5 MB final safety check
+    if (compressedSize > 5 * 1024 * 1024) {
+      toast.error(
+        "Image is still larger than 5 MB. Please choose a smaller image.",
+        {
+          id: "image-compress",
+        }
+      );
+
+      e.target.value = "";
+      return;
+    }
+
     setForm((f) => ({
       ...f,
-      featuredImageFile: file,
-      featuredImagePreview: URL.createObjectURL(file),
+      featuredImageFile: compressedFile,
+      featuredImagePreview: URL.createObjectURL(
+        compressedFile
+      ),
     }));
-  };
+
+    toast.success(
+      `Image compressed to ${(compressedSize / 1024 / 1024).toFixed(2)} MB`,
+      {
+        id: "image-compress",
+      }
+    );
+  } catch (error) {
+    console.error(
+      "Image compression error:",
+      error
+    );
+
+    toast.error("Failed to compress image", {
+      id: "image-compress",
+    });
+
+    e.target.value = "";
+  }
+};
 
   // splits on comma so a pasted list ("legal, startup, company") becomes multiple chips
   const addTag = (raw) => {

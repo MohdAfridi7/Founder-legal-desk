@@ -4,6 +4,25 @@
     import slugify from "@/utils/slugify";
     import { cloudinary } from "@/lib/cloudinary";
 
+    const uploadToCloudinary = (buffer, folder) => {
+  return new Promise((resolve, reject) => {
+    const stream = cloudinary.uploader.upload_stream(
+      {
+        folder,
+        resource_type: "image",
+      },
+      (error, result) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(result);
+        }
+      }
+    );
+
+    stream.end(buffer);
+  });
+};
 
    export const createBlog = async (req) => {
   try {
@@ -46,14 +65,13 @@
     }
 
     // Upload Image
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
+ const bytes = await file.arrayBuffer();
+const buffer = Buffer.from(bytes);
 
-    const base64 = `data:${file.type};base64,${buffer.toString("base64")}`;
-
-    const upload = await cloudinary.uploader.upload(base64, {
-      folder: "lawyer-blog",
-    });
+const upload = await uploadToCloudinary(
+  buffer,
+  "lawyer-blog"
+);
 
     let slug = slugify(title);
 
@@ -270,14 +288,13 @@ export const updateBlog = async (req, id) => {
       }
 
       // Upload new image
-      const bytes = await file.arrayBuffer();
-      const buffer = Buffer.from(bytes);
+const bytes = await file.arrayBuffer();
+const buffer = Buffer.from(bytes);
 
-      const base64 = `data:${file.type};base64,${buffer.toString("base64")}`;
-
-      const upload = await cloudinary.uploader.upload(base64, {
-        folder: "lawyer-blog",
-      });
+const upload = await uploadToCloudinary(
+  buffer,
+  "lawyer-blog"
+);
 
       blog.featuredImage = upload.secure_url;
     }
