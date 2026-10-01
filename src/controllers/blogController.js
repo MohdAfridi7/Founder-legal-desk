@@ -119,31 +119,26 @@ const upload = await uploadToCloudinary(
 
 
 
-    export const getAllBlogs = async () => {
-    try {
-        await connectDB();
+export const getAllBlogs = async (full = false) => {
+  try {
+    await connectDB();
 
-        const blogs = await Blog.find().sort({
-        createdAt: -1,
-        });
+    const query = Blog.find();
 
-        return NextResponse.json({
-        success: true,
-        blogs,
-        });
-
-    } catch (error) {
-        return NextResponse.json(
-        {
-            success: false,
-            msg: error.message,
-        },
-        {
-            status: 500,
-        }
-        );
+    if (!full) {
+      query.select("-description -metaDescription -keywords -tags");
     }
-    };
+
+    const blogs = await query.sort({ createdAt: -1 }).lean();
+
+    return NextResponse.json({ success: true, blogs });
+  } catch (error) {
+    return NextResponse.json(
+      { success: false, msg: error.message },
+      { status: 500 }
+    );
+  }
+};
 
 
     export const getBlogById = async (id) => {

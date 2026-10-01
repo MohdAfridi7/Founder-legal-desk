@@ -11,6 +11,14 @@ import {
   deleteSEO,
 } from "@/controllers/seoController";
 
+async function requireAuth(req) {
+  const auth = await protect(req);
+  if (auth.success) return null;
+  return NextResponse.json(
+    { success: false, msg: auth.message },
+    { status: 401 }
+  );
+}
 // GET
 // Get All SEO OR Single SEO OR SEO by Page Name
 // ==========================================
@@ -53,7 +61,8 @@ export async function GET(req) {
 
 export async function POST(req) {
   try {
-    await protect(req);
+    const denied = await requireAuth(req);
+if (denied) return denied;
 
     return await createSEO(req);
   } catch (error) {
@@ -76,7 +85,8 @@ export async function POST(req) {
 
 export async function PUT(req) {
   try {
-    await protect(req);
+   const denied = await requireAuth(req);
+if (denied) return denied;
 
     const { searchParams } = new URL(req.url);
 
@@ -115,7 +125,8 @@ export async function PUT(req) {
 
 export async function DELETE(req) {
   try {
-    await protect(req);
+  const denied = await requireAuth(req);
+if (denied) return denied;
 
     const { searchParams } = new URL(req.url);
 

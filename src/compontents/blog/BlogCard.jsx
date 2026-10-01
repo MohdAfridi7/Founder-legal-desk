@@ -56,11 +56,12 @@ function SingleBlogCard({ blog, index }) {
         <div className="mb-3 flex items-center gap-3 text-[11px] sm:text-xs text-gray-500">
           <span className="flex items-center gap-1.5">
             <CalendarDays size={13} className="text-[#C7954A]" />
-            {new Date(blog.createdAt).toLocaleDateString(undefined, {
-              day: "numeric",
-              month: "short",
-              year: "numeric",
-            })}
+          {new Date(blog.createdAt).toLocaleDateString("en-IN", {
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+  timeZone: "Asia/Kolkata",
+})}
           </span>
           <span className="h-3 w-px bg-gray-200" />
           <span className="flex items-center gap-1.5">
@@ -70,7 +71,7 @@ function SingleBlogCard({ blog, index }) {
         </div>
 
 <Link href={`/blog/${blog.slug}`} className="block">
-  <h2
+  <h3
     className="
       h-[5.7rem]
       overflow-hidden
@@ -96,7 +97,7 @@ function SingleBlogCard({ blog, index }) {
     "
   >
     {blog.title}
-  </h2>
+  </h3>
 </Link>
 
         <div className="mt-auto pt-5">
@@ -115,22 +116,6 @@ function SingleBlogCard({ blog, index }) {
   );
 }
 
-/* ---------------- SKELETON CARD ---------------- */
-
-function SkeletonCard() {
-  return (
-    <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200/80 bg-white shadow-sm">
-      <div className="aspect-[16/10] animate-pulse bg-gray-100" />
-      <div className="flex flex-1 flex-col gap-3 p-5 sm:p-6">
-        <div className="h-3 w-1/3 animate-pulse rounded bg-gray-100" />
-        <div className="h-5 w-4/5 animate-pulse rounded bg-gray-100" />
-        <div className="h-4 w-full animate-pulse rounded bg-gray-100" />
-        <div className="h-4 w-2/3 animate-pulse rounded bg-gray-100" />
-        <div className="mt-auto h-4 w-24 animate-pulse rounded bg-gray-100" />
-      </div>
-    </div>
-  );
-}
 
 /* ---------------- PAGINATION ---------------- */
 
@@ -197,27 +182,11 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
 
 /* ---------------- MAIN COMPONENT ---------------- */
 
-export default function BlogCard() {
-  const [blogs, setBlogs] = useState([]);
+export default function BlogCard({ initialBlogs = [] }) {
+  const blogs = initialBlogs;
   const [search, setSearch] = useState("");
-  const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
 
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const res = await fetch("/api/blog");
-        const data = await res.json();
-        setBlogs(data.blogs || []);
-      } catch (err) {
-        console.log(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchBlogs();
-  }, []);
 
   const filteredBlogs = useMemo(() => {
     if (!search.trim()) return blogs;
@@ -269,16 +238,9 @@ export default function BlogCard() {
         </div>
       </div>
 
-      {/* Loading */}
-      {loading ? (
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-7 lg:grid-cols-3 lg:gap-8">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <SkeletonCard key={i} />
-          ))}
-        </div>
-      ) : filteredBlogs.length === 0 ? (
+        {filteredBlogs.length === 0 ? (
         <div className="rounded-2xl border border-gray-100 bg-white px-6 py-16 sm:p-20 text-center">
-          <h2 className="text-xl sm:text-2xl font-bold text-[#0B1739]">No blogs found</h2>
+          <h3 className="text-xl sm:text-2xl font-bold text-[#0B1739]">No blogs found</h3>
           <p className="mt-2 text-sm sm:text-base text-gray-500">Try another search keyword.</p>
         </div>
       ) : (

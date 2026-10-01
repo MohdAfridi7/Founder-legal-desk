@@ -13,52 +13,66 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+/* =========================
+   METADATA
+========================= */
 export const metadata = {
+  metadataBase: new URL("https://founderslegaldesk.com"),
+
   title: {
-    template: "%s | Founders Legal Desk",
-    default: "Founders Legal Desk — Business Legal Documents",
+    default: "Founders Legal Desk — One Desk for All Business Legal Needs",
+    template: "%s",
   },
 
   description:
-    "Fixed-price, specialist-reviewed legal documents for growing Indian businesses.",
+    "Founders Legal Desk is an all-in-one platform for startups and MSMEs. From legal, compliance and contracts to registrations, IP and disputes, bring every business issue to one desk.",
 
   keywords: [
-    "lawyer",
-    "legal documents",
-    "business contracts",
-    "startup legal",
-    "India",
-    "legal services",
-    "business legal documents",
-    "startup contracts",
+    "Founders Legal Desk",
+    "business legal support",
+    "legal support for startups",
+    "legal support for MSMEs",
+    "startup legal services",
+    "MSME legal services",
+    "business compliance support",
+    "legal and compliance services",
+    "contracts and agreements",
+    "business legal platform",
+    "legal desk for businesses",
+    "legal support India",
+    "startup compliance services",
   ],
 
   authors: [
-    {
-      name: "Founders Legal Desk",
-    },
+    { name: "Founders Legal Desk", url: "https://founderslegaldesk.com" },
   ],
-
   creator: "Founders Legal Desk",
   publisher: "Founders Legal Desk",
+  applicationName: "Founders Legal Desk",
+  category: "Legal Services",
 
-  metadataBase: new URL("https://founderslegaldesk.com"),
+  alternates: {
+    canonical: "https://founderslegaldesk.com",
+  },
 
   /* =========================
-     FAVICON / LOGO
+     ICONS
   ========================= */
   icons: {
-    icon: "/favicon-32 x 32.png",
+    icon: [
+    { url: "/favicon-32 x 32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.png", type: "image/png" },
+    ],
     shortcut: "/favicon.png",
     apple: "/logo-512.png",
   },
 
   /* =========================
-     GOOGLE SEARCH CONSOLE
+     VERIFICATION
   ========================= */
- verification: {
-  google: "ld0RLUmG56ULo9jfgIiHUqsEa64m9nx--KO2VhScBzM",
-},
+  verification: {
+    google: "ld0RLUmG56ULo9jfgIiHUqsEa64m9nx--KO2VhScBzM",
+  },
 
   /* =========================
      ROBOTS
@@ -66,7 +80,6 @@ export const metadata = {
   robots: {
     index: true,
     follow: true,
-
     googleBot: {
       index: true,
       follow: true,
@@ -80,41 +93,43 @@ export const metadata = {
      OPEN GRAPH
   ========================= */
   openGraph: {
-    title: "Founders Legal Desk — Business Legal Documents",
-
-    description:
-      "Fixed-price, specialist-reviewed legal documents for growing Indian businesses.",
-
-    url: "https://founderslegaldesk.com",
-
-    siteName: "Founders Legal Desk",
-
     type: "website",
-
     locale: "en_IN",
-
+    url: "https://founderslegaldesk.com",
+    siteName: "Founders Legal Desk",
+    title: "Founders Legal Desk — One Desk for All Business Legal Needs",
+    description:
+      "Startups and MSMEs don't need to figure out which professional to call. Bring your legal, compliance, contracts, IP, registrations and business issues to one desk.",
     images: [
       {
         url: "/logo-1200x630.png",
         width: 1200,
         height: 630,
-        alt: "Founders Legal Desk — Business Legal Documents",
+        alt: "Founders Legal Desk — One Desk for All Business Legal Needs",
       },
     ],
   },
 
   /* =========================
-     TWITTER / X
+     TWITTER
   ========================= */
   twitter: {
     card: "summary_large_image",
-
-    title: "Founders Legal Desk — Business Legal Documents",
-
+    site: "@found_legaldesk",
+    creator: "@found_legaldesk",
+    title: "Founders Legal Desk — One Desk for All Business Legal Needs",
     description:
-      "Fixed-price, specialist-reviewed legal documents for growing Indian businesses.",
-
+      "From contracts and compliance to registrations, IP and disputes, Founders Legal Desk helps startups and MSMEs handle changing business legal needs through one platform.",
     images: ["/logo-1200x630.png"],
+  },
+
+  /* =========================
+     FORMAT DETECTION
+  ========================= */
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
   },
 };
 
@@ -124,7 +139,9 @@ export const metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1,
+  maximumScale: 5,
   themeColor: "#080D1A",
+  colorScheme: "light",
 };
 
 /* =========================
@@ -133,43 +150,35 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html
-      lang="en"
+      lang="en-IN"
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
+      <head>
+        <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+        <link
+          rel="preconnect"
+          href="https://res.cloudinary.com"
+          crossOrigin="anonymous"
+        />
+      </head>
+
       <body>
         {children}
 
-        {/* =========================
-            SONNER TOASTER
-        ========================= */}
-        <Toaster
-          position="top-right"
-          richColors
-          closeButton
-        />
+        {/* Sonner Toaster */}
+        <Toaster position="top-right" richColors closeButton />
 
-        {/* =========================
-            GOOGLE ANALYTICS
-        ========================= */}
-
+        {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-D8MEP4R2XV"
           strategy="afterInteractive"
         />
 
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-        >
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
-
-            function gtag() {
-              dataLayer.push(arguments);
-            }
-
+            function gtag() { dataLayer.push(arguments); }
             gtag('js', new Date());
-
             gtag('config', 'G-D8MEP4R2XV');
           `}
         </Script>

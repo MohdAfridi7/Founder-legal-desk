@@ -1,21 +1,14 @@
+import { connectDB } from "@/lib/db";
+import Blog from "@/models/Blog";
+
+export const revalidate = 3600;
+
 const BASE_URL = "https://founderslegaldesk.com";
 
 async function getBlogPosts() {
   try {
-    const res = await fetch(`${BASE_URL}/api/blog`, {
-      next: { revalidate: 3600 },
-    });
-
-    if (!res.ok) {
-      console.error("Blog API failed:", res.status);
-      return [];
-    }
-
-    const data = await res.json();
-
-    return data?.success && Array.isArray(data.blogs)
-      ? data.blogs
-      : [];
+    await connectDB();
+    return await Blog.find().select("slug updatedAt").lean();
   } catch (error) {
     console.error("Failed to fetch blog posts for sitemap:", error);
     return [];

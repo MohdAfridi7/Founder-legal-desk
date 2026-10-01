@@ -54,7 +54,7 @@ if (id) {
   return getBlogById(id);
 }
 
-return getAllBlogs();
+return getAllBlogs(searchParams.get("full") === "true");
 }
 
 // ==============================

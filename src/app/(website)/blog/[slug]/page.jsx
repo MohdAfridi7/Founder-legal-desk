@@ -9,6 +9,24 @@ import {
   User,
 } from "lucide-react";
 
+export const revalidate = 60;
+
+const SITE_URL = "https://founderslegaldesk.com";
+
+const stripHtml = (html = "") =>
+  html
+    .replace(/<[^>]*>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+const getDescription = (blog) =>
+  (
+    blog.metaDescription ||
+    blog.shortDescription ||
+    stripHtml(blog.description)
+  ).slice(0, 160);
+
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const blog = await getBlog(slug);
@@ -16,13 +34,44 @@ export async function generateMetadata({ params }) {
   if (!blog) {
     return {
       title: "Blog Not Found",
+      robots: { index: false, follow: false },
     };
   }
 
+  const title = blog.metaTitle || blog.title;
+  const description = getDescription(blog);
+  const url = `/blog/${blog.slug}`;
+  const images = blog.featuredImage
+    ? [{ url: blog.featuredImage, alt: blog.title }]
+    : [];
+
   return {
-    title: blog.metaTitle || blog.title,
-    description: blog.metaDescription,
-    keywords: blog.keywords,
+    title,
+    description,
+    keywords: blog.keywords || undefined,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      url,
+      title,
+      description,
+      siteName: "Founders Legal Desk",
+      locale: "en_IN",
+      publishedTime: new Date(blog.date || blog.createdAt).toISOString(),
+      modifiedTime: new Date(
+        blog.updatedAt || blog.date || blog.createdAt
+      ).toISOString(),
+      authors: blog.author ? [blog.author] : undefined,
+      section: blog.category,
+      tags: blog.tags,
+      images,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: blog.featuredImage ? [blog.featuredImage] : [],
+    },
   };
 }
 
@@ -34,6 +83,46 @@ export default async function BlogDetails({ params }) {
   if (!blog) notFound();
 
   const relatedBlogs = await getRelatedBlogs(blog._id);
+
+    const postUrl = `${SITE_URL}/blog/${blog.slug}`;
+  const isOrgAuthor =
+    !blog.author || blog.author.trim().toLowerCase() === "admin";
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        headline: blog.title,
+        description: getDescription(blog),
+        image: blog.featuredImage ? [blog.featuredImage] : undefined,
+        datePublished: new Date(blog.date || blog.createdAt).toISOString(),
+        dateModified: new Date(
+          blog.updatedAt || blog.date || blog.createdAt
+        ).toISOString(),
+        articleSection: blog.category,
+        keywords: blog.keywords || undefined,
+        mainEntityOfPage: { "@type": "WebPage", "@id": postUrl },
+        author: isOrgAuthor
+          ? { "@type": "Organization", name: "Founders Legal Desk", url: SITE_URL }
+          : { "@type": "Person", name: blog.author },
+        publisher: {
+          "@type": "Organization",
+          name: "Founders Legal Desk",
+          logo: { "@type": "ImageObject", url: `${SITE_URL}/logo-512.png` },
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+          { "@type": "ListItem", position: 3, name: blog.title, item: postUrl },
+        ],
+      },
+    ],
+  };
+
 
   /*
    * ---------------------------------------------------------
@@ -56,6 +145,12 @@ export default async function BlogDetails({ params }) {
 
   return (
     <section className="bg-white">
+            <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <style>{`
         /* =====================================================
            BLOG ARTICLE

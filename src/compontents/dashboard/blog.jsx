@@ -109,7 +109,7 @@ export default function BlogAdmin() {
   const fetchBlogs = useCallback(async () => {
     try {
       setLoading(true);
-      const res = await fetch(API_URL, {
+     const res = await fetch(`${API_URL}?full=true`, {
         method: "GET",
         headers: { ...authHeaders() },
       });
